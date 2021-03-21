@@ -71,7 +71,7 @@ class TestSuite(unittest.TestCase):
     #
 
     def test_dataManager_initialization(self):
-        """ Test youtubePredictor_dataManager class """
+        """ Test youtubePredictor_dataManager class initialization """
 
         # Stub
         self.data_mgr.init()
