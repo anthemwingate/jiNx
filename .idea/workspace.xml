@@ -2,35 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5de0df59-b6a6-4a78-bc3e-bfa8c964dfce" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.coverage.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/DiTTo_YoutubePredictor.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.travis" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DiTTo_YoutubePredictor.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Getting Started" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_env.template" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/codecov" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_test.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/manifest" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/youtubePredictor_administrator.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/youtubePredictor_importExportDatabase.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/youtubePredictor_submissionSuccess.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/youtubePredictor_user.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/youtubePredictor_videoSubmission.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/youtubePredictor_constants.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/youtubePredictor_dataManager.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/youtubePredictor_forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/youtubePredictor_testSuite.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/youtubePredictor_todo.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/youtubePredictor_transcriber.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/youtubePredictor_utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiTTo_YoutubePredictor.py" beforeDir="false" afterPath="$PROJECT_DIR$/DiTTo_YoutubePredictor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/youtubePredictor_todo.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor_todo.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +65,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1616262653271</updated>
-      <workItem from="1616262654877" duration="25780000" />
+      <workItem from="1616262654877" duration="27973000" />
     </task>
     <servers />
   </component>

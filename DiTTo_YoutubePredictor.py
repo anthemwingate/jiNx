@@ -16,6 +16,8 @@ from __future__ import unicode_literals
 import logging
 from flask import Flask, jsonify, render_template, request, flash, redirect, url_for, make_response, send_from_directory
 from flask_cors import CORS
+from bs4 import BeautifulSoup
+import requests
 
 # Import DiTTo_YoutubePredictor Utilities
 from youtubePredictor_forms import VideoForm
@@ -43,42 +45,11 @@ def allowed_file(filename):
 
 def initiateWebsockets(videoURL):
 
-    ydl_opts = {
-        'format': 'bestaudio/best',
-        'ext': 'mp3',
-        'writesubtitles': True,
-        'postprocessors': [{
-            'key': 'FFmpegExtractAudio',
-            'preferredcodec': 'mp3',
-            'preferredquality': '192',
-        }],
-        'outtmpl': youtubePredictor_constants.YOUTUBE_FILENAME,
-        'logger': YoutubePredictorLogger(),
-        'progress_hooks': [youtubePredictorHooks],
-    }
-    # @TODO determine if websockets is a better implementation than full file download
-    with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-        ydl.extract_info(videoURL)
-
-    # @TODO fix this
-   tones = youtubePredictorDatamanager.add_video_stats(transcript=youtubePredictorDatamanager.analyze_transcript(youtubePredictor_constants.YOUTUBE_FILENAME), url=videoURL, views=infoExtractor['view_count'])
-   return tones
-
-
-class YoutubePredictorLogger(object):
-    def debug(self, msg):
-        pass
-
-    def warning(self, msg):
-        pass
-
-    def error(self, msg):
-        print(msg)
-
-
-def youtubePredictorHooks(d):
-    if d['status'] == 'finished':
-        print('Done downloading, now converting ...')
+    youtube_video_request = requests.get(videoURL)
+    html_parser = BeautifulSoup(youtube_video_request.text, "html.parser")
+    view_count = html_parser.find("div", class_="watch-view-count").text
+    tones = youtubePredictorDatamanager.add_video_stats(transcript=youtubePredictorDatamanager.analyze_transcript(youtubePredictor_constants.YOUTUBE_FILENAME), url=videoURL, views=view_count)
+    return tones
 
 
 @app.route("/", methods=['GET', 'POST'])
