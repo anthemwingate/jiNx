@@ -148,24 +148,24 @@ class DataManager():
             return None
 
     def fill_db(self, filename):
-        lineadded = False
-        lineskipped = False
-        lfile = open(filename, "rb")
-        reader = csv.reader(lfile)
+        isAdded = False
+        isSkippedRecord = False
+        csvfile = open(filename, "rb")
+        reader = csv.reader(csvfile)
         for row in reader:
             try:
                 update_st = youtubePredictorConstants.FILL_TABLE
                 self.cursor.execute(update_st, row)
                 self.conn.commit()
-                lineadded = True
+                isAdded = True
             except:
-                lineskipped = True
+                isSkippedRecord = True
                 self.reset_cursor()
-        lfile.close()
-        flash = 'Import was successful.'
-        if lineadded and lineskipped:
-            flash = 'Partial Import Successful. Some lines were skipped.'
-        if lineskipped and not lineadded:
+        csvfile.close()
+        flash = 'CSV File successfully imported.'
+        if isAdded and isSkippedRecord:
+            flash = 'Partial Import Successful. Some records were skipped.'
+        if isSkippedRecord and not isAdded:
             flash = 'Import was unsuccessful.'
         return flash
 
