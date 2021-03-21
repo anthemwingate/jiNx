@@ -45,10 +45,10 @@ def initiateWebsockets(videoURL):
 
     youtube_video_request = requests.get(videoURL)
     html_parser = BeautifulSoup(youtube_video_request.text, "html.parser")
-    view_count = html_parser.find("div", class_="watch-view-count").text
+    view_count = int(html_parser.find("div", class_="watch-view-count").text)
     # @TODO use decorators for add_video_stats and analyze_transcript
-    tones = youtubePredictorDatamanager.add_video_stats(transcript=youtubePredictorDatamanager.analyze_transcript(youtubePredictor_constants.YOUTUBE_FILENAME), url=videoURL, views=view_count)
-    return tones
+    record = youtubePredictorDatamanager.add_video_stats(transcript=youtubePredictorDatamanager.analyze_transcript(youtubePredictor_constants.YOUTUBE_FILENAME), url=videoURL, views=view_count)
+    return record
 
 
 @app.route("/", methods=['GET', 'POST'])

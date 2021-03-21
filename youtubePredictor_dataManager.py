@@ -9,6 +9,7 @@
 #
 
 # Import Data Handling Libraries
+import time
 import os
 from os.path import join, dirname
 import csv
@@ -74,11 +75,11 @@ class DataManager():
         self.conn = psycopg2.connect(self.conn_string)
         self.cursor = self.conn.cursor()
 
-    def get_data(self):
+    def get_all_records_from_database(self):
         self.cursor.execute(youtubePredictorConstants.GET_TABLE)
         return self.cursor.fetchall()
 
-    def get_item(self, i):
+    def get_record_from_database(self, i):
         try:
             update_st = youtubePredictorConstants.GET_SINGLE_RECORD
             self.cursor.execute(update_st, (i,))
@@ -86,7 +87,7 @@ class DataManager():
         except:
             self.reset_cursor()
 
-    def update_item(self, val, i):
+    def update_record_in_database(self, val, i):
         try:
             newtones = self.calculate_tones(val) + (i,)
             update_st = youtubePredictorConstants.UPDATE_RECORD
@@ -95,14 +96,22 @@ class DataManager():
         except:
             self.reset_cursor()
 
-    def delete_item(self, i):
+    def delete_record_from_database(self, i):
         update_st = youtubePredictorConstants.REMOVE_SINGLE_RECORD
         self.cursor.execute(update_st, (i,))
         self.conn.commit()
 
+    def measure_process_duration(self, func):
+        def time_wrap():
+            process_timer = time.time()
+            process_function = func(*arg)
+            flash("Function took" + str(time.time()-process_timer) + " seconds to complete.")
+            return process_function
+        return time_wrap()
+
+    @measure_process_duration()
     def analyze_transcript(self, youtubeFilename):
         transcript = ""
-        start_time = time.time()  # Timer
 
         with open(join(dirname(__file__), youtubeFilename), 'rb') as audio_file:
             response = self.speech_to_text.recognize(audio_file,
@@ -113,7 +122,7 @@ class DataManager():
             for chunk in response['results']:
                 transcript += chunk['alternatives'][0]['transcript']
 
-        os.remove(youtubeFilename)
+        os.remove(youtubeFilename) # @TODO consider sending transcript to GPT-3 API or similar neural network before removing file
 
         return jsonify(transcript)
 
@@ -144,7 +153,7 @@ class DataManager():
             self.reset_cursor()
             return None
 
-    def fill_db(self, filename):
+    def import_data_from_file(self, filename):
         isAdded = False
         isSkippedRecord = False
         csvfile = open(filename, "rb")
@@ -166,7 +175,7 @@ class DataManager():
             flash = 'Import was unsuccessful.'
         return flash
 
-    def clear_db(self):
+    def remove_all_data_from_database(self):
         try:
             self.cursor.execute(youtubePredictorConstants.CLEAR_TABLE)
             self.conn.commit()
