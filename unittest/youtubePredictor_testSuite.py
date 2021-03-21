@@ -20,7 +20,7 @@ import requests
 
 
 # Import DiTTo_YoutubePredictor Utilities
-import youtubePredictor_dataManager as mgr
+import youtubePredictor_dataManager.py as mgr
 import youtubePredictor_constants as const
 
 
@@ -36,18 +36,18 @@ class TestSuite(unittest.TestCase):
         self.directory_path = f"{self.dir_abs_path}/data/testURLs.txt"
 
         # Mock Initializers
-        self.speech_to_text_api_key_tester = test
-        self.speech_to_text_endpoint_url_tester = test
-        self.tone_analyzer_api_key_tester = test
-        self.tone_analyzer_endpoint_url_tester = test
-        self.natural_language_understanding_api_key_tester = test
-        self.natural_language_understanding_endpoint_url_tester = test
-        self.alchemy_api_key_tester = test
-        self.postgresql_username_tester = test
-        self.postgresql_password_tester = test
-        self.postgresql_host_tester = test
-        self.postgresql_dbname_tester = test
-        self.postgresql_port_tester = test
+        self.speech_to_text_api_key_tester = "test"
+        self.speech_to_text_endpoint_url_tester = "test"
+        self.tone_analyzer_api_key_tester = "test"
+        self.tone_analyzer_endpoint_url_tester = "test"
+        self.natural_language_understanding_api_key_tester = "test"
+        self.natural_language_understanding_endpoint_url_tester = "test"
+        self.alchemy_api_key_tester = "test"
+        self.postgresql_username_tester = "test"
+        self.postgresql_password_tester = "test"
+        self.postgresql_host_tester = "test"
+        self.postgresql_dbname_tester = "test"
+        self.postgresql_port_tester = "test"
         self.test_database = "this is a database"
         self.data_mgr = mgr(self.speech_to_text_api_key_tester,
                        self.speech_to_text_endpoint_url_tester,
@@ -78,7 +78,7 @@ class TestSuite(unittest.TestCase):
         when(self.cursor).execute(const.CREATE_TABLE).thenReturn(self.test_database)
 
         # Test outcome
-        self.assertEqual((self.cursor.execute(const.FIND_TABLE)), self.test_database)
+        self.assertEqual(self.cursor.execute(const.FIND_TABLE), self.test_database)
 
         # Clean Up Mocks
         unstub()
