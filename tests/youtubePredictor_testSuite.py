@@ -18,13 +18,12 @@ import os
 from mockito import when, mock, unstub
 import requests
 
-
 # Import DiTTo_YoutubePredictor Utilities
 import youtubePredictor_dataManager.py as mgr
 import youtubePredictor_constants as const
 
 
-class TestSuite(unittest.TestCase):
+class TestSuite(unittest.TestSuite):
     """ Test Class for DiTTo_YoutubePredictor """
 
     maxDiff = None
@@ -50,18 +49,18 @@ class TestSuite(unittest.TestCase):
         self.postgresql_port_tester = "test"
         self.test_database = "this is a database"
         self.data_mgr = mgr(self.speech_to_text_api_key_tester,
-                       self.speech_to_text_endpoint_url_tester,
-                       self.tone_analyzer_api_key_tester,
-                       self.tone_analyzer_endpoint_url_tester,
-                       self.natural_language_understanding_api_key_tester,
-                       self.natural_language_understanding_endpoint_url_tester,
-                       self.alchemy_api_key_tester,
-                       self.postgresql_username_tester,
-                       self.postgresql_password_tester,
-                       self.postgresql_host_tester,
-                       self.postgresql_dbname_tester,
-                       self.postgresql_port_tester,
-                       )
+                            self.speech_to_text_endpoint_url_tester,
+                            self.tone_analyzer_api_key_tester,
+                            self.tone_analyzer_endpoint_url_tester,
+                            self.natural_language_understanding_api_key_tester,
+                            self.natural_language_understanding_endpoint_url_tester,
+                            self.alchemy_api_key_tester,
+                            self.postgresql_username_tester,
+                            self.postgresql_password_tester,
+                            self.postgresql_host_tester,
+                            self.postgresql_dbname_tester,
+                            self.postgresql_port_tester,
+                            )
 
         # @TODO add any additional self variables
         return super().setUp()
@@ -78,13 +77,11 @@ class TestSuite(unittest.TestCase):
         when(self.cursor).execute(const.CREATE_TABLE).thenReturn(self.test_database)
 
         # Test outcome
-        self.assertEqual(self.cursor.execute(const.FIND_TABLE), self.test_database)
+        self.assertEqual(self.cursor.execute(const.FIND_TABLE), self.test_database, 'Database not found')
 
         # Clean Up Mocks
         unstub()
         return None
-
-
 
     #
     # Tear down class
@@ -99,5 +96,5 @@ class TestSuite(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    unittest.TestCase.maxDiff = None
+    unittest.TestSuite.maxDiff = None
     unittest.main(verbosity=2)

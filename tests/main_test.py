@@ -17,11 +17,11 @@
 import unittest
 
 # Import DiTTo_YoutubePredictor Utilities
-import youtubePredictor_testSuite
+import youtubePredictor_testSuite as testSuite
 
 if __name__ == '__main__':
-    suite = unittest.TestLoader().loadTestsFromModule(youtubePredictor_testSuite)
+    framework = unittest.TestLoader().loadTestsFromModule(testSuite)
 
-    test_result = unittest.TextTestRunner(verbosity=2).run(suite).wasSuccessful()
+    test_result = unittest.TextTestRunner(verbosity=2).run(framework).wasSuccessful()
 
     print("\nTesting Concluded with result:", test_result)
