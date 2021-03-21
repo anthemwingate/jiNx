@@ -1,8 +1,11 @@
-# Project           : DiTTo Yoututbe Predictor
-# Author            : Team DiTTo Stevens Institute of Tecchnology SSW 695A Spring 2021
-# Debugger         : Farnaz Sabetpour
-# Purpose           : Flask APP to run Youtube Predictor Implementation
-# Revision History  : Version 1.0
+# Project                                                  : DiTTo Yoututbe Predictor
+# Author                                                   : Team DiTTo Stevens Institute of Tecchnology SSW 695A Spring 2021
+# Architect/Core Implementation                            : Anthem Rukiya J. Wingate
+# Architect/Production Design                              : Hanqing Liu
+# Version Control Management and Quality Assurance Tester  : Farnaz Sabetpour
+# Purpose                                                  : Flask APP to run Youtube Predictor Implementation
+# Revision History                                         : Version 1.0
+
 # Notes:
 #
 #
@@ -25,7 +28,6 @@ from youtubePredictor_forms import VideoForm
 from youtubePredictor_dataManager import DataManager
 import youtubePredictor_constants
 
-
 app = Flask(__name__)
 app.secret_key = 'development key'
 port = int(os.getenv('PORT', 8080))
@@ -47,7 +49,9 @@ def initiate_websockets(videoURL):
     html_parser = BeautifulSoup(youtube_video_request.text, "html.parser")
     view_count = int(html_parser.find("div", class_="watch-view-count").text)
     # @TODO use decorators for add_video_stats and analyze_transcript
-    record = youtubePredictorDatamanager.add_video_stats(transcript=youtubePredictorDatamanager.analyze_transcript(youtubePredictor_constants.YOUTUBE_FILENAME), url=videoURL, views=view_count)
+    record = youtubePredictorDatamanager.add_video_stats(
+        transcript=youtubePredictorDatamanager.analyze_transcript(youtubePredictor_constants.YOUTUBE_FILENAME),
+        url=videoURL, views=view_count)
     return record
 
 
@@ -76,6 +80,7 @@ def admin():
 @app.route('/youtubePredictor_videoSubmission', methods=['GET', 'POST'])
 def video_submission():
     return render_template('youtubePredictor_videoSubmission.html')
+
 
 @app.route('/youtubePredictor_importExportDatabase', methods=['GET', 'POST'])
 def video_submission():

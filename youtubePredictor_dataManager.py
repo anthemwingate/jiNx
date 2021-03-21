@@ -1,8 +1,11 @@
-# Project           : DiTTo Yoututbe Predictor
-# Author            : Team DiTTo Stevens Institute of Tecchnology SSW 695A Spring 2021
-# Debugger         : Farnaz Sabetpour
-# Purpose           : Flask APP to run Youtube Predictor Implementation
-# Revision History  : Version 1.0
+# Project                                                  : DiTTo Yoututbe Predictor
+# Author                                                   : Team DiTTo Stevens Institute of Tecchnology SSW 695A Spring 2021
+# Architect/Core Implementation                            : Anthem Rukiya J. Wingate
+# Architect/Production Design                              : Hanqing Liu
+# Version Control Management and Quality Assurance Tester  : Farnaz Sabetpour
+# Purpose                                                  : Flask APP to run Youtube Predictor Implementation
+# Revision History                                         : Version 1.0
+
 # Notes:
 #
 #
@@ -84,7 +87,6 @@ class DataManager():
     def get_column_headers(self):
         self.cursor.execute(youtubePredictorConstants.GET_COLUMN_HEADERS)
         return from_db_cursor(self.cursor.fetchall)
-
 
     def get_record_from_database(self, i):
         try:
