@@ -2,8 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5de0df59-b6a6-4a78-bc3e-bfa8c964dfce" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/templates/youtubePredictor_webStreamer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiTTo_YoutubePredictor.py" beforeDir="false" afterPath="$PROJECT_DIR$/DiTTo_YoutubePredictor.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/youtubePredictor_constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor_constants.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/youtubePredictor_dataManager.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor_dataManager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/youtubePredictor_todo.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor_todo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/youtubePredictor_webStreamer.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor_webStreamer.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,8 +20,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -68,7 +75,7 @@
       <option name="presentableId" value="Default" />
       <updated>1616262653271</updated>
       <workItem from="1616262654877" duration="30232000" />
-      <workItem from="1616293527345" duration="14766000" />
+      <workItem from="1616293527345" duration="22601000" />
     </task>
     <servers />
   </component>

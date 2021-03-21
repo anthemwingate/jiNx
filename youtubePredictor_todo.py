@@ -4,4 +4,5 @@
 # @TODO add init.csv to package
 # @TODO add new file youtubePredictor_datasetbuilder.py which iterates over a list of youtube video urls and sends each url to the initialize_websockets method
 # @TODO pytorch implementation
-# @TODO fix websockets implementation is better
+# @TODO confirm websockets implementation works
+# @TODO add boilerplate for webStreamer template

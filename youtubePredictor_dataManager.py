@@ -14,6 +14,7 @@
 # Import Data Handling Libraries
 import time
 import os
+from _ast import arg
 from os.path import join, dirname
 import csv
 import psycopg2
@@ -21,6 +22,7 @@ from prettytable import from_db_cursor
 from __future__ import unicode_literals
 import logging
 from flask import Flask, jsonify, render_template, request, flash, redirect, url_for, make_response, send_from_directory
+import websocket
 
 # Import DiTTo_YoutubePredictor Utilities
 import youtubePredictor_constants as youtubePredictorConstants
@@ -30,9 +32,19 @@ from ibm_watson import SpeechToTextV1, ToneAnalyzerV3, NaturalLanguageUnderstand
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 import watson_developer_cloud
 import watson_developer_cloud.natural_language_understanding.features.v1 as features
-import
+import pafy
 
 logging.basicConfig(level=logging.DEBUG)
+
+
+def measure_process_duration(func):
+    def time_wrap():
+        process_timer = time.time()
+        process_function = func(*arg)
+        flash("Function took" + str(time.time() - process_timer) + " seconds to complete.")
+        return process_function
+
+    return time_wrap()
 
 
 class DataManager():
@@ -67,6 +79,7 @@ class DataManager():
         self.conn = psycopg2.connect(self.conn_string)
         self.cursor = self.conn.cursor()
         self.column_headers = []
+        self.transcript = ""
 
     def init(self):
         try:
@@ -111,30 +124,17 @@ class DataManager():
         self.cursor.execute(update_st, (i,))
         self.conn.commit()
 
-    def measure_process_duration(self, func):
-        def time_wrap():
-            process_timer = time.time()
-            process_function = func(*arg)
-            flash("Function took" + str(time.time()-process_timer) + " seconds to complete.")
-            return process_function
-        return time_wrap()
-
     @measure_process_duration()
-    def analyze_transcript(self, youtubeFilename):
-        transcript = ""
+    def analyze_transcript(self, audio_stream):
 
-        with open(join(dirname(__file__), youtubeFilename), 'rb') as audio_file: # @TODO fix by utilizing transcriber
-            response = self.speech_to_text.recognize(audio_file,
-                                                     content_type='audio/mp3',
-                                                     timestamps=False,
-                                                     word_confidence=False,
-                                                     continuous=True).get_result()
-            for chunk in response['results']:
-                transcript += chunk['alternatives'][0]['transcript']
+        response = self.speech_to_text.recognize_using_websocket(audio=audio_stream,
+                                                                 content_type='audio/webm',
+                                                                 timestamps=False,
+                                                                 word_confidence=False,
+                                                                 continuous=True).get_result()
 
-        os.remove(youtubeFilename) # @TODO consider sending transcript to GPT-3 API or similar neural network before removing file
-
-        return jsonify(transcript)
+        for chunk in response['results']:
+            self.transcript += chunk['alternatives'][0]['transcript']
 
     def calculate_tones(self, transcript):
         data_store = (transcript.encode('utf-8'),)

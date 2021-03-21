@@ -14,6 +14,11 @@
 # Utilities
 YOUTUBE_FILENAME = './youtube_dl_audio_file.mp3'
 DATABASE_NAME = 'TranscriptStats'
+AUDIO_STREAM_QUALITY = 1
+WEBSOCKETS_PORT = 5000
+YOUTUBE_PREDICTOR_APP_PORT = 8080
+YOUTUBE_PREDICTOR_APP_HOST = '0.0.0.0'
+URL_TEMPLATE = 'wss://{}/speech-to-text/api/v1/recognize'
 
 # Credentials
 NATURAL_LANGUAGE_UNDERSTANDING_VERSION = ''

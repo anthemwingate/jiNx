@@ -14,15 +14,16 @@
 # Import Data Handling Libraries
 import math
 from dotenv import load_dotenv
-from werkzeug.utils import secure_filename, Request, Response
+from werkzeug.utils import secure_filename, Request, Response  # @TODO determine if these libraries are working
 from prettytable import PrettyTable
 import os
 from __future__ import unicode_literals
 import logging
 from flask import Flask, jsonify, render_template, request, flash, redirect, url_for, make_response, send_from_directory
-from flask_cors import CORS
-from bs4 import BeautifulSoup
-import requests
+from flask_sockets import Sockets
+import json
+import base64
+import pafy
 
 # Import DiTTo_YoutubePredictor Utilities
 from youtubePredictor_forms import VideoForm
@@ -31,9 +32,7 @@ import youtubePredictor_constants
 
 app = Flask(__name__)
 app.secret_key = 'development key'
-port = int(os.getenv('PORT', 8080))
-logging.basicConfig(level=logging.DEBUG)
-CORS(app)
+port = int(os.getenv('PORT', youtubePredictor_constants.YOUTUBE_PREDICTOR_APP_PORT))
 
 UPLOAD_FOLDER = 'save/'
 ALLOWED_EXTENSIONS = set(['csv'])
@@ -45,13 +44,50 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
+@Sockets.route('/youtubePredictor_webStreamer')
+def echo(ws):
+    app.logger.info("Connection accepted")
+    # A lot of messages will be sent rapidly. We'll stop showing after the first one.
+    has_seen_media = False
+    message_count = 0
+    while not ws.closed:
+        message = ws.receive()
+        if message is None:
+            app.logger.info("No message received...")
+            continue
+
+        data = json.loads(message)
+        if data['event'] == "connected":
+            app.logger.info("Connected Message received: {}".format(message))
+        if data['event'] == "start":
+            app.logger.info("Start Message received: {}".format(message))
+        if data['event'] == "media":
+            if not has_seen_media:
+                app.logger.info("Media message: {}".format(message))
+                payload = data['media']['payload']
+                app.logger.info("Payload is: {}".format(payload))
+                chunk = base64.b64decode(payload)
+                youtubePredictorDatamanager.analyze_transcript(audio_stream=chunk)  # @TODO determine if this works???
+                app.logger.info("That's {} bytes".format(len(chunk)))
+                app.logger.info("Additional media messages from WebSocket are being suppressed....")
+                has_seen_media = True
+        if data['event'] == "closed":
+            app.logger.info("Closed Message received: {}".format(message))
+            break
+        message_count += 1
+
+    app.logger.info("Connection closed. Received a total of {} messages".format(message_count))
+    youtubePredictorDatamanager.transcript = ""
+    return render_template('youtubePredictor_webStreamer.html')
+
+
 def initiate_websockets(videoURL):
-    youtube_video_request = requests.get(videoURL)
-    html_parser = BeautifulSoup(youtube_video_request.text, "html.parser")
-    view_count = int(html_parser.find("div", class_="watch-view-count").text)
-    # @TODO use decorators for add_video_stats and analyze_transcript
+    input_video = pafy.new(videoURL)
+    view_count = int(input_video.viewcount)
+    input_audio_stream = input_video._audiostreams[youtubePredictor_constants.AUDIO_STREAM_QUALITY]
+    echo(input_audio_stream.url)
     record = youtubePredictorDatamanager.add_video_stats(
-        transcript=youtubePredictorDatamanager.analyze_transcript(youtubePredictor_constants.YOUTUBE_FILENAME),
+        transcript=youtubePredictorDatamanager.transcript,
         url=videoURL, views=view_count)
     return record
 
@@ -179,4 +215,14 @@ if __name__ == '__main__':
         os.environ.get('POSTGRESQL_PORT'), )
 
     youtubePredictorDatamanager.init()
-    app.run(host='0.0.0.0', port=port, debug=True)
+
+    app.logger.setLevel(logging.DEBUG)
+    from gevent import pywsgi
+    from geventwebsocket.handler import WebSocketHandler
+
+    server = pywsgi.WSGIServer(('', youtubePredictor_constants.WEBSOCKETS_PORT), app, handler_class=WebSocketHandler)
+    flash("Server listening on: http://localhost:" + str(youtubePredictor_constants.WEBSOCKETS_PORT))
+    server.serve_forever()
+
+    app.run(host=youtubePredictor_constants.YOUTUBE_PREDICTOR_APP_HOST,
+            port=youtubePredictor_constants.YOUTUBE_PREDICTOR_APP_PORT, debug=True)
