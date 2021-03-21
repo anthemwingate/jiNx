@@ -1,41 +1,56 @@
+# Project                                                  : DiTTo Yoututbe Predictor
+# Author                                                   : Team DiTTo Stevens Institute of Tecchnology SSW 695A Spring 2021
+# Architect/Core Implementation                            : Anthem Rukiya J. Wingate
+# Architect/Production Design                              : Hanqing Liu
+# Version Control Management and Quality Assurance Tester  : Farnaz Sabetpour
+# Purpose                                                  : Flask APP to run Youtube Predictor Implementation
+# Revision History                                         : Version 1.0
+
+# Notes:
+#
+#
+#
 
 
+# Import Data Handling Libraries
+import argparse
+import contextlib
+import time
+import pafy
+import fluteline
 
-import json
-import threading
-import websocket
+# Import DiTTo_YoutubePredictor Utilities
+import youtubePredictor_constants
+
+# Import APIs
+import watson_streaming
+import watson_streaming.utilities
 
 
+def initialize_websocket(videoURL, credentials):
+    input_video = pafy.new(videoURL)
+    input_audio_stream_url = input_video._audiostreams[youtubePredictor_constants.AUDIO_STREAM_QUALITY].url
+    settings = {
+        'content_type': 'audio/webm',
+        'timestamps': False,
+        'word_confidence': False,
+        'continuous': True,
+        'interim_results': True,
+    }
 
+    nodes = [
+        watson_streaming.utilities.FileAudioGen(input_audio_stream_url),
+        watson_streaming.Transcriber(settings, credentials),
+        watson_streaming.utilities.Printer(),
+    ]
 
-class Webstreamer():
-    def __init__(self, speech_to_text_endpoint=None, speech_to_text_service=None, audio_source=None):
-        self.speech_to_text_service = speech_to_text_service
-        self._url = speech_to_text_endpoint
-        self._ws = websocket.WebSocket(enable_multithread=True)
+    fluteline.connect(nodes)
+    fluteline.start(nodes)
 
-
-    def enter(self):
-
-        def receive_messages():
-            while True:
-                msg = self._ws.recv()
-                if not msg:
-                    break
-                data = json.loads(msg)
-                self.output.put(data)
-
-        self._ws.connect(self._url)
-        self._ws.send(json.dumps(self.speech_to_text_service).encode('utf8'))
-        result = json.loads(self._ws.recv())
-        assert result['state'] == 'listening'
-
-        t = threading.Thread(target=receive_messages)
-        t.daemon = True  # Not passed to the constructor to support python 2
-        t.start()
-
-    def exit(self):
-        self._ws.close()
-
-    def consume(self, chunk):
-        self._ws.send(chunk, websocket.ABNF.OPCODE_BINARY)
+    try:
+        with contextlib.closing(?.open(input_audio_stream_url)) as f: # @TODO identify a library to open webm files
+            audio_chunk_length = f.getnframes() / f.getnchannels() / f.getframerate()
+        # Sleep till the end of the file + some seconds slack
+        time.sleep(audio_chunk_length + 5)
+    finally:
+        fluteline.stop(nodes)
