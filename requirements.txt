@@ -9,32 +9,7 @@ jinja2==2.11.3
 coverage==5.5
 beautifulsoup4==4.9.3
 requests==2.25.1
-websocket-client==0.58.0
 os.path2==0.0.4
 flask-sockets==0.2.1
 pafy==0.5.5
 watson-streaming==0.0.13
-
-certifi==2019.3.9         # via requests
-cffi==1.14.5              # via sounddevice
-chardet==3.0.4            # via requests
-fluteline==0.0.8
-idna==2.8                 # via requests
-pycparser==2.19           # via cffi
-six==1.12.0               # via websocket-client
-sounddevice==0.3.13
-urllib3==1.24.2           # via requests
-six==1.12.0               # via bleach, readme-renderer
-tqdm==4.31.1              # via twine
-twine==1.13.0
-urllib3==1.24.2           # via requests
-webencodings==0.5.1       # via bleach
-bleach==3.1.0             # via readme-renderer
-bumpversion==0.5.3
-chardet==3.0.4            # via requests
-docutils==0.14            # via readme-renderer
-idna==2.8                 # via requests
-pkginfo==1.5.0.1          # via twine
-pygments==2.3.1           # via readme-renderer
-readme-renderer==24.0     # via twine
-requests-toolbelt==0.9.1  # via twine
