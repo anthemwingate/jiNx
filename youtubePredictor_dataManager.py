@@ -122,7 +122,7 @@ class DataManager():
     def analyze_transcript(self, youtubeFilename):
         transcript = ""
 
-        with open(join(dirname(__file__), youtubeFilename), 'rb') as audio_file:
+        with open(join(dirname(__file__), youtubeFilename), 'rb') as audio_file: # @TODO fix by utilizing transcriber
             response = self.speech_to_text.recognize(audio_file,
                                                      content_type='audio/mp3',
                                                      timestamps=False,

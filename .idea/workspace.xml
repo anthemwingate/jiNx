@@ -2,9 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5de0df59-b6a6-4a78-bc3e-bfa8c964dfce" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/static/styles/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/youtubePredictor_data.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/youtubePredictor_emptyDatabase.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/youtubePredictor_save.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/youtubePredictor_updateDatabase.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/youtubePredictory_batch.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DiTTo_YoutubePredictor.py" beforeDir="false" afterPath="$PROJECT_DIR$/DiTTo_YoutubePredictor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtubePredictor_dataManager.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor_dataManager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Getting Started" beforeDir="false" afterPath="$PROJECT_DIR$/Getting Started" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/youtubePredictor_importExportDatabase.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/youtubePredictor_exportDatabase.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/youtubePredictor_submissionSuccess.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/youtubePredictor_submissionSuccess.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/youtubePredictor_user.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/youtubePredictor_user.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/youtubePredictor_videoSubmission.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/youtubePredictor_videoSubmission.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/youtubePredictor_constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor_constants.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/youtubePredictor_todo.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor_todo.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -15,8 +27,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -42,6 +54,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor\static" />
       <recent name="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor" />
     </key>
   </component>
@@ -69,7 +82,7 @@
       <option name="presentableId" value="Default" />
       <updated>1616262653271</updated>
       <workItem from="1616262654877" duration="30232000" />
-      <workItem from="1616293527345" duration="8086000" />
+      <workItem from="1616293527345" duration="14114000" />
     </task>
     <servers />
   </component>

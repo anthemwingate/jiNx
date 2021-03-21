@@ -6,56 +6,51 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}"/>
+
 </head>
 <body>
 <header class="container">
     <div class="row text-center">
-        <h1>Video Analysis</h1>
+        <h1>Database Import/Export</h1>
     </div>
 </header>
-
 
 <section class="jumbotron">
     <div class="container">
         <div class="row text-center">
+            <form method="post" action="trainingData.csv">
+                <label>Export statistics from your database:</label> <br> <br>
+                <input class="batch-buttons" name="submit" type="submit" value="Export">
+            </form>
+            <br> <br>
+            <hr>
+            <form method="post" enctype=multipart/form-data>
 
-            <form action="/" method=post>
-                {{ form.hidden_tag() }}
+                <h4>Select .csv file to import:</h4> <br>
 
-                <p>Would you like to analyze a Youtube video?</p>
-                {{ form.videoSource(rows="4", cols="50") }}
-                <br><br>
-                {% for message in form.videoSource.errors %}
-                <font color="red">{{ message }}</font>
-                <br> <br>
-                {% endfor %}
+                <label class="custom-file">
+                    <input class="custom-file-input" type="file" name="file">
+                    <span class="custom-file-control"></span></label>
+                <br>
+                <br>
+                <input class="batch-buttons" name="submit" type="submit" value="Import">
+
                 {% with messages = get_flashed_messages() %}
                 {% if messages %}
                 {% for message in messages %}
+                <br> <br>
                 <font color="red">{{ message }}</font>
                 <br><br>
                 {% endfor %}
                 {% endif %}
                 {% endwith %}
-                {{ form.generate(class="other-buttons") }}
 
-                <br><br>
-                {% for line in feelings %}
-                <p> {{ line }} </p>
-                {% endfor %}
-
-                <br>
             </form>
         </div>
     </div>
-
 </section>
 <center>
-
-    <br>
-
-    <input class="other-buttons" onclick="location.href='/youtubePredictor_administrator.html';" type="submit" name="submit" value="Admin">
-
+    <button class="batch-buttons" onclick="location.href='/youtubePredictor_administrator';" type="submit" name="submit">Cancel</button>
 </center>
 </body>
 </html>

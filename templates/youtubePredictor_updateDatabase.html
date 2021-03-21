@@ -6,29 +6,27 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}"/>
-
 </head>
-
 <body>
 <header class="container">
     <div class="row text-center">
-        <h1>URL Submitted Successfully</h1>
+        <h1>Update Record</h1>
     </div>
 </header>
+
 
 <section class="jumbotron">
     <div class="container">
         <div class="row text-center">
-            <p>"{{ video_source }}" has been added to the database.</p>
+            <form method='POST' action="{{ page }}">
 
-            {% for stat in record %}
-            <p> {{ stat }}</p>
-            {% endfor %}
-
-
-            <input class="other-buttons" onclick="location.href='/youtubePredictor_videoSubmission.html';" type="submit" name="submit"
-                   value="Submit Another">
-
+                <input type="hidden" name="id" value="{{ item[0] }}">
+                <p>Id: {{ item[0] }} <input name="new_record" rows="4" , cols="50" type="text" value="{{ item[1] }}"></p>
+                <input class="other-buttons" type="submit" name="save" value="Save Record">
+                <input class="other-buttons" type="submit" name="save" value="Delete Record">
+                <br><br>
+                <input class="other-buttons" type="submit" name="save" value="Cancel">
+            </form>
         </div>
     </div>
 </section>

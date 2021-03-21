@@ -2,7 +2,6 @@ Prerequisites
     IBM Cloud Account with the following services: Speech To Text, Tone Analyzer, Databases for PostGreSql
     Git
     Python 3
-    youtube-dl
 
 Instructions
     Clone the Sample Application:  git clone https://github.com/ssw-695-spring-2021-group-afhk/DiTTo_YoutubePredictor.git

@@ -12,6 +12,7 @@
 #
 
 # Import Data Handling Libraries
+import math
 from dotenv import load_dotenv
 from werkzeug.utils import secure_filename, Request, Response
 from prettytable import PrettyTable
@@ -62,12 +63,15 @@ def index():
         if not form.validate():
             return render_template('youtubePredictor_user.html', form=form)
 
-        record = initiate_websockets(form.videoSource.data)
+        video_source = form.videoSource.data
+        record = initiate_websockets(video_source)
         flash("Video successfully analyzed.")
         record_table = PrettyTable()
         record_table.field_names = youtubePredictorDatamanager.get_column_headers()
         record_table.add_row(record)
         print(record_table)
+        return render_template('youtubePredictor_submissionSuccess.html', video_source=video_source, record=record)
+
     if request.method == 'GET':
         return render_template('youtubePredictor_user.html', form=form)
 
@@ -77,14 +81,85 @@ def admin():
     return render_template('youtubePredictor_administrator.html')
 
 
-@app.route('/youtubePredictor_videoSubmission', methods=['GET', 'POST'])
-def video_submission():
-    return render_template('youtubePredictor_videoSubmission.html')
+@app.route('/youtubePredictor_data', methods=['GET', 'POST'])
+@app.route('/youtubePredictor_data/', methods=['GET', 'POST'], defaults={'page': 1})
+@app.route('/youtubePredictor_data/<int:page>', methods=['GET', 'POST'])
+def data5(page):
+    data = youtubePredictorDatamanager.get_all_records_from_database()
+    length = len(data)
+    if request.method == 'POST':
+        if "submit" in request.form:
+            return update(page)
+    if length == 0:
+        flash("Please initialize database in order to view records.")
+        return redirect(url_for('youtubePredictor_administrator'))
+    prv = page - 1
+    nxt = page + 1
+    if page == 1:
+        prv = int(math.ceil(length / 25.0))
+    if math.ceil(length / 25.0) == page:
+        nxt = 1
+    data = data[(page - 1) * 25:page * 25]
+    return render_template('youtubePredictor_data.html', data=data, len=len(data), nxt=nxt, prv=prv, page=page)
 
 
-@app.route('/youtubePredictor_importExportDatabase', methods=['GET', 'POST'])
-def video_submission():
-    return render_template('youtubePredictor_importExportDatabase.html')
+@app.route('/youtubePredictor_data/youtubePredictor_updateDatabase', methods=['GET', 'POST'])
+def update():
+    if "save" in request.form:
+        if request.form['save'] == "Delete Record":
+            youtubePredictorDatamanager.delete_record_from_database(request.form["id"])
+        else:
+            i = int(request.form["id"])
+            item = youtubePredictorDatamanager.get_record_from_database(i)
+            val = request.form['new_record']
+            if val != str(item[1]):
+                youtubePredictorDatamanager.update_record_in_database(val, i)
+        return redirect(url_for('data5'))
+    x = request.form['submit']
+    item = youtubePredictorDatamanager.get_record_from_database(int(x))
+    return render_template('youtubePredictor_updateDatabase.html', item=item, len=len(item))
+
+
+@app.route('/youtubePredictor_save', methods=['GET', 'POST'])
+def import_export():
+    if request.method == 'POST':
+        if request.form["submit"] == "Export":
+            youtubePredictorDatamanager.get_all_records_from_database()
+            return render_template("youtubePredictor_data.html")
+        if 'file' not in request.files:
+            return render_template('youtubePredictor_batch.html')
+        file = request.files['file']
+        if file.filename == '':
+            flash('Please select a file.')
+        if file and not allowed_file(file.filename):
+            flash('Only .csv files can be imported.')
+        if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            flash(youtubePredictorDatamanager.import_data_from_file("save/" + filename))
+            os.remove("save/" + filename)
+            return redirect(url_for('youtubePredictor_administrator'))
+
+    return render_template('youtubePredictor_batch.html')
+
+
+@app.route('/youtubePredictor_exportDatabase', methods=['GET', 'POST'])
+def export_data():
+    youtubePredictorDatamanager.get_all_records_from_database()
+    uploads = os.path.join(app.root_path, app.config['UPLOAD_FOLDER'])
+    return send_from_directory(directory=uploads, filename="trainingData.csv")
+
+
+@app.route('/youtubePredictor_emptyDatabase', methods=['GET', 'POST'])
+def empty_database():
+    if request.method == 'POST':
+        if request.form["submit"] == "Yes":
+            youtubePredictorDatamanager.remove_all_data_from_database()
+            flash("All data has been removed from the database.")
+            return redirect(url_for('youtubePredictor_administrator'))
+        else:
+            return redirect(url_for('youtubePredictor_administrator'))
+    return render_template('youtubePredictor_emptyDatabase.html')
 
 
 if __name__ == '__main__':

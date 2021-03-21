@@ -7,7 +7,6 @@ prettyTable==2.1.0
 Flask==1.1.2
 jinja2==2.11.3
 coverage==5.5
-youtube_dl=2021.3.14
 beautifulsoup4==4.9.3
 requests==2.25.1
 websocket-client==0.58.0
