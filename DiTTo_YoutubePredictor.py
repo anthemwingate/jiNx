@@ -11,6 +11,7 @@
 # Import Data Handling Libraries
 from dotenv import load_dotenv
 from werkzeug.utils import secure_filename, Request, Response
+from prettytable import PrettyTable
 import os
 from __future__ import unicode_literals
 import logging
@@ -41,8 +42,7 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
-def initiateWebsockets(videoURL):
-
+def initiate_websockets(videoURL):
     youtube_video_request = requests.get(videoURL)
     html_parser = BeautifulSoup(youtube_video_request.text, "html.parser")
     view_count = int(html_parser.find("div", class_="watch-view-count").text)
@@ -58,10 +58,12 @@ def index():
         if not form.validate():
             return render_template('youtubePredictor_user.html', form=form)
 
-        videoSource = form.videoSource.data  # @TODOD change feelings to reflectinput of tones from video transcript
-        tones = initiateWebsockets(videoSource)
+        record = initiate_websockets(form.videoSource.data)
         flash("Video successfully analyzed.")
-        # @TODO implement prettytable to output tones
+        record_table = PrettyTable()
+        record_table.field_names = youtubePredictorDatamanager.get_column_headers()
+        record_table.add_row(record)
+        print(record_table)
     if request.method == 'GET':
         return render_template('youtubePredictor_user.html', form=form)
 

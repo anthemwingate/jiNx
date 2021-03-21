@@ -14,6 +14,7 @@ import os
 from os.path import join, dirname
 import csv
 import psycopg2
+from prettytable import from_db_cursor
 from __future__ import unicode_literals
 import logging
 from flask import Flask, jsonify, render_template, request, flash, redirect, url_for, make_response, send_from_directory
@@ -61,6 +62,7 @@ class DataManager():
 
         self.conn = psycopg2.connect(self.conn_string)
         self.cursor = self.conn.cursor()
+        self.column_headers = []
 
     def init(self):
         try:
@@ -68,7 +70,7 @@ class DataManager():
         except:
             self.reset_cursor()
             self.cursor.execute(youtubePredictorConstants.CREATE_TABLE)
-            self.fill_db("init.csv")
+            self.import_data_from_file("init.csv")
             self.conn.commit()
 
     def reset_cursor(self):
@@ -78,6 +80,11 @@ class DataManager():
     def get_all_records_from_database(self):
         self.cursor.execute(youtubePredictorConstants.GET_TABLE)
         return self.cursor.fetchall()
+
+    def get_column_headers(self):
+        self.cursor.execute(youtubePredictorConstants.GET_COLUMN_HEADERS)
+        return from_db_cursor(self.cursor.fetchall)
+
 
     def get_record_from_database(self, i):
         try:
@@ -142,13 +149,13 @@ class DataManager():
     def add_video_stats(self, transcript, url, views):
         try:
             update_st = youtubePredictorConstants.ADD_RECORD
-            tones = []
-            tones[0] = url
-            tones.append(self.calculate_tones(transcript))
-            tones.append(views)
-            self.cursor.execute(update_st, tones)
+            record = []
+            record[0] = url
+            record.append(self.calculate_tones(transcript))
+            record.append(views)
+            self.cursor.execute(update_st, record)
             self.conn.commit()
-            return tones
+            return record
         except:
             self.reset_cursor()
             return None
@@ -169,6 +176,7 @@ class DataManager():
                 self.reset_cursor()
         csvfile.close()
         flash = 'CSV File successfully imported.'
+
         if isAdded and isSkippedRecord:
             flash = 'Partial Import Successful. Some records were skipped.'
         if isSkippedRecord and not isAdded:
