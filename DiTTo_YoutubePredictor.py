@@ -24,8 +24,6 @@ from youtubePredictor_forms import VideoForm
 from youtubePredictor_dataManager import DataManager
 import youtubePredictor_constants
 
-# Import APIs
-import youtube_dl
 
 app = Flask(__name__)
 app.secret_key = 'development key'
@@ -48,6 +46,7 @@ def initiateWebsockets(videoURL):
     youtube_video_request = requests.get(videoURL)
     html_parser = BeautifulSoup(youtube_video_request.text, "html.parser")
     view_count = html_parser.find("div", class_="watch-view-count").text
+    # @TODO use decorators for add_video_stats and analyze_transcript
     tones = youtubePredictorDatamanager.add_video_stats(transcript=youtubePredictorDatamanager.analyze_transcript(youtubePredictor_constants.YOUTUBE_FILENAME), url=videoURL, views=view_count)
     return tones
 

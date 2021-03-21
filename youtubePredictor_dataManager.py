@@ -9,12 +9,9 @@
 #
 
 # Import Data Handling Libraries
-from dotenv import load_dotenv
-from werkzeug.utils import secure_filename, Request, Response
-from os.path import join, dirname
 import os
+from os.path import join, dirname
 import csv
-from random import randint
 import psycopg2
 from __future__ import unicode_literals
 import logging
