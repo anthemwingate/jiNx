@@ -34,7 +34,7 @@ app = Flask(__name__)
 app.secret_key = 'development key'
 port = int(os.getenv('PORT', youtubePredictor_constants.YOUTUBE_PREDICTOR_APP_PORT))
 
-UPLOAD_FOLDER = 'save/'
+UPLOAD_FOLDER = youtubePredictor_constants.UPLOAD_FOLDER_PATH
 ALLOWED_EXTENSIONS = set(['csv'])
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
@@ -173,7 +173,7 @@ def import_export():
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             flash(youtubePredictorDatamanager.import_data_from_file("save/" + filename))
-            os.remove("save/" + filename)
+            os.remove(youtubePredictor_constants.UPLOAD_FOLDER_PATH + filename)
             return redirect(url_for('youtubePredictor_administrator'))
 
     return render_template('youtubePredictor_batch.html')

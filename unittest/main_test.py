@@ -10,3 +10,18 @@
 #
 #
 #
+#
+
+
+# Import Data Handling Libraries
+import unittest
+
+# Import DiTTo_YoutubePredictor Utilities
+import youtubePredictor_testSuite
+
+if __name__ == '__main__':
+    suite = unittest.TestLoader().loadTestsFromModule(youtubePredictor_testSuite)
+
+    test_result = unittest.TextTestRunner(verbosity=2).run(suite).wasSuccessful()
+
+    print("\nTesting Concluded with result:", test_result)

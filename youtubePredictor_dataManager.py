@@ -47,7 +47,7 @@ def measure_process_duration(func):
     return time_wrap()
 
 
-class DataManager():
+class DataManager:
 
     def __init__(self, speech_to_text_api_key, speech_to_text_endpoint_url, tone_analyzer_api_key,
                  tone_analyzer_endpoint_url,
