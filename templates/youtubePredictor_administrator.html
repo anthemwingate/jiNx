@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DiTTo Youtube Predictor</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}"/>
+
+</head>
+<body>
+
+<header class="container">
+    <div class="row text-center">
+        <h1>Administration Console</h1>
+    </div>
+</header>
+
+<section class="jumbotron">
+    <div class="container">
+        <div class="row text-center">
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% for message in messages %}
+            <font color="red">{{ message }}</font>
+            <br><br>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+            <button onclick="location.href='/youtubePredictor_videoSubmission.html';" type="submit" name="submit">Submit</button>
+            <br><br>
+            <button onclick="location.href='/youtubePredictor_importExportDatabase.html';" type="submit" name="submit">Submit</button>
+            <br><br>
+            <button onclick="location.href='/youtubePredictor_submissionSuccess.html';" type="submit" name="submit">Submit</button>
+            <br><br>
+            <button onclick="location.href='/youtubePredictor_user.html';" type="submit" name="submit">Submit</button>
+            <br><br>
+        </div>
+
+    </div>
+</section>
+
+<center>
+    <button onclick="location.href='/';" type="submit" name="submit">User</button>
+</center>
+</body>
+</html>

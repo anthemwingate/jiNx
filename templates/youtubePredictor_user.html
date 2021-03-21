@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DiTTo Youtube Predictor</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}"/>
+</head>
+<body>
+<header class="container">
+    <div class="row text-center">
+        <h1>Video Analysis</h1>
+    </div>
+</header>
+
+
+<section class="jumbotron">
+    <div class="container">
+        <div class="row text-center">
+
+            <form action="/" method=post>
+                {{ form.hidden_tag() }}
+
+                <p>Would you like to analyze a Youtube video?</p>
+                {{ form.videoSource(rows="1", cols="1") }}
+                <br><br>
+                {% for message in form.videoSource.errors %}
+                <font color="red">{{ message }}</font>
+                <br> <br>
+                {% endfor %}
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                {% for message in messages %}
+                <font color="red">{{ message }}</font>
+                <br><br>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+                {{ form.generate(class="other-buttons") }}
+
+                <br><br>
+                {% for line in feelings %}
+                <p> {{ line }} </p>
+                {% endfor %}
+
+                <br>
+            </form>
+        </div>
+    </div>
+
+</section>
+<center>
+
+    <br>
+
+    <input class="other-buttons" onclick="location.href='/youtubePredictor_administrator.html';" type="submit" name="submit" value="Admin">
+
+</center>
+</body>
+</html>

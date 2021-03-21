@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DiTTo Youtube Predictor</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}"/>
+
+</head>
+
+<body>
+<header class="container">
+    <div class="row text-center">
+        <h1>URL Submitted Successfully</h1>
+    </div>
+</header>
+
+<section class="jumbotron">
+    <div class="container">
+        <div class="row text-center">
+            <p>"{{ videoSource }}" has been added to the database.</p>
+
+            {% for tone in etones %}
+            <p> {{ tone }}</p>
+            {% endfor %}
+            <p>{{ notes }}</p>
+
+            <input class="other-buttons" onclick="location.href='/youtubePredictor_videoSubmission.html';" type="submit" name="submit"
+                   value="Submit Another">
+
+        </div>
+    </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,20 @@
+Prerequisites
+    IBM Cloud Account with the following services: Speech To Text, Tone Analyzer, Databases for PostGreSql
+    Git
+    Python 3
+    youtube-dl
+
+Instructions
+    Clone the Sample Application:  git clone https://github.com/ssw-695-spring-2021-group-afhk/DiTTo_YoutubePredictor.git
+    Navigate to the home directory of the DiTTo_YoutubePredictor application
+    Locate the _env.template file.
+    Rename the file to .env.
+    Insert the credentials for the IBM Cloud services into the template.
+        Set up a python virtual environment using the following commands
+        "pip install virtualenv"
+        "virtualenv venv"
+        "source venv/bin/activate"
+    Note -  run "deactivate" when you are finished using DiTTo_YoutubePredictor
+    Install the requirements to run the app by running the following command from the command line: "pip install -r requirements.txt"
+    To run DiTTo_YoutubePredictor app, run the following command from the command line: "python DiTTo_YoutubePredictor.py"
+    You can view your app in your internet browser at http://localhost:8080
