@@ -3,8 +3,8 @@
 # Debugger         : Farnaz Sabetpour
 # Purpose           : Flask APP to run Youtube Predictor Implementation
 # Revision History  : Version 1.0
-# Notes:  youtubepredictor_utils.py is obtained in its entirety from https://github.com/Nagasaki45/watson-streaming.git
-#
+# Notes:
+# youtubepredictor_utils.py is obtained in its entirety from https://github.com/Nagasaki45/watson-streaming.git
 #
 #
 

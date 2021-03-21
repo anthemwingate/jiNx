@@ -17,6 +17,7 @@
       <change beforePath="$PROJECT_DIR$/templates/youtubePredictor_user.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/youtubePredictor_user.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/youtubePredictor_videoSubmission.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/youtubePredictor_videoSubmission.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/youtubePredictor_constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor_constants.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/youtubePredictor_dataManager.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor_dataManager.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/youtubePredictor_todo.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor_todo.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -82,7 +83,7 @@
       <option name="presentableId" value="Default" />
       <updated>1616262653271</updated>
       <workItem from="1616262654877" duration="30232000" />
-      <workItem from="1616293527345" duration="14114000" />
+      <workItem from="1616293527345" duration="14449000" />
     </task>
     <servers />
   </component>
