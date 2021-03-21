@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5de0df59-b6a6-4a78-bc3e-bfa8c964dfce" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.coverage.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/DiTTo_YoutubePredictor.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.travis" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DiTTo_YoutubePredictor.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Getting Started" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_env.template" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/codecov" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main_test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/manifest" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/youtubePredictor_administrator.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/youtubePredictor_importExportDatabase.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/youtubePredictor_submissionSuccess.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/youtubePredictor_user.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/youtubePredictor_videoSubmission.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/youtubePredictor_constants.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/youtubePredictor_dataManager.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/youtubePredictor_forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/youtubePredictor_testSuite.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/youtubePredictor_todo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/youtubePredictor_transcriber.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/youtubePredictor_utils.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1q211B5EEE3SAHWfd2NsXUyedM8" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5de0df59-b6a6-4a78-bc3e-bfa8c964dfce" name="Default Changelist" comment="" />
+      <created>1616262653271</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1616262653271</updated>
+      <workItem from="1616262654877" duration="25084000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
