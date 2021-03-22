@@ -13,7 +13,6 @@
 
 
 # Import Data Handling Libraries
-import argparse
 import contextlib
 import time
 import pafy

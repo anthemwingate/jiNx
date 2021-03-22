@@ -19,7 +19,7 @@ from prettytable import PrettyTable
 import os
 from __future__ import unicode_literals
 import logging
-from flask import Flask, jsonify, render_template, request, flash, redirect, url_for, make_response, send_from_directory
+from flask import Flask, render_template, request, flash, redirect, url_for, send_from_directory
 from flask_sockets import Sockets
 import json
 import base64

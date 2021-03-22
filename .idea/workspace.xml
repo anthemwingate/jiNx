@@ -3,11 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5de0df59-b6a6-4a78-bc3e-bfa8c964dfce" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DiTTo_YoutubePredictor.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor_app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manifest" beforeDir="false" afterPath="$PROJECT_DIR$/manifest" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/main_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/youtubePredictor_testRunner.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/youtubePredictor_testSuite.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/youtubePredictor_testSuite.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +39,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor\tests" />
       <recent name="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor" />
       <recent name="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor\templates\unittest" />
       <recent name="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor\static" />
@@ -73,7 +69,7 @@
       <option name="presentableId" value="Default" />
       <updated>1616262653271</updated>
       <workItem from="1616262654877" duration="30232000" />
-      <workItem from="1616293527345" duration="40001000" />
+      <workItem from="1616293527345" duration="40844000" />
     </task>
     <servers />
   </component>

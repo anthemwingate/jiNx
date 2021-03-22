@@ -15,12 +15,10 @@
 # Import Data Handling Libraries
 import unittest
 import os
-from mockito import when, mock, unstub
-import requests
+from mockito import when, unstub
 
 # Import DiTTo_YoutubePredictor Utilities
-import youtubePredictor_dataManager as data_mgr
-import youtubePredictor_constants as const
+from youtubePredictor_pkg import youtubePredictor_constants as const, youtubePredictor_dataManager as data_mgr
 import youtubePredictor_testSuiteConstants as test_const
 
 
@@ -32,7 +30,7 @@ class TestSuite(unittest.TestSuite):
     def setUp(self) -> None:
         """ Class setup  """
 
-        self.dir_abs_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+        self.dir_abs_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '../..'))
         self.directory_path = f"{self.dir_abs_path}/tests/data/testURLs.txt"
 
         # Mock Initializers
