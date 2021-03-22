@@ -6,4 +6,4 @@ applications:
     instances: 1
     name: DiTTo
     disk_quota: 1024M
-    command: python DiTTo_YoutubePredictor.py
+    command: python youtubePredictor_app.py

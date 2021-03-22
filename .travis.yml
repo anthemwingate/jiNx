@@ -8,7 +8,7 @@ include:
   - name: "3.9 Unit Test"
 env: TEST_SUITE=suite_3_9_unit
 script:
-  - python3 tests/main_test.py
-  - coverage tests/main_test.py
+  - python3 youtubePredictor_testRunner.py
+  - coverage youtubePredictor_testRunner.py
 after_success:
   - bash <(curl -s https://codecov.io/bash)

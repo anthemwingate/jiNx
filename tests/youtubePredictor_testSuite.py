@@ -19,7 +19,7 @@ from mockito import when, mock, unstub
 import requests
 
 # Import DiTTo_YoutubePredictor Utilities
-import youtubePredictor_dataManager.py as mgr
+import youtubePredictor_dataManager as data_mgr
 import youtubePredictor_constants as const
 import youtubePredictor_testSuiteConstants as test_const
 
@@ -36,19 +36,19 @@ class TestSuite(unittest.TestSuite):
         self.directory_path = f"{self.dir_abs_path}/tests/data/testURLs.txt"
 
         # Mock Initializers
-        self.data_mgr = mgr(test_const.STT_API_KEY_TESTER,
-                            test_const.STT_ENDPOINT_URL_TESTER,
-                            test_const.TA_API_KEY_TESTER,
-                            test_const.TA_ENDPOINT_URL_TESTER,
-                            test_const.NLU_API_KEY_TESTER,
-                            test_const.NLU_ENDPOINT_URL_TESTER,
-                            test_const.ALCHEMY_API_KEY_TESTER,
-                            test_const.PGSL_USERNAME_TESTER,
-                            test_const.PGSL_PASSWORD_TESTER,
-                            test_const.PGSL_HOST_TESTER,
-                            test_const.PGSL_DBNAME_TESTER,
-                            test_const.PGSL_PORT_TESTER,
-                            )
+        self.data_mgr = data_mgr.DataManager(test_const.STT_API_KEY_TESTER,
+                                             test_const.STT_ENDPOINT_URL_TESTER,
+                                             test_const.TA_API_KEY_TESTER,
+                                             test_const.TA_ENDPOINT_URL_TESTER,
+                                             test_const.NLU_API_KEY_TESTER,
+                                             test_const.NLU_ENDPOINT_URL_TESTER,
+                                             test_const.ALCHEMY_API_KEY_TESTER,
+                                             test_const.PGSL_USERNAME_TESTER,
+                                             test_const.PGSL_PASSWORD_TESTER,
+                                             test_const.PGSL_HOST_TESTER,
+                                             test_const.PGSL_DBNAME_TESTER,
+                                             test_const.PGSL_PORT_TESTER,
+                                             )
 
         # @TODO add any additional self variables
         return super().setUp()
