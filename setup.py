@@ -1,12 +1,29 @@
-from distutils.core import setup
+# Project                                                  : DiTTo Yoututbe Predictor
+# Author                                                   : Team DiTTo Stevens Institute of Tecchnology SSW 695A Spring 2021
+# Architect/Core Implementation                            : Anthem Rukiya J. Wingate
+# Architect/Production Design                              : Hanqing Liu
+# Version Control Management and Quality Assurance Tester  : Farnaz Sabetpour
+# Purpose                                                  : Flask APP to run Youtube Predictor Implementation
+# Revision History                                         : Version 1.0
 
+# Notes:
+#
+#
+#
+
+# Import Data Handling Libraries
+from distutils.core import setup
 from setuptools import setup, find_packages
+
+# Import DiTTo_YoutubePredictor Utilities
+import youtubePredictor_constants
+
 
 DESCRIPTION='The team from DiTTo present a Youtube video analyzer implementation which predicts potential number of views for a video'
 GITHUB_URL='https://github.com/ssw-695-spring-2021-group-afhk/DiTTo_YoutubePredictor'
 AUTHOR='DiTTo Team Stevens Institute of Technology SSW 695A Spring 2021 Farnaz Sabetpour, HanQing Liu, Anthem Rukiya WIngate'
 MAINTAINER='DiTTo Team'
-VERSION=0.0.1
+__version__=youtubePredictor_constants.PACKAGE_VERSION
 
 INSTALL_REQUIRES = [
     'Flask',
@@ -39,8 +56,8 @@ with open('README.md') as f:
 
 setup(
     name='DiTTo_YoutubePredictor',
-    packages=['DiTTo_YoutubePredictor'],
-    version=VERSION,
+    packages=['DiTTo_YoutubePredictor', 'tests'],
+    version=__version__,
     description=DESCRIPTION,
     url=GITHUB_URL,
     author=AUTHOR,
