@@ -1,14 +1,30 @@
 language: python
 python:
   - "3.9"
-install:
-  - pip install -r requirements.txt
+
 matrix:
 include:
   - name: "3.9 Unit Test"
-env: TEST_SUITE=suite_3_9_unit
+env:
+  global:
+    # TRAVIS TESTING CONFIGURATION
+    - COMMIT=${TRAVIS_COMMIT::8}
+    - CGO_ENABLED=0
+    - GOOS=linux
+    - GOARCH=amd64
+before_script:
+  - export PYTHONPATH=$PYTHONPATH:$(pwd)
+before_install:
+  - python --version
+  - pip install -U pip
+  - python setup.py install
+  - pip install codecov
+install:
+  - pip install -r requirements.txt
+  - pip install ".[test]" .
 script:
   - python3 tests/youtubePredictor_testRunner.py
   - coverage run -m tests/youtubePredictor_testRunner.py -v
+  - codecov
 after_success:
   - bash <(curl -s https://codecov.io/bash)

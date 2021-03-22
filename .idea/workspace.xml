@@ -2,43 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5de0df59-b6a6-4a78-bc3e-bfa8c964dfce" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/youtubePredictor_pkg/tests/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/youtubePredictor_pkg/tests/data/testURLs.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.coverage.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor_pkg/.coverage.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor_pkg/.travis.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Getting Started" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor_pkg/Getting Started" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor_pkg/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor_pkg/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_env.template" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor_pkg/_env.template" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/codecov.yml" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor_pkg/codecov.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manifest" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor_pkg/manifest" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor_pkg/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor_pkg/setup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor_pkg/static/styles/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/youtubePredictor_administrator.html" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor_pkg/templates/youtubePredictor_administrator.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/youtubePredictor_data.html" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor_pkg/templates/youtubePredictor_data.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/youtubePredictor_emptyDatabase.html" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor_pkg/templates/youtubePredictor_emptyDatabase.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/youtubePredictor_exportDatabase.html" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor_pkg/templates/youtubePredictor_exportDatabase.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/youtubePredictor_save.html" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor_pkg/templates/youtubePredictor_save.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/youtubePredictor_submissionSuccess.html" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor_pkg/templates/youtubePredictor_submissionSuccess.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/youtubePredictor_updateDatabase.html" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor_pkg/templates/youtubePredictor_updateDatabase.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/youtubePredictor_user.html" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor_pkg/templates/youtubePredictor_user.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/youtubePredictor_videoSubmission.html" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor_pkg/templates/youtubePredictor_videoSubmission.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/youtubePredictor_webStreamer.html" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor_pkg/templates/youtubePredictor_webStreamer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/youtubePredictory_batch.html" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor_pkg/templates/youtubePredictory_batch.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/.coverage" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor_pkg/tests/.coverage" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/data/testURLs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor_pkg/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/youtubePredictor_testRunner.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor_pkg/tests/youtubePredictor_testRunner.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/youtubePredictor_testSuite.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor_pkg/tests/youtubePredictor_testSuite.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/youtubePredictor_testSuiteConstants.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor_pkg/tests/youtubePredictor_testSuiteConstants.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtubePredictor_app.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor_pkg/youtubePredictor_app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtubePredictor_constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor_pkg/youtubePredictor_constants.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtubePredictor_dataManager.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor_pkg/youtubePredictor_dataManager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtubePredictor_databaseBuilder.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor_pkg/youtubePredictor_databaseBuilder.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtubePredictor_forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor_pkg/youtubePredictor_forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtubePredictor_todo.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor_pkg/youtubePredictor_todo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtubePredictor_webStreamer.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor_pkg/youtubePredictor_webStreamer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,9 +41,9 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor" />
       <recent name="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor\youtubePredictor_pkg" />
       <recent name="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor\tests" />
-      <recent name="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor" />
       <recent name="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor\templates\unittest" />
       <recent name="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor\static" />
     </key>
@@ -106,7 +72,7 @@
       <option name="presentableId" value="Default" />
       <updated>1616262653271</updated>
       <workItem from="1616262654877" duration="30232000" />
-      <workItem from="1616293527345" duration="41276000" />
+      <workItem from="1616293527345" duration="42819000" />
     </task>
     <servers />
   </component>
