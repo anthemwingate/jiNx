@@ -19,7 +19,6 @@ INSTALL_REQUIRES = [
     'jinja2',
     'coverage',
     'beautifulsoup4',
-    'requests',
     'os.path2',
     'flask-sockets',
     'pafy',
