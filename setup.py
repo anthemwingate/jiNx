@@ -6,6 +6,7 @@ DESCRIPTION='The team from DiTTo present a Youtube video analyzer implementation
 GITHUB_URL='https://github.com/ssw-695-spring-2021-group-afhk/DiTTo_YoutubePredictor'
 AUTHOR='DiTTo Team Stevens Institute of Technology SSW 695A Spring 2021 Farnaz Sabetpour, HanQing Liu, Anthem Rukiya WIngate'
 MAINTAINER='DiTTo Team'
+VERSION=0.0.1
 
 INSTALL_REQUIRES = [
     'Flask',
@@ -39,7 +40,7 @@ with open('README.md') as f:
 setup(
     name='DiTTo_YoutubePredictor',
     packages=['DiTTo_YoutubePredictor'],
-    version=__version__,
+    version=VERSION,
     description=DESCRIPTION,
     url=GITHUB_URL,
     author=AUTHOR,
