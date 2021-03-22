@@ -34,14 +34,20 @@ import watson_developer_cloud
 import watson_developer_cloud.natural_language_understanding.features.v1 as features
 import pafy
 
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(filename="logs\\youtubePredictor.log", level=logging.DEBUG)
+logger = logging.getLogger()
+
+
+class YoutubePredictorError(Exception):
+    def __init__(self, message):
+        self.message = message
 
 
 def measure_process_duration(func):
     def time_wrap():
         process_timer = time.time()
         process_function = func(*arg)
-        flash("Function took" + str(time.time() - process_timer) + " seconds to complete.")
+        logger.info("Function took" + str(time.time() - process_timer) + " seconds to complete.")
         return process_function
 
     return time_wrap()
@@ -81,62 +87,104 @@ class DataManager:
         self.column_headers = []
         self.transcript = ""
 
+    @measure_process_duration
     def init(self):
+        logger.info('YoutubePredictor DataManager initializing')
         try:
             self.cursor.execute(youtubePredictorConstants.FIND_TABLE)
-        except:
+        except YoutubePredictorError('Table not found.') as e:
             self.reset_cursor()
             self.cursor.execute(youtubePredictorConstants.CREATE_TABLE)
             self.import_data_from_file("init.csv")
             self.conn.commit()
+            logger.error(e)
+            raise
+        else:
+            logger.info('Table found.')
+        finally:
+            self.column_headers = self.get_column_headers()
+            logger.info('YoutubePredictor DataManager initialization complete')
 
+    @measure_process_duration
     def reset_cursor(self):
+        logger.info('method: reset_cursor \nResetting database cursor.')
         self.conn = psycopg2.connect(self.conn_string)
         self.cursor = self.conn.cursor()
 
+    @measure_process_duration
     def get_all_records_from_database(self):
+        logger.info('method: get_all_records_from_database \nGetting records')
         self.cursor.execute(youtubePredictorConstants.GET_TABLE)
         return self.cursor.fetchall()
 
+    @measure_process_duration
     def get_column_headers(self):
+        logger.info('method: get_column_headers \nGetting column headers')
         self.cursor.execute(youtubePredictorConstants.GET_COLUMN_HEADERS)
         return from_db_cursor(self.cursor.fetchall)
 
+    @measure_process_duration
     def get_record_from_database(self, i):
+        logger.info('method: get_record_from_database \nGetting record with id: ' + i)
         try:
             update_st = youtubePredictorConstants.GET_SINGLE_RECORD
             self.cursor.execute(update_st, (i,))
+            logger.info('Record found.')
             return self.cursor.fetchone()
-        except:
+        except YoutubePredictorError('Record not found.') as e:
             self.reset_cursor()
+            logger.error(e)
 
+    @measure_process_duration
     def update_record_in_database(self, val, i):
+        logger.info('method: update_record_in_database \nUpdating record with id: ' + i)
         try:
-            newtones = self.calculate_tones(val) + (i,)
+            newtones = self.calculate_tones(val) + (i,) # @TODO needs rework, newtones isn't a complete record
             update_st = youtubePredictorConstants.UPDATE_RECORD
             self.cursor.execute(update_st, newtones)
             self.conn.commit()
-        except:
+        except YoutubePredictorError('Record not found') as e:
             self.reset_cursor()
+            logger.error(e)
+            raise
+        else:
+            logger.info('Record found')
 
+    @measure_process_duration
     def delete_record_from_database(self, i):
-        update_st = youtubePredictorConstants.REMOVE_SINGLE_RECORD
-        self.cursor.execute(update_st, (i,))
-        self.conn.commit()
+        logger.info('method: delete_record_from_database \nDeleting record with id: ' + i)
+        try:
+            update_st = youtubePredictorConstants.REMOVE_SINGLE_RECORD
+            self.cursor.execute(update_st, (i,))
+            self.conn.commit()
+        except YoutubePredictorError('Record not found') as e:
+            self.reset_cursor()
+            logger.error(e)
+            raise
+        else:
+            logger.info('Record deleted')
 
     @measure_process_duration()
     def analyze_transcript(self, audio_stream):
+        logger.info('method: analyze_transcript \nAnalyzing transcript')
+        try:
+            response = self.speech_to_text.recognize_using_websocket(audio=audio_stream,
+                                                                     content_type='audio/webm',
+                                                                     timestamps=False,
+                                                                     word_confidence=False,
+                                                                     continuous=True).get_result()
 
-        response = self.speech_to_text.recognize_using_websocket(audio=audio_stream,
-                                                                 content_type='audio/webm',
-                                                                 timestamps=False,
-                                                                 word_confidence=False,
-                                                                 continuous=True).get_result()
+            for chunk in response['results']:
+                self.transcript += chunk['alternatives'][0]['transcript']
+        except YoutubePredictorError('IBM Watson Speech to Text Service connection failure') as e:
+            logger.error(e)
+            logger.info(jsonify(response))
+        else:
+            logger.info('Transcript analysis completed')
 
-        for chunk in response['results']:
-            self.transcript += chunk['alternatives'][0]['transcript']
-
+    @measure_process_duration
     def calculate_tones(self, transcript):
+        logger.info('method: calculate_tones \nCalculating tones')
         data_store = (transcript.encode('utf-8'),)
         scores = []
 
@@ -145,11 +193,16 @@ class DataManager:
 
             for tone in response["document_tone"]["tone_categories"][0]["tones"]:
                 scores.append(tone["score"])
+            logger.info('Tone calculation completed')
             return scores
-        except:
+        except YoutubePredictorError('IBM Watson Tone Analyzer Service connection failure') as e:
+            logger.error(e)
+            logger.info(jsonify(response))
             return None
 
+    @measure_process_duration
     def add_video_stats(self, transcript, url, views):
+        logger.info('method: add_video_stats \nAdding stats to database')
         try:
             update_st = youtubePredictorConstants.ADD_RECORD
             record = []
@@ -158,37 +211,59 @@ class DataManager:
             record.append(views)
             self.cursor.execute(update_st, record)
             self.conn.commit()
+            logger.info('Record added to database')
             return record
-        except:
+        except YoutubePredictorError('IBM Watson PostGreSQL Service connection failure') as e:
             self.reset_cursor()
+            logger.error(e)
             return None
 
+    @measure_process_duration
     def import_data_from_file(self, filename):
+        logger.info('method: import_data_from_file \nImporting data from file ' + filename)
         isAdded = False
         isSkippedRecord = False
-        csvfile = open(filename, "rb")
-        reader = csv.reader(csvfile)
-        for row in reader:
-            try:
+
+        try:
+            csvfile = open(filename, "rb")
+            reader = csv.reader(csvfile)
+            for row in reader:
                 update_st = youtubePredictorConstants.FILL_TABLE
-                self.cursor.execute(update_st, row)
-                self.conn.commit()
-                isAdded = True
-            except:
-                isSkippedRecord = True
-                self.reset_cursor()
-        csvfile.close()
-        flash = 'CSV File successfully imported.'
+                try:
+                    self.cursor.execute(update_st, row)
+                    self.conn.commit()
+                    isAdded = True
+                except YoutubePredictorError('Record Skipped') as x:
+                    isSkippedRecord = True
+                    self.reset_cursor()
+                    logger.error(x)
+                    raise
+        except YoutubePredictorError('File import failure. File not found.') as e:
+            self.reset_cursor()
+            logger.error(e)
+            raise
+        else:
+            csvfile.close()
+            logger.info('CSV File successfully imported.')
+            flash('CSV File successfully imported.')
 
         if isAdded and isSkippedRecord:
-            flash = 'Partial Import Successful. Some records were skipped.'
+            logger.info('Partial Import Successful. Some records were skipped.')
+            flash('Partial Import Successful. Some records were skipped.')
         if isSkippedRecord and not isAdded:
-            flash = 'Import was unsuccessful.'
+            logger.info('Import was unsuccessful.')
+            flash('Import was unsuccessful.')
         return flash
 
+    @measure_process_duration
     def remove_all_data_from_database(self):
+        logger.info('method: remove_all_data_from_database \nRemoving contents from database')
         try:
             self.cursor.execute(youtubePredictorConstants.CLEAR_TABLE)
             self.conn.commit()
-        except:
+        except YoutubePredictorError('Database unavailable') as e:
             self.reset_cursor()
+            logger.error(e)
+            raise
+        else:
+            logger.info('Contents removal completed')
