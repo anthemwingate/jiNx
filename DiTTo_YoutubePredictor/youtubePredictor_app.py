@@ -12,12 +12,13 @@
 #
 
 # Import Data Handling Libraries
+from __future__ import unicode_literals
 import math
 from dotenv import load_dotenv
 from werkzeug.utils import secure_filename
 from prettytable import PrettyTable
 import os
-from __future__ import unicode_literals
+import functools
 import logging
 from flask import Flask, render_template, request, flash, redirect, url_for, send_from_directory
 from flask_sockets import Sockets
@@ -28,8 +29,8 @@ import pafy
 # Import DiTTo_YoutubePredictor Utilities
 from youtubePredictor_forms import VideoForm
 from youtubePredictor_dataManager import DataManager
-import youtubePredictor_constants
-import youtubePreditor_logger
+from DiTTo_YoutubePredictor import youtubePredictor_constants
+from DiTTo_YoutubePredictor import youtubePreditor_logger
 
 app = Flask(__name__)
 app.secret_key = 'development key'
@@ -82,6 +83,18 @@ def echo(ws):
     return render_template('youtubePredictor_webStreamer.html')
 
 
+def measure_process_duration(func):
+    @functools.wraps(func)
+    def time_wrap(*args):
+        process_timer = time.time()
+        process_function = func(*args)
+        flash("Function took" + str(time.time() - process_timer) + " seconds to complete.")
+        return process_function
+
+    return time_wrap()
+
+
+@measure_process_duration
 def initiate_websockets(videoURL):
     input_video = pafy.new(videoURL)
     video_title = input_video.title

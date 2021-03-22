@@ -15,13 +15,19 @@
 
 # Import Data Handling Libraries
 import unittest
+import coverage
 
 # Import DiTTo_YoutubePredictor Utilities
-import youtubePredictor_testSuite as testSuite
+from tests import youtubePredictor_testSuite as testSuite
 
 if __name__ == '__main__':
+    cov = coverage.Coverage()
+    cov.start()
     framework = unittest.TestLoader().loadTestsFromModule(testSuite)
 
     test_result = unittest.TextTestRunner(verbosity=2).run(framework).wasSuccessful()
+    cov.stop()
+    cov.save()
 
     print("\nTesting Concluded with result:", test_result)
+    cov.html_report()

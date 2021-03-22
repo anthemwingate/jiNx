@@ -19,7 +19,7 @@ from mockito import when, unstub
 
 # Import DiTTo_YoutubePredictor Utilities
 from DiTTo_YoutubePredictor import youtubePredictor_dataManager as data_mgr, youtubePredictor_constants as const
-import youtubePredictor_testSuiteConstants as test_const
+from tests import youtubePredictor_testSuiteConstants as test_const
 
 
 class TestSuite(unittest.TestSuite):

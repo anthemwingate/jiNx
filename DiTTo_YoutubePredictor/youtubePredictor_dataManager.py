@@ -18,13 +18,12 @@ import os
 from os.path import join, dirname
 import csv
 import psycopg2
-from mockito import kwargs
 from prettytable import from_db_cursor
 from flask import Flask, jsonify, render_template, request, flash, redirect, url_for, make_response, send_from_directory
-import functools
+
 # Import DiTTo_YoutubePredictor Utilities
-import youtubePredictor_constants as youtubePredictorConstants
-import youtubePreditor_logger as ypLog
+from DiTTo_YoutubePredictor import youtubePredictor_constants as youtubePredictorConstants, \
+    youtubePreditor_logger as ypLog
 
 # Import APIs
 from ibm_watson import SpeechToTextV1, ToneAnalyzerV3, NaturalLanguageUnderstandingV1
@@ -34,17 +33,6 @@ from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 class YoutubePredictorError(Exception):
     def __init__(self, message):
         self.message = message
-
-
-def measure_process_duration(func):
-    @functools.wraps(func)
-    def time_wrap():
-        process_timer = time.time()
-        process_function = func(**kwargs)
-        return process_function
-        flash("Function took" + str(time.time() - process_timer) + " seconds to complete.")
-
-    return time_wrap()
 
 
 class DataManager:
@@ -82,7 +70,6 @@ class DataManager:
         self.transcript = ""
         self.data_mgr_log = ypLog.YoutubePredictorLogger()
 
-    @measure_process_duration
     def init(self):
         self.data_mgr_log.log_method_started(method_name=self.init.__name__, msg='Initializing data manager')
         try:
@@ -99,42 +86,41 @@ class DataManager:
                                    msg='Table found.')
         finally:
             self.column_headers = self.get_column_headers()
-            self.data_mgr_log.info(method_name=self.init.__name__, 
+            self.data_mgr_log.info(method_name=self.init.__name__,
                                    msg='YoutubePredictor DataManager initialization complete')
 
-    @measure_process_duration
     def reset_cursor(self):
         self.data_mgr_log.log_method_started(method_name=self.reset_cursor.__name__, msg='Resetting database cursor')
         self.conn = psycopg2.connect(self.conn_string)
         self.cursor = self.conn.cursor()
 
-    @measure_process_duration
     def get_all_records_from_database(self):
-        self.data_mgr_log.log_method_started(method_name=self.get_all_records_from_database.__name__, msg='Getting records')
+        self.data_mgr_log.log_method_started(method_name=self.get_all_records_from_database.__name__,
+                                             msg='Getting records')
         self.cursor.execute(youtubePredictorConstants.GET_TABLE)
         return self.cursor.fetchall()
 
-    @measure_process_duration
     def get_column_headers(self):
         self.data_mgr_log.log_method_started(method_name=self.get_column_headers.__name__, msg='Getting column headers')
         self.cursor.execute(youtubePredictorConstants.GET_COLUMN_HEADERS)
         return from_db_cursor(self.cursor.fetchall)
 
-    @measure_process_duration
     def get_record_from_database(self, i):
-        self.data_mgr_log.log_method_started(method_name=self.get_record_from_database.__name__, msg=f'Getting record with id: {i}')
+        self.data_mgr_log.log_method_started(method_name=self.get_record_from_database.__name__,
+                                             msg=f'Getting record with id: {i}')
         try:
             update_st = youtubePredictorConstants.GET_SINGLE_RECORD
             self.cursor.execute(update_st, (i,))
-            self.data_mgr_log.log_method_started(method_name=self.get_record_from_database.__name__, msg='Record found.')
+            self.data_mgr_log.log_method_started(method_name=self.get_record_from_database.__name__,
+                                                 msg='Record found.')
             return self.cursor.fetchone()
         except YoutubePredictorError('Record not found.') as e:
             self.reset_cursor()
             self.data_mgr_log.log_error(e)
 
-    @measure_process_duration
     def update_record_in_database(self, val, i):
-        self.data_mgr_log.log_method_started(method_name=self.update_record_in_database.__name__, msg=f'Updating record with id: {i}')
+        self.data_mgr_log.log_method_started(method_name=self.update_record_in_database.__name__,
+                                             msg=f'Updating record with id: {i}')
         try:
             newtones = self.calculate_tones(val) + (i,)  # @TODO needs rework, newtones isn't a complete record
             update_st = youtubePredictorConstants.UPDATE_RECORD
@@ -147,9 +133,9 @@ class DataManager:
         else:
             self.data_mgr_log.log_info(method_name=self.update_record_in_database.__name__, msg='Record found')
 
-    @measure_process_duration
     def delete_record_from_database(self, i):
-        self.data_mgr_log.log_method_started(method_name=self.delete_record_from_database.__name__, msg=f'Deleting record with id: {i}')
+        self.data_mgr_log.log_method_started(method_name=self.delete_record_from_database.__name__,
+                                             msg=f'Deleting record with id: {i}')
         try:
             update_st = youtubePredictorConstants.REMOVE_SINGLE_RECORD
             self.cursor.execute(update_st, (i,))
@@ -161,7 +147,6 @@ class DataManager:
         else:
             self.data_mgr_log.log_info(method_name=self.delete_record_from_database.__name__, msg='Record deleted')
 
-    @measure_process_duration()
     def analyze_transcript(self, audio_stream):
         self.data_mgr_log.log_method_started(method_name=self.analyze_transcript.__name__, msg='Analyzing transcript')
         try:
@@ -177,9 +162,9 @@ class DataManager:
             self.data_mgr_log.log_error(ex=e, method_name=self.analyze_transcript.__name__)
             self.data_mgr_log.log_info(method_name=self.analyze_transcript.__name__, msg=jsonify(response))
         else:
-            self.data_mgr_log.log_info(method_name=self.analyze_transcript.__name__, msg='Transcript analysis completed')
+            self.data_mgr_log.log_info(method_name=self.analyze_transcript.__name__,
+                                       msg='Transcript analysis completed')
 
-    @measure_process_duration
     def calculate_tones(self):
         self.data_mgr_log.log_method_started(method_name=self.calculate_tones.__name__, msg='Calculating tones')
         scores = []
@@ -196,7 +181,6 @@ class DataManager:
             self.data_mgr_log.log_info(method_name=self.calculate_tones.__name__, msg=jsonify(response))
             return None
 
-    @measure_process_duration
     def add_video_stats(self, url, views):
         self.data_mgr_log.log_method_started(method_name=self.add_video_stats.__name__, msg='Adding stats to database')
         try:
@@ -214,7 +198,6 @@ class DataManager:
             self.data_mgr_log.log_error(ex=e, method_name=self.add_video_stats.__name__)
             return None
 
-    @measure_process_duration
     def create_transcript_file(self, title):
         self.data_mgr_log.log_method_started(method_name=self.create_transcript_file.__name__, msg='Creating file')
 
@@ -227,9 +210,9 @@ class DataManager:
             self.data_mgr_log.log_error(ex=e, method_name=self.add_video_stats.__name__)
             raise
 
-    @measure_process_duration
     def import_data_from_file(self, filename):
-        self.data_mgr_log.log_method_started(method_name=self.import_data_from_file.__name__, msg=f'Importing data from file {filename}')
+        self.data_mgr_log.log_method_started(method_name=self.import_data_from_file.__name__,
+                                             msg=f'Importing data from file {filename}')
         is_added = False
         is_skipped_record = False
 
@@ -253,17 +236,19 @@ class DataManager:
             raise
         else:
             csvfile.close()
-            self.data_mgr_log.log_info(method_name=self.import_data_from_file.__name__, msg='CSV File successfully imported.')
+            self.data_mgr_log.log_info(method_name=self.import_data_from_file.__name__,
+                                       msg='CSV File successfully imported.')
 
         if is_added and is_skipped_record:
-            self.data_mgr_log.log_warn(method_name=self.import_data_from_file.__name__, msg='Partial Import Successful. Some records were skipped.')
+            self.data_mgr_log.log_warn(method_name=self.import_data_from_file.__name__,
+                                       msg='Partial Import Successful. Some records were skipped.')
         if is_skipped_record and not is_added:
             self.data_mgr_log.log_warn(method_name=self.import_data_from_file.__name__, msg='Import was unsuccessful.')
         return flash
 
-    @measure_process_duration
     def remove_all_data_from_database(self):
-        self.data_mgr_log.log_method_started(method_name=self.remove_all_data_from_database.__name__, msg=' Removing contents from database')
+        self.data_mgr_log.log_method_started(method_name=self.remove_all_data_from_database.__name__,
+                                             msg=' Removing contents from database')
         try:
             self.cursor.execute(youtubePredictorConstants.CLEAR_TABLE)
             self.conn.commit()
@@ -272,4 +257,5 @@ class DataManager:
             self.data_mgr_log.log_error(ex=e, method_name=self.remove_all_data_from_database.__name__)
             raise
         else:
-            self.data_mgr_log.log_info(method_name=self.remove_all_data_from_database.__name__, msg='Contents removal completed')
+            self.data_mgr_log.log_info(method_name=self.remove_all_data_from_database.__name__,
+                                       msg='Contents removal completed')

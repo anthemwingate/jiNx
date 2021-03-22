@@ -14,15 +14,16 @@
 # Import Data Handling Libraries
 import logging
 import functools
-
-# Import DiTTo_YoutubePredictor Utilities
 from mockito import kwargs
 
-import youtubePredictor_constants as ypConstants
+
+# Import DiTTo_YoutubePredictor Utilities
+from DiTTo_YoutubePredictor import youtubePredictor_constants as ypConstants
 
 logging.basicConfig(filename="logs\\youtubePredictor.log",
                     format=ypConstants.LOGGING_FORMAT,
-                    level=logging.DEBUG
+                    level=logging.DEBUG,
+                    filemode="w+"
                     )
 
 
