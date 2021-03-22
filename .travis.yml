@@ -9,6 +9,6 @@ include:
 env: TEST_SUITE=suite_3_9_unit
 script:
   - python3 tests/youtubePredictor_testRunner.py
-  - coverage tests/youtubePredictor_testRunner.py
+  - coverage run -m tests/youtubePredictor_testRunner.py -v
 after_success:
   - bash <(curl -s https://codecov.io/bash)
