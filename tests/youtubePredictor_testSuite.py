@@ -21,6 +21,7 @@ import requests
 # Import DiTTo_YoutubePredictor Utilities
 import youtubePredictor_dataManager.py as mgr
 import youtubePredictor_constants as const
+import youtubePredictor_testSuiteConstants as test_const
 
 
 class TestSuite(unittest.TestSuite):
@@ -32,34 +33,21 @@ class TestSuite(unittest.TestSuite):
         """ Class setup  """
 
         self.dir_abs_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-        self.directory_path = f"{self.dir_abs_path}/data/testURLs.txt"
+        self.directory_path = f"{self.dir_abs_path}/tests/data/testURLs.txt"
 
         # Mock Initializers
-        self.speech_to_text_api_key_tester = "test"
-        self.speech_to_text_endpoint_url_tester = "test"
-        self.tone_analyzer_api_key_tester = "test"
-        self.tone_analyzer_endpoint_url_tester = "test"
-        self.natural_language_understanding_api_key_tester = "test"
-        self.natural_language_understanding_endpoint_url_tester = "test"
-        self.alchemy_api_key_tester = "test"
-        self.postgresql_username_tester = "test"
-        self.postgresql_password_tester = "test"
-        self.postgresql_host_tester = "test"
-        self.postgresql_dbname_tester = "test"
-        self.postgresql_port_tester = "test"
-        self.test_database = "this is a database"
-        self.data_mgr = mgr(self.speech_to_text_api_key_tester,
-                            self.speech_to_text_endpoint_url_tester,
-                            self.tone_analyzer_api_key_tester,
-                            self.tone_analyzer_endpoint_url_tester,
-                            self.natural_language_understanding_api_key_tester,
-                            self.natural_language_understanding_endpoint_url_tester,
-                            self.alchemy_api_key_tester,
-                            self.postgresql_username_tester,
-                            self.postgresql_password_tester,
-                            self.postgresql_host_tester,
-                            self.postgresql_dbname_tester,
-                            self.postgresql_port_tester,
+        self.data_mgr = mgr(test_const.STT_API_KEY_TESTER,
+                            test_const.STT_ENDPOINT_URL_TESTER,
+                            test_const.TA_API_KEY_TESTER,
+                            test_const.TA_ENDPOINT_URL_TESTER,
+                            test_const.NLU_API_KEY_TESTER,
+                            test_const.NLU_ENDPOINT_URL_TESTER,
+                            test_const.ALCHEMY_API_KEY_TESTER,
+                            test_const.PGSL_USERNAME_TESTER,
+                            test_const.PGSL_PASSWORD_TESTER,
+                            test_const.PGSL_HOST_TESTER,
+                            test_const.PGSL_DBNAME_TESTER,
+                            test_const.PGSL_PORT_TESTER,
                             )
 
         # @TODO add any additional self variables
@@ -74,10 +62,10 @@ class TestSuite(unittest.TestSuite):
 
         # Stub
         self.data_mgr.init()
-        when(self.cursor).execute(const.CREATE_TABLE).thenReturn(self.test_database)
+        when(self.cursor).execute(const.CREATE_TABLE).thenReturn(test_const.TEST_DB)
 
         # Test outcome
-        self.assertEqual(self.cursor.execute(const.FIND_TABLE), self.test_database, 'Database not found')
+        self.assertEqual(self.cursor.execute(const.FIND_TABLE), test_const.TEST_DB, 'Database not found')
 
         # Clean Up Mocks
         unstub()
@@ -92,6 +80,7 @@ class TestSuite(unittest.TestSuite):
 
         self.dir_abs_path.dispose
         self.directory_path.dispose
+        self.data_mgr.dispose()
         # @TODO add any additional self variables
 
 
