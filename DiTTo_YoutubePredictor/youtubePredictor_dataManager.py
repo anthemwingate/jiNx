@@ -12,6 +12,7 @@
 #
 
 # Import Data Handling Libraries
+from __future__ import unicode_literals
 import time
 import os
 from os.path import join, dirname
@@ -19,7 +20,6 @@ import csv
 import psycopg2
 from mockito import kwargs
 from prettytable import from_db_cursor
-from __future__ import unicode_literals
 from flask import Flask, jsonify, render_template, request, flash, redirect, url_for, make_response, send_from_directory
 import functools
 # Import DiTTo_YoutubePredictor Utilities
