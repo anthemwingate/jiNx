@@ -1,6 +1,5 @@
 from distutils.core import setup
 
-from requests import __version__
 from setuptools import setup, find_packages
 
 DESCRIPTION='The team from DiTTo present a Youtube video analyzer implementation which predicts potential number of views for a video'
@@ -20,6 +19,7 @@ INSTALL_REQUIRES = [
     'coverage',
     'beautifulsoup4',
     'os.path2',
+    'requests',
     'flask-sockets',
     'pafy',
     'watson-streaming',
