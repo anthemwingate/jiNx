@@ -15,7 +15,6 @@
 from setuptools import setup
 
 # Import DiTTo_YoutubePredictor Utilities
-import DiTTo_YoutubePredictor
 from DiTTo_YoutubePredictor import youtubePredictor_constants
 
 DESCRIPTION='The team from DiTTo present a Youtube video analyzer implementation which predicts potential number of views for a video'
@@ -54,7 +53,6 @@ with open('README.md') as f:
 
 setup(
     name='DiTTo_YoutubePredictor',
-    packages=[DiTTo_YoutubePredictor],
     version=youtubePredictor_constants.PACKAGE_VERSION,
     description=DESCRIPTION,
     url=GITHUB_URL,
