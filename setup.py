@@ -55,7 +55,7 @@ with open('README.md') as f:
 
 setup(
     name='DiTTo_YoutubePredictor',
-    packages=['DiTTo_YoutubePredictor', 'tests'],
+    packages=[],
     version=youtubePredictor_constants.PACKAGE_VERSION, 
     description=DESCRIPTION,
     url=GITHUB_URL,
