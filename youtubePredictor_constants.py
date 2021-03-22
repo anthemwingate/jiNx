@@ -21,6 +21,8 @@ YOUTUBE_PREDICTOR_APP_HOST = '0.0.0.0'
 URL_TEMPLATE = 'wss://{}/speech-to-text/api/v1/recognize'
 UPLOAD_FOLDER_PATH = 'save/'
 PACKAGE_VERSION = 0.0
+LOGGING_FORMAT = '%(asctime)-15s %(message)s'
+
 
 
 # Credentials

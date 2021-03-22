@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b1b57f69-993d-402a-a7bd-bfabe35b29c6" name="Default Changelist" comment="added functools import and additional logging messages">
+      <change afterPath="$PROJECT_DIR$/youtubePreditor_logger.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/DiTTo_YoutubePredictor.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DiTTo_YoutubePredictor.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/youtubePredictor_app.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor_app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/youtubePredictor_constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor_constants.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/youtubePredictor_dataManager.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor_dataManager.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,7 +48,8 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/tests" />
+    <property name="jdk.selected.JAVA_MODULE" value="1.8" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../DiTTo_SpeechToText" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -79,15 +83,13 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -96,7 +98,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f356cc26-27e5-4a44-ba90-b6448e44ec8c" name="Default Changelist" comment="" />
+      <changelist id="b1b57f69-993d-402a-a7bd-bfabe35b29c6" name="Default Changelist" comment="added functools import and additional logging messages" />
       <created>1616262653271</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -104,7 +106,16 @@
       <workItem from="1616262654877" duration="30232000" />
       <workItem from="1616293527345" duration="43129000" />
       <workItem from="1616389232769" duration="6431000" />
+      <workItem from="1616441214524" duration="6419000" />
     </task>
+    <task id="LOCAL-00001" summary="added functools import and additional logging messages">
+      <created>1616425165832</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1616425165832</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

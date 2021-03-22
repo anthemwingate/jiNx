@@ -29,6 +29,7 @@ import pafy
 from youtubePredictor_forms import VideoForm
 from youtubePredictor_dataManager import DataManager
 import youtubePredictor_constants
+import youtubePreditor_logger
 
 app = Flask(__name__)
 app.secret_key = 'development key'
@@ -83,12 +84,12 @@ def echo(ws):
 
 def initiate_websockets(videoURL):
     input_video = pafy.new(videoURL)
+    video_title = input_video.title
     view_count = int(input_video.viewcount)
     input_audio_stream = input_video._audiostreams[youtubePredictor_constants.AUDIO_STREAM_QUALITY]
     echo(input_audio_stream.url)
-    record = youtubePredictorDatamanager.add_video_stats(
-        transcript=youtubePredictorDatamanager.transcript,
-        url=videoURL, views=view_count)
+    record = youtubePredictorDatamanager.add_video_stats(url=videoURL, views=view_count)
+    youtubePredictorDatamanager.create_transcript_file(title=video_title)
     return record
 
 
@@ -215,6 +216,7 @@ if __name__ == '__main__':
         os.environ.get('POSTGRESQL_PORT'), )
 
     youtubePredictorDatamanager.init()
+    yp_app_log = youtubePreditor_logger.YoutubePredictorLogger()
 
     app.logger.setLevel(logging.DEBUG)
     from gevent import pywsgi
@@ -225,4 +227,6 @@ if __name__ == '__main__':
     server.serve_forever()
 
     app.run(host=youtubePredictor_constants.YOUTUBE_PREDICTOR_APP_HOST,
-            port=youtubePredictor_constants.YOUTUBE_PREDICTOR_APP_PORT, debug=True)
+            port=youtubePredictor_constants.YOUTUBE_PREDICTOR_APP_PORT,
+            debug=True
+            )
