@@ -61,7 +61,6 @@ setup(
     url=GITHUB_URL,
     author=AUTHOR,
     maintainer=MAINTAINER,
-    LICENSE='Unlicense',
     classifiers=[
         'Topic :: Machine Learning :: Video Analysis and Prediction',
         'Development Status :: 1 - Development',
