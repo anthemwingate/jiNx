@@ -78,8 +78,8 @@ class TestSuite(unittest.TestSuite):
     def tearDown(self):
         """ Class tear down  """
 
-        self.dir_abs_path.dispose
-        self.directory_path.dispose
+        self.dir_abs_path.dispose()
+        self.directory_path.dispose()
         self.data_mgr.dispose()
         # @TODO add any additional self variables
 
