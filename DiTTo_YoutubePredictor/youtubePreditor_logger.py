@@ -15,7 +15,7 @@
 import logging
 
 # Import DiTTo_YoutubePredictor Utilities
-from diTToYoutubePredictor import youtubePredictor_constants as ypConstants
+from DiTTo_YoutubePredictor import youtubePredictor_constants as ypConstants
 
 logging.basicConfig(filename="logs\\youtubePredictor.log",
                     format=ypConstants.LOGGING_FORMAT,

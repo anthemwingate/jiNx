@@ -12,13 +12,16 @@
 #
 #
 
+from __future__ import absolute_import
+
 # Import Data Handling Libraries
 import unittest
 import os
 from mockito import when, unstub
 
 # Import DiTTo_YoutubePredictor Utilities
-from diTToYoutubePredictor import youtubePredictor_constants as ypConst, youtubePredictor_dataManager as dataMgr
+import DiTTo_YoutubePredictor.youtubePredictor_constants as ypConst
+import DiTTo_YoutubePredictor.youtubePredictor_dataManager as dataMgr
 import youtubePredictor_testSuiteConstants as testConst
 
 

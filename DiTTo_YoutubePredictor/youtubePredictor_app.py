@@ -29,7 +29,7 @@ import pafy
 # Import DiTTo_YoutubePredictor Utilities
 from youtubePredictor_forms import VideoForm
 from youtubePredictor_dataManager import DataManager
-from diTToYoutubePredictor import youtubePredictor_constants, youtubePreditor_logger
+from DiTTo_YoutubePredictor import youtubePredictor_constants, youtubePreditor_logger
 
 app = Flask(__name__)
 app.secret_key = 'development key'
