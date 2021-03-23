@@ -63,10 +63,10 @@ class TestSuite(unittest.TestSuite):
 
         # Stub
         self.data_mgr.init()
-        when(self.cursor).execute(ypConst.CREATE_TABLE).thenReturn(testConst.TEST_DB)
+        when(self.cursor).execute(ypConst.CREATE_TABLE).thenReturn(testConst.DATA_MANAGER_TEST_DB)
 
         # Test outcome
-        self.assertEqual(self.cursor.execute(ypConst.FIND_TABLE), testConst.TEST_DB, 'Database not found')
+        self.assertEqual(self.cursor.execute(ypConst.FIND_TABLE), testConst.DATA_MANAGER_TEST_DB, 'Database not found')
 
         # Clean Up Mocks
         unstub()

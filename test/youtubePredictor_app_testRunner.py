@@ -16,17 +16,15 @@
 import unittest
 import os
 import coverage
-
 from flask.ext.script import Manager
 from flask.ext.migrate import Migrate, MigrateCommand
 
 # Import DiTTo_YoutubePredictor Utilities
 import DiTTo_YoutubePredictor.youtubePredictor_app as app
-
-# @Todo import a test db object as db
+import test.youtubePredictor_app_testSuite as framework
 
 app.config.from_object(os.environ['APP_SETTINGS'])
-
+db = framework.connect_db()
 migrate = Migrate(app, db)
 manager = Manager(app)
 
@@ -36,7 +34,7 @@ manager.add_command('db', MigrateCommand)
 @manager.command
 def test():
     """Runs the unit tests without coverage."""
-    tests = unittest.TestLoader().discover('tests')
+    tests = unittest.TestLoader().loadTestsFromModule(framework)
     unittest.TextTestRunner(verbosity=2).run(tests)
 
 

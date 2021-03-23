@@ -25,8 +25,8 @@ install:
   - pip install -e .
   - pip install ".[test]" .
 script:
-  - python3 test/youtubePredictor_testRunner.py
-  - coverage run -m test/youtubePredictor_testRunner.py -v
+  - python3 test/youtubePredictor_dataManager_testRunner.py
+  - coverage run -m test/youtubePredictor_dataManager_testRunner.py -v
   - codecov
 after_success:
   - bash <(curl -s https://codecov.io/bash)

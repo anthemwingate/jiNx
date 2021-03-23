@@ -12,18 +12,29 @@
 #
 #
 
+# Import Data Handling Libraries
+import os
 
 # Import DiTTo_YoutubePredictor Utilities
-from test.youtubePredictor_testingModel import VideoStats
-from test import youtubePredictor_testSuiteConstants as tsConst
-# @TODO import test database object as db
+import test.youtubePredictor_testSuiteConstants as tsConst
 
-# create the database and the db table
-db.create_all()
+# default config
+class BaseConfig(object):
+    DEBUG = False
+    #SECRET_KEY = '\xbf\xb0\x11\xb1\xcd\xf9\xba\x8bp\x0c...' @TODO determine if sqlite3 requires an API Key
+    SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
 
-# insert data
-db.session.add(VideoStats(tsConst.VIDEO_STATS_RECORD))
-# db.session.add(BlogPost("postgres", "we setup a local postgres instance"))
 
-# commit the changes
-db.session.commit()
+class TestConfig(BaseConfig):
+    DEBUG = True
+    TESTING = True
+    WTF_CSRF_ENABLED = False
+    SQLALCHEMY_DATABASE_URI = tsConst.SQL_DATABASE_URI
+
+
+class DevelopmentConfig(BaseConfig):
+    DEBUG = True
+
+
+class ProductionConfig(BaseConfig):
+    DEBUG = False
