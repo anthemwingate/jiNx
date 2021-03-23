@@ -18,8 +18,8 @@ import os
 from mockito import when, unstub
 
 # Import DiTTo_YoutubePredictor Utilities
-from DiTTo_YoutubePredictor import youtubePredictor_dataManager as data_mgr, youtubePredictor_constants as const
-from tests import youtubePredictor_testSuiteConstants as test_const
+from diTToYoutubePredictor import youtubePredictor_constants as ypConst, youtubePredictor_dataManager as dataMgr
+import youtubePredictor_testSuiteConstants as testConst
 
 
 class TestSuite(unittest.TestSuite):
@@ -27,26 +27,26 @@ class TestSuite(unittest.TestSuite):
 
     maxDiff = None
 
-    def setUp(self) -> None:
+    def setup(self) -> None:
         """ Class setup  """
 
         self.dir_abs_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
         self.directory_path = f"{self.dir_abs_path}/tests/data/testURLs.txt"
 
         # Mock Initializers
-        self.data_mgr = data_mgr.DataManager(test_const.STT_API_KEY_TESTER,
-                                             test_const.STT_ENDPOINT_URL_TESTER,
-                                             test_const.TA_API_KEY_TESTER,
-                                             test_const.TA_ENDPOINT_URL_TESTER,
-                                             test_const.NLU_API_KEY_TESTER,
-                                             test_const.NLU_ENDPOINT_URL_TESTER,
-                                             test_const.ALCHEMY_API_KEY_TESTER,
-                                             test_const.PGSL_USERNAME_TESTER,
-                                             test_const.PGSL_PASSWORD_TESTER,
-                                             test_const.PGSL_HOST_TESTER,
-                                             test_const.PGSL_DBNAME_TESTER,
-                                             test_const.PGSL_PORT_TESTER,
-                                             )
+        self.data_mgr = dataMgr.DataManager(testConst.STT_API_KEY_TESTER,
+                                            testConst.STT_ENDPOINT_URL_TESTER,
+                                            testConst.TA_API_KEY_TESTER,
+                                            testConst.TA_ENDPOINT_URL_TESTER,
+                                            testConst.NLU_API_KEY_TESTER,
+                                            testConst.NLU_ENDPOINT_URL_TESTER,
+                                            testConst.ALCHEMY_API_KEY_TESTER,
+                                            testConst.PGSL_USERNAME_TESTER,
+                                            testConst.PGSL_PASSWORD_TESTER,
+                                            testConst.PGSL_HOST_TESTER,
+                                            testConst.PGSL_DBNAME_TESTER,
+                                            testConst.PGSL_PORT_TESTER,
+                                            )
 
         # @TODO add any additional self variables
         return super().setUp()
@@ -60,10 +60,10 @@ class TestSuite(unittest.TestSuite):
 
         # Stub
         self.data_mgr.init()
-        when(self.cursor).execute(const.CREATE_TABLE).thenReturn(test_const.TEST_DB)
+        when(self.cursor).execute(ypConst.CREATE_TABLE).thenReturn(testConst.TEST_DB)
 
         # Test outcome
-        self.assertEqual(self.cursor.execute(const.FIND_TABLE), test_const.TEST_DB, 'Database not found')
+        self.assertEqual(self.cursor.execute(ypConst.FIND_TABLE), testConst.TEST_DB, 'Database not found')
 
         # Clean Up Mocks
         unstub()
@@ -73,7 +73,7 @@ class TestSuite(unittest.TestSuite):
     # Tear down class
     #
 
-    def tearDown(self):
+    def teardown(self):
         """ Class tear down  """
 
         self.dir_abs_path.dispose()

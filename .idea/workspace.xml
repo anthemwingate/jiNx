@@ -3,9 +3,38 @@
   <component name="ChangeListManager">
     <list default="true" id="b1b57f69-993d-402a-a7bd-bfabe35b29c6" name="Default Changelist" comment="reorg">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiTTo_YoutubePredictor/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/diTToYoutubePredictor/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiTTo_YoutubePredictor/static/styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/diTToYoutubePredictor/static/styles/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiTTo_YoutubePredictor/templates/youtubePredictor_administrator.html" beforeDir="false" afterPath="$PROJECT_DIR$/diTToYoutubePredictor/templates/youtubePredictor_administrator.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiTTo_YoutubePredictor/templates/youtubePredictor_data.html" beforeDir="false" afterPath="$PROJECT_DIR$/diTToYoutubePredictor/templates/youtubePredictor_data.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiTTo_YoutubePredictor/templates/youtubePredictor_emptyDatabase.html" beforeDir="false" afterPath="$PROJECT_DIR$/diTToYoutubePredictor/templates/youtubePredictor_emptyDatabase.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiTTo_YoutubePredictor/templates/youtubePredictor_exportDatabase.html" beforeDir="false" afterPath="$PROJECT_DIR$/diTToYoutubePredictor/templates/youtubePredictor_exportDatabase.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiTTo_YoutubePredictor/templates/youtubePredictor_save.html" beforeDir="false" afterPath="$PROJECT_DIR$/diTToYoutubePredictor/templates/youtubePredictor_save.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiTTo_YoutubePredictor/templates/youtubePredictor_submissionSuccess.html" beforeDir="false" afterPath="$PROJECT_DIR$/diTToYoutubePredictor/templates/youtubePredictor_submissionSuccess.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiTTo_YoutubePredictor/templates/youtubePredictor_updateDatabase.html" beforeDir="false" afterPath="$PROJECT_DIR$/diTToYoutubePredictor/templates/youtubePredictor_updateDatabase.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiTTo_YoutubePredictor/templates/youtubePredictor_user.html" beforeDir="false" afterPath="$PROJECT_DIR$/diTToYoutubePredictor/templates/youtubePredictor_user.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiTTo_YoutubePredictor/templates/youtubePredictor_videoSubmission.html" beforeDir="false" afterPath="$PROJECT_DIR$/diTToYoutubePredictor/templates/youtubePredictor_videoSubmission.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiTTo_YoutubePredictor/templates/youtubePredictor_webStreamer.html" beforeDir="false" afterPath="$PROJECT_DIR$/diTToYoutubePredictor/templates/youtubePredictor_webStreamer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiTTo_YoutubePredictor/templates/youtubePredictory_batch.html" beforeDir="false" afterPath="$PROJECT_DIR$/diTToYoutubePredictor/templates/youtubePredictory_batch.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiTTo_YoutubePredictor/youtubePredictor_app.py" beforeDir="false" afterPath="$PROJECT_DIR$/diTToYoutubePredictor/youtubePredictor_app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiTTo_YoutubePredictor/youtubePredictor_constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/diTToYoutubePredictor/youtubePredictor_constants.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiTTo_YoutubePredictor/youtubePredictor_dataManager.py" beforeDir="false" afterPath="$PROJECT_DIR$/diTToYoutubePredictor/youtubePredictor_dataManager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiTTo_YoutubePredictor/youtubePredictor_databaseBuilder.py" beforeDir="false" afterPath="$PROJECT_DIR$/diTToYoutubePredictor/youtubePredictor_databaseBuilder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiTTo_YoutubePredictor/youtubePredictor_forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/diTToYoutubePredictor/youtubePredictor_forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiTTo_YoutubePredictor/youtubePredictor_todo.py" beforeDir="false" afterPath="$PROJECT_DIR$/diTToYoutubePredictor/youtubePredictor_todo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiTTo_YoutubePredictor/youtubePredictor_webStreamer.py" beforeDir="false" afterPath="$PROJECT_DIR$/diTToYoutubePredictor/youtubePredictor_webStreamer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiTTo_YoutubePredictor/youtubePreditor_logger.py" beforeDir="false" afterPath="$PROJECT_DIR$/diTToYoutubePredictor/youtubePreditor_logger.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/.coverage" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/.coveragec" beforeDir="false" afterPath="$PROJECT_DIR$/tests/.coveragec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/.coverage.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/.coverage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/.coveragec" beforeDir="false" afterPath="$PROJECT_DIR$/test/.coveragec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/data/testURLs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/test/data/testURLs.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/htmlcov/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/htmlcov/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/logs/youtubePredictor.log" beforeDir="false" afterPath="$PROJECT_DIR$/test/logs/youtubePredictor.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/youtubePredictor_testRunner.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/youtubePredictor_testRunner.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/youtubePredictor_testSuite.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/youtubePredictor_testSuite.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/youtubePredictor_testSuiteConstants.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/youtubePredictor_testSuiteConstants.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,11 +102,11 @@
       <recent name="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor\tests" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor\diTToYoutubePredictor" />
+      <recent name="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor\test" />
       <recent name="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor\tests" />
-      <recent name="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor\DiTTo_YoutubePredictor" />
       <recent name="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor" />
-      <recent name="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor\youtubePredictor_pkg" />
-      <recent name="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor\templates\unittest" />
+      <recent name="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor\DiTTo_YoutubePredictor" />
     </key>
   </component>
   <component name="RunManager">
@@ -105,7 +134,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/youtubePredictor_testRunner.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor\test\youtubePredictor_testRunner.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -131,7 +160,7 @@
       <workItem from="1616262654877" duration="30232000" />
       <workItem from="1616293527345" duration="43129000" />
       <workItem from="1616389232769" duration="6431000" />
-      <workItem from="1616441214524" duration="14606000" />
+      <workItem from="1616441214524" duration="16806000" />
     </task>
     <task id="LOCAL-00001" summary="added functools import and additional logging messages">
       <created>1616425165832</created>
@@ -196,7 +225,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616456618206</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="reorg">
+      <created>1616458694134</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1616458694134</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

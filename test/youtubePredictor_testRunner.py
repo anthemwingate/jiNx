@@ -18,7 +18,7 @@ import unittest
 import coverage
 
 # Import DiTTo_YoutubePredictor Utilities
-from tests import youtubePredictor_testSuite as testSuite
+import youtubePredictor_testSuite as testSuite
 
 if __name__ == '__main__':
     cov = coverage.Coverage()
