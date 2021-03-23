@@ -25,3 +25,7 @@ PGSL_HOST_TESTER = "postgresql_host_tester"
 PGSL_DBNAME_TESTER = "postgresql_dbname_tester"
 PGSL_PORT_TESTER = "postgresql_port_tester"
 TEST_DB = "this is a database"
+
+# Test Data
+USER_INPUT = 'this is a URL'
+VIDEO_STATS_RECORD = [USER_INPUT, True, True, Fals, False, True, 42]
