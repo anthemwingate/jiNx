@@ -190,7 +190,7 @@
       <workItem from="1616389232769" duration="6431000" />
       <workItem from="1616441214524" duration="18089000" />
       <workItem from="1616462039057" duration="1023000" />
-      <workItem from="1616477364390" duration="7049000" />
+      <workItem from="1616477364390" duration="7135000" />
     </task>
     <task id="LOCAL-00001" summary="added functools import and additional logging messages">
       <created>1616425165832</created>
@@ -295,7 +295,8 @@
     <MESSAGE value="added youtubePredictor_logger class to handle logging" />
     <MESSAGE value="removed packages from setup.py" />
     <MESSAGE value="reorg" />
-    <option name="LAST_COMMIT_MESSAGE" value="reorg" />
+    <MESSAGE value="add app testing framework" />
+    <option name="LAST_COMMIT_MESSAGE" value="add app testing framework" />
   </component>
   <component name="WindowStateProjectService">
     <state x="440" y="99" key="#Project_Structure" timestamp="1616474487425">
