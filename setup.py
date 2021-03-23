@@ -53,6 +53,7 @@ with open('README.md') as f:
 
 setup(
     name='DiTTo_YoutubePredictor',
+    packages=['DiTTo_YoutubePredictor',],
     version=youtubePredictor_constants.PACKAGE_VERSION,
     description=DESCRIPTION,
     url=GITHUB_URL,
@@ -60,7 +61,7 @@ setup(
     maintainer=MAINTAINER,
     classifiers=[
         'Topic :: Machine Learning :: Video Analysis and Prediction',
-        'Development Status :: 1 - Development',
+        'Development Status :: ',
         'Environment :: Console',
         'License :: Public Domain',
         'Programming Language :: Python',

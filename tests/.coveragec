@@ -11,7 +11,9 @@ exclude_lines =
     if __name__ == .__main__.:
 ignore_errors = True
 omit =
-    tests/*
+    */DiTTo_YoutubePredictor/
 
 [html]
 directory = coverage_html_report
+
+
