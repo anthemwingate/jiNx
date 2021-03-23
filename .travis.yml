@@ -12,7 +12,7 @@ env:
     - CGO_ENABLED=0
     - GOOS=linux
     - GOARCH=amd64
-    - TEST_SUITE=suite_3_6_unit
+    - TEST_SUITE=suite_3_9_unit
 before_script:
   - export PYTHONPATH=$PYTHONPATH:$(pwd)
 before_install:
