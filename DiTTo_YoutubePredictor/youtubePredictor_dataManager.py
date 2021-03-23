@@ -200,7 +200,8 @@ class DataManager:
 
         try:
             transcript_file = open(f"transcripts\{title}.txt", "w+")
-            transcript_file.write(self.transcript.encode('utf-8'), )
+            for line in self.transcript:
+                transcript_file.write(line.encode('utf-8'), )
             transcript_file.close()
             self.data_mgr_log.log_info(method_name=self.create_transcript_file.__name__, msg='File creation completed')
         except YoutubePredictorError('Unable to create file') as e:
