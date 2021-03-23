@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b1b57f69-993d-402a-a7bd-bfabe35b29c6" name="Default Changelist" comment="reorg">
+      <change afterPath="$PROJECT_DIR$/tests/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/DiTTo_YoutubePredictor.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DiTTo_YoutubePredictor.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ypTester/.coverage" beforeDir="false" afterPath="$PROJECT_DIR$/ypTester/.coverage" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ypTester/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/ypTester/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ypTester/youtubePredictor_dataManager_testRunner.py" beforeDir="false" afterPath="$PROJECT_DIR$/ypTester/youtubePredictor_dataManager_testRunner.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ypTester/youtubePredictor_dataManager_testSuite.py" beforeDir="false" afterPath="$PROJECT_DIR$/ypTester/youtubePredictor_dataManager_testSuite.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +35,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="youtubePredictor_Anthem" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1q211B5EEE3SAHWfd2NsXUyedM8" />
@@ -74,14 +85,14 @@
       <recent name="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor\tests" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor\ypTester" />
       <recent name="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor\diTToYoutubePredictor" />
       <recent name="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor\test" />
       <recent name="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor\tests" />
       <recent name="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor" />
-      <recent name="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor\DiTTo_YoutubePredictor" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.youtubePredictor_testRunner (1)">
+  <component name="RunManager" selected="Python.youtubePredictor_dataManager_testRunner">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -92,6 +103,28 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="youtubePredictor_dataManager_testRunner" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="DiTTo_YoutubePredictor" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ypTester" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ypTester/youtubePredictor_dataManager_testRunner.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
     </configuration>
     <configuration name="youtubePredictor_testRunner (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="DiTTo_YoutubePredictor" />
@@ -139,6 +172,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.youtubePredictor_dataManager_testRunner" />
         <item itemvalue="Python.youtubePredictor_testRunner (1)" />
         <item itemvalue="Python.youtubePredictor_testRunner" />
       </list>
@@ -242,7 +276,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616539704809</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="reorg to attempt to fix build failure">
+      <created>1616540627907</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1616540627907</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -269,13 +310,15 @@
     <MESSAGE value="removed packages from setup.py" />
     <MESSAGE value="reorg" />
     <MESSAGE value="added iteration to create_transcript_file method" />
-    <option name="LAST_COMMIT_MESSAGE" value="added iteration to create_transcript_file method" />
+    <MESSAGE value="reorg to attempt to fix build failure" />
+    <option name="LAST_COMMIT_MESSAGE" value="reorg to attempt to fix build failure" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/DiTTo_YoutubePredictor$youtubePredictor_dataManager_testRunner.coverage" NAME="youtubePredictor_dataManager_testRunner Coverage Results" MODIFIED="1616543010745" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ypTester" />
     <SUITE FILE_PATH="coverage/DiTTo_YoutubePredictor$youtubePredictor_testRunner__1_.coverage" NAME="youtubePredictor_testRunner (1) Coverage Results" MODIFIED="1616463779536" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/DiTTo_YoutubePredictor$youtubePredictor_testRunner.coverage" NAME="youtubePredictor_testRunner Coverage Results" MODIFIED="1616456584067" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
   </component>

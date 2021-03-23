@@ -17,7 +17,7 @@ import sqlite3
 
 # Import DiTTo_YoutubePredictor Utilities
 import ypTester.youtubePredictor_constants as ypConst
-import ypTester.youtubePredictor_testSuiteConstants as tsConst
+import youtubePredictor_testSuiteConstants as tsConst
 
 # create a new database if the database doesn't already exist
 with sqlite3.connect(tsConst.APP_TEST_DB) as connection:

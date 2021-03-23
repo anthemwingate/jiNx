@@ -25,7 +25,7 @@ import ypTester.youtubePredictor_dataManager as dataMgr
 import youtubePredictor_testSuiteConstants as testConst
 
 
-class TestSuite(unittest.TestSuite):
+class TestSuite(unittest.TestCase):
     """ Test Class for DiTTo_YoutubePredictor """
 
     maxDiff = None
@@ -34,7 +34,7 @@ class TestSuite(unittest.TestSuite):
         """ Class setup  """
 
         self.dir_abs_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-        self.directory_path = f"{self.dir_abs_path}/tests/data/testURLs.txt"
+        self.directory_path = f"{self.dir_abs_path}/ypTester/"
 
         # Mock Initializers
         self.data_mgr = dataMgr.DataManager(testConst.STT_API_KEY_TESTER,

@@ -20,7 +20,8 @@ import unittest
 import sqlite3
 
 # Import DiTTo_YoutubePredictor Utilities
-from ypTester import youtubePredictor_testSuiteConstants as tsConst, youtubePredictor_app as app
+from ypTester import youtubePredictor_app as app
+import youtubePredictor_testSuiteConstants as tsConst
 
 
 def connect_db():

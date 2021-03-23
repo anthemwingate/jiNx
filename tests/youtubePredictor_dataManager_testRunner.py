@@ -19,13 +19,12 @@ import unittest
 import coverage
 
 # Import DiTTo
-from ypTester import youtubePredictor_dataManager_testSuite as testSuite
+import youtubePredictor_dataManager_testSuite
 
 if __name__ == '__main__':
     cov = coverage.Coverage()
     cov.start()
-    framework = unittest.TestLoader().loadTestsFromModule(testSuite)
-
+    framework = unittest.TestLoader().loadTestsFromModule(youtubePredictor_dataManager_testSuite)
     test_result = unittest.TextTestRunner(verbosity=2).run(framework).wasSuccessful()
     print("\nTesting Concluded with result:", test_result)
 

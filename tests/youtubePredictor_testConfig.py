@@ -16,7 +16,7 @@
 import os
 
 # Import DiTTo_YoutubePredictor Utilities
-import ypTester.youtubePredictor_testSuiteConstants as tsConst
+import youtubePredictor_testSuiteConstants as tsConst
 
 # default config
 class BaseConfig(object):
