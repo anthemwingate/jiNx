@@ -20,8 +20,8 @@ from flask.ext.script import Manager
 from flask.ext.migrate import Migrate, MigrateCommand
 
 # Import DiTTo_YoutubePredictor Utilities
-import DiTTo_YoutubePredictor.youtubePredictor_app as app
-import test.youtubePredictor_app_testSuite as framework
+import ypTester.youtubePredictor_app as app
+import ypTester.youtubePredictor_app_testSuite as framework
 
 app.config.from_object(os.environ['APP_SETTINGS'])
 db = framework.connect_db()

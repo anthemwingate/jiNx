@@ -20,8 +20,8 @@ import os
 from mockito import when, unstub
 
 # Import DiTTo_YoutubePredictor Utilities
-import DiTTo_YoutubePredictor.youtubePredictor_constants as ypConst
-import DiTTo_YoutubePredictor.youtubePredictor_dataManager as dataMgr
+import ypTester.youtubePredictor_constants as ypConst
+import ypTester.youtubePredictor_dataManager as dataMgr
 import youtubePredictor_testSuiteConstants as testConst
 
 
