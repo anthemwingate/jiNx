@@ -52,8 +52,8 @@ with open('README.md') as f:
     README = f.read()
 
 setup(
-    name='DiTTo_YoutubePredictor',
-    packages=['DiTTo_YoutubePredictor',],
+    name='ypTester',
+    packages=['ypTester',],
     version=youtubePredictor_constants.PACKAGE_VERSION,
     description=DESCRIPTION,
     url=GITHUB_URL,
