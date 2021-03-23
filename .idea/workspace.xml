@@ -20,18 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b1b57f69-993d-402a-a7bd-bfabe35b29c6" name="Default Changelist" comment="reorg">
-      <change afterPath="$PROJECT_DIR$/test/youtubePredictor_appDatabaseTests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/youtubePredictor_app_testRunner.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/youtubePredictor_app_testSuite.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/youtubePredictor_createTestDB.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/youtubePredictor_testingModel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/DiTTo_YoutubePredictor.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DiTTo_YoutubePredictor.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/youtubePredictor_testRunner.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/youtubePredictor_testRunner.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/youtubePredictor_testSuite.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/youtubePredictor_dataManager_testSuite.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/youtubePredictor_testSuiteConstants.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/youtubePredictor_testSuiteConstants.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/youtubePredictor_appDatabaseTests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/youtubePredictor_app_testSuite.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/youtubePredictor_app_testSuite.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,7 +181,7 @@
       <workItem from="1616389232769" duration="6431000" />
       <workItem from="1616441214524" duration="18089000" />
       <workItem from="1616462039057" duration="1023000" />
-      <workItem from="1616477364390" duration="7135000" />
+      <workItem from="1616477364390" duration="7695000" />
     </task>
     <task id="LOCAL-00001" summary="added functools import and additional logging messages">
       <created>1616425165832</created>

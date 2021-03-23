@@ -28,4 +28,4 @@ TEST_DB = "this is a database"
 
 # Test Data
 USER_INPUT = 'this is a URL'
-VIDEO_STATS_RECORD = [USER_INPUT, True, True, Fals, False, True, 42]
+VIDEO_STATS_RECORD = [USER_INPUT, True, True, False, False, True, 42]
