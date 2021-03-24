@@ -7,3 +7,5 @@
 # @TODO add logging to youtubePredictor_app.py using youtubePredictor_logger class
 # @TODO create test database youtubePredictor_testDatabase.db
 # @TODO SQLite setup, download sqlite 3 and sqlite browser, install ipython shell
+# @TODO finish testing framework
+# @TODO replace test constants for connections with SQLite3 values

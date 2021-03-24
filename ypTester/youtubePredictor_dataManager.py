@@ -47,7 +47,7 @@ class DataManager:
             apikey=natural_language_understanding_api_key)
         self.natural_language_understanding = NaturalLanguageUnderstandingV1(
             version=youtubePredictorConstants.NATURAL_LANGUAGE_UNDERSTANDING_VERSION,
-            authenticator=self.natural_language_understanding.authenticator)
+            authenticator= self.natural_language_understanding_authenticator)
 
         # Tone Analyzer Service Initialization
         self.tone_analyzer_authenticator = IAMAuthenticator(apikey=tone_analyzer_api_key)

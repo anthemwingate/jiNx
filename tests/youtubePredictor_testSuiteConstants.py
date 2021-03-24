@@ -24,7 +24,7 @@ PGSL_USERNAME_TESTER = "postgresql_username_tester"
 PGSL_PASSWORD_TESTER = "postgresql_password_tester"
 PGSL_HOST_TESTER = "postgresql_host_tester"
 PGSL_DBNAME_TESTER = "postgresql_dbname_tester"
-PGSL_PORT_TESTER = "postgresql_port_tester"
+PGSL_PORT_TESTER = 8080
 DATA_MANAGER_TEST_DB = "this is a database"
 
 # App Testing

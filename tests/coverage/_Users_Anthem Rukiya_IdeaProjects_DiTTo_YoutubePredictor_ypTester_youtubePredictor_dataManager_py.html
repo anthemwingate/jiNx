@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=emulateIE7" />
-    <title>Coverage for C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor\ypTester\youtubePredictor_dataManager.py: 2%</title>
+    <title>Coverage for C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor\ypTester\youtubePredictor_dataManager.py: 5%</title>
     <link rel="icon" sizes="32x32" href="favicon_32.png">
     <link rel="stylesheet" href="style.css" type="text/css">
     <script type="text/javascript" src="jquery.min.js"></script>
@@ -18,13 +18,13 @@
 <div id="header">
     <div class="content">
         <h1>Coverage for <b>C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor\ypTester\youtubePredictor_dataManager.py</b> :
-            <span class="pc_cov">2%</span>
+            <span class="pc_cov">5%</span>
         </h1>
         <img id="keyboard_icon" src="keybd_closed.png" alt="Show keyboard shortcuts" />
         <h2 class="stats">
             173 statements &nbsp;
-            <button type="button" class="run shortkey_r button_toggle_run" title="Toggle lines run">4 run</button>
-            <button type="button" class="mis show_mis shortkey_m button_toggle_mis" title="Toggle lines missing">169 missing</button>
+            <button type="button" class="run shortkey_r button_toggle_run" title="Toggle lines run">8 run</button>
+            <button type="button" class="mis show_mis shortkey_m button_toggle_mis" title="Toggle lines missing">165 missing</button>
             <button type="button" class="exc show_exc shortkey_x button_toggle_exc" title="Toggle lines excluded">0 excluded</button>
         </h2>
     </div>
@@ -73,7 +73,7 @@
     <p id="t19" class="mis show_mis"><span class="n"><a href="#t19">19</a></span><span class="t"><span class="key">from</span> <span class="nam">flask</span> <span class="key">import</span> <span class="nam">jsonify</span><span class="op">,</span> <span class="nam">flash</span>&nbsp;</span><span class="r"></span></p>
     <p id="t20" class="pln"><span class="n"><a href="#t20">20</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t21" class="pln"><span class="n"><a href="#t21">21</a></span><span class="t"><span class="com"># Import DiTTo_YoutubePredictor Utilities</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t22" class="mis show_mis"><span class="n"><a href="#t22">22</a></span><span class="t"><span class="key">from</span> <span class="nam">ypTester</span> <span class="key">import</span> <span class="nam">youtubePreditor_logger</span> <span class="key">as</span> <span class="nam">ypLog</span><span class="op">,</span> <span class="nam">youtubePredictor_constants</span> <span class="key">as</span> <span class="nam">youtubePredictorConstants</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t22" class="mis show_mis"><span class="n"><a href="#t22">22</a></span><span class="t"><span class="key">from</span> <span class="nam">ypTester</span> <span class="key">import</span> <span class="nam">youtubePredictor_logger</span> <span class="key">as</span> <span class="nam">ypLog</span><span class="op">,</span> <span class="nam">youtubePredictor_constants</span> <span class="key">as</span> <span class="nam">youtubePredictorConstants</span>&nbsp;</span><span class="r"></span></p>
     <p id="t23" class="pln"><span class="n"><a href="#t23">23</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t24" class="pln"><span class="n"><a href="#t24">24</a></span><span class="t"><span class="com"># Import APIs</span>&nbsp;</span><span class="r"></span></p>
     <p id="t25" class="mis show_mis"><span class="n"><a href="#t25">25</a></span><span class="t"><span class="key">from</span> <span class="nam">ibm_watson</span> <span class="key">import</span> <span class="nam">SpeechToTextV1</span><span class="op">,</span> <span class="nam">ToneAnalyzerV3</span><span class="op">,</span> <span class="nam">NaturalLanguageUnderstandingV1</span>&nbsp;</span><span class="r"></span></p>
@@ -101,20 +101,20 @@
     <p id="t47" class="pln"><span class="n"><a href="#t47">47</a></span><span class="t">            <span class="nam">apikey</span><span class="op">=</span><span class="nam">natural_language_understanding_api_key</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t48" class="run"><span class="n"><a href="#t48">48</a></span><span class="t">        <span class="nam">self</span><span class="op">.</span><span class="nam">natural_language_understanding</span> <span class="op">=</span> <span class="nam">NaturalLanguageUnderstandingV1</span><span class="op">(</span>&nbsp;</span><span class="r"></span></p>
     <p id="t49" class="pln"><span class="n"><a href="#t49">49</a></span><span class="t">            <span class="nam">version</span><span class="op">=</span><span class="nam">youtubePredictorConstants</span><span class="op">.</span><span class="nam">NATURAL_LANGUAGE_UNDERSTANDING_VERSION</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t50" class="pln"><span class="n"><a href="#t50">50</a></span><span class="t">            <span class="nam">authenticator</span><span class="op">=</span><span class="nam">self</span><span class="op">.</span><span class="nam">natural_language_understanding</span><span class="op">.</span><span class="nam">authenticator</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t50" class="pln"><span class="n"><a href="#t50">50</a></span><span class="t">            <span class="nam">authenticator</span><span class="op">=</span> <span class="nam">self</span><span class="op">.</span><span class="nam">natural_language_understanding_authenticator</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t51" class="pln"><span class="n"><a href="#t51">51</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p id="t52" class="pln"><span class="n"><a href="#t52">52</a></span><span class="t">        <span class="com"># Tone Analyzer Service Initialization</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t53" class="mis show_mis"><span class="n"><a href="#t53">53</a></span><span class="t">        <span class="nam">self</span><span class="op">.</span><span class="nam">tone_analyzer_authenticator</span> <span class="op">=</span> <span class="nam">IAMAuthenticator</span><span class="op">(</span><span class="nam">apikey</span><span class="op">=</span><span class="nam">tone_analyzer_api_key</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
-    <p id="t54" class="mis show_mis"><span class="n"><a href="#t54">54</a></span><span class="t">        <span class="nam">self</span><span class="op">.</span><span class="nam">tone_analyzer</span> <span class="op">=</span> <span class="nam">ToneAnalyzerV3</span><span class="op">(</span><span class="nam">version</span><span class="op">=</span><span class="nam">youtubePredictorConstants</span><span class="op">.</span><span class="nam">TONE_ANALYZER_VERSION</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t53" class="run"><span class="n"><a href="#t53">53</a></span><span class="t">        <span class="nam">self</span><span class="op">.</span><span class="nam">tone_analyzer_authenticator</span> <span class="op">=</span> <span class="nam">IAMAuthenticator</span><span class="op">(</span><span class="nam">apikey</span><span class="op">=</span><span class="nam">tone_analyzer_api_key</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t54" class="run"><span class="n"><a href="#t54">54</a></span><span class="t">        <span class="nam">self</span><span class="op">.</span><span class="nam">tone_analyzer</span> <span class="op">=</span> <span class="nam">ToneAnalyzerV3</span><span class="op">(</span><span class="nam">version</span><span class="op">=</span><span class="nam">youtubePredictorConstants</span><span class="op">.</span><span class="nam">TONE_ANALYZER_VERSION</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
     <p id="t55" class="pln"><span class="n"><a href="#t55">55</a></span><span class="t">                                            <span class="nam">authenticator</span><span class="op">=</span><span class="nam">self</span><span class="op">.</span><span class="nam">tone_analyzer_authenticator</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t56" class="pln"><span class="n"><a href="#t56">56</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p id="t57" class="mis show_mis"><span class="n"><a href="#t57">57</a></span><span class="t">        <span class="nam">self</span><span class="op">.</span><span class="nam">conn_string</span> <span class="op">=</span> <span class="str">"host='{}' dbname='{}' user='{}' password={} port={}"</span><span class="op">.</span><span class="nam">format</span><span class="op">(</span><span class="nam">postgresql_host</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t57" class="run"><span class="n"><a href="#t57">57</a></span><span class="t">        <span class="nam">self</span><span class="op">.</span><span class="nam">conn_string</span> <span class="op">=</span> <span class="str">"host='{}' dbname='{}' user='{}' password={} port={}"</span><span class="op">.</span><span class="nam">format</span><span class="op">(</span><span class="nam">postgresql_host</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
     <p id="t58" class="pln"><span class="n"><a href="#t58">58</a></span><span class="t">                                                                                        <span class="nam">postgresql_dbname</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
     <p id="t59" class="pln"><span class="n"><a href="#t59">59</a></span><span class="t">                                                                                        <span class="nam">postgresql_username</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
     <p id="t60" class="pln"><span class="n"><a href="#t60">60</a></span><span class="t">                                                                                        <span class="nam">postgresql_password</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
     <p id="t61" class="pln"><span class="n"><a href="#t61">61</a></span><span class="t">                                                                                        <span class="nam">postgresql_port</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t62" class="pln"><span class="n"><a href="#t62">62</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
-    <p id="t63" class="mis show_mis"><span class="n"><a href="#t63">63</a></span><span class="t">        <span class="nam">self</span><span class="op">.</span><span class="nam">conn</span> <span class="op">=</span> <span class="nam">psycopg2</span><span class="op">.</span><span class="nam">connect</span><span class="op">(</span><span class="nam">self</span><span class="op">.</span><span class="nam">conn_string</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p id="t63" class="run"><span class="n"><a href="#t63">63</a></span><span class="t">        <span class="nam">self</span><span class="op">.</span><span class="nam">conn</span> <span class="op">=</span> <span class="nam">psycopg2</span><span class="op">.</span><span class="nam">connect</span><span class="op">(</span><span class="nam">self</span><span class="op">.</span><span class="nam">conn_string</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t64" class="mis show_mis"><span class="n"><a href="#t64">64</a></span><span class="t">        <span class="nam">self</span><span class="op">.</span><span class="nam">cursor</span> <span class="op">=</span> <span class="nam">self</span><span class="op">.</span><span class="nam">conn</span><span class="op">.</span><span class="nam">cursor</span><span class="op">(</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p id="t65" class="mis show_mis"><span class="n"><a href="#t65">65</a></span><span class="t">        <span class="nam">self</span><span class="op">.</span><span class="nam">column_headers</span> <span class="op">=</span> <span class="op">[</span><span class="op">]</span>&nbsp;</span><span class="r"></span></p>
     <p id="t66" class="mis show_mis"><span class="n"><a href="#t66">66</a></span><span class="t">        <span class="nam">self</span><span class="op">.</span><span class="nam">transcript</span> <span class="op">=</span> <span class="str">""</span>&nbsp;</span><span class="r"></span></p>
@@ -315,7 +315,7 @@
     <div class="content">
         <p>
             <a class="nav" href="index.html">&#xab; index</a> &nbsp; &nbsp; <a class="nav" href="https://coverage.readthedocs.io">coverage.py v5.5</a>,
-            created at 2021-03-23 19:59 -0400
+            created at 2021-03-23 21:19 -0400
         </p>
     </div>
 </div>
