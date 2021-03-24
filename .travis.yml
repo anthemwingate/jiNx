@@ -27,5 +27,5 @@ install:
 script:
   - python3 tests/youtubePredictor_dataManager_testRunner.py
 after_success:
-  - - codecov
+  - codecov
   - bash <(curl -s https://codecov.io/bash)
