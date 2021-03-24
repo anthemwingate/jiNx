@@ -12,28 +12,29 @@
 #
 #
 
-
 # Import Data Handling Libraries
 import os
-import unittest
-import coverage
 
-# Import DiTTo
-from test import youtubePredictor_dataManager_testSuite as testSuite
+# Import DiTTo_YoutubePredictor Utilities
+import youtubePredictor_testSuiteConstants as tsConst
 
-if __name__ == '__main__':
-    cov = coverage.Coverage()
-    cov.start()
-    framework = unittest.TestLoader().loadTestsFromModule(testSuite)
+# default config
+class BaseConfig(object):
+    DEBUG = False
+    #SECRET_KEY = '\xbf\xb0\x11\xb1\xcd\xf9\xba\x8bp\x0c...' @TODO determine if sqlite3 requires an API Key
+    SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
 
-    test_result = unittest.TextTestRunner(verbosity=2).run(framework).wasSuccessful()
-    print("\nTesting Concluded with result:", test_result)
 
-    cov.stop()
-    cov.save()
-    print('Coverage Summary: ')
-    cov.report()
-    basedir = os.path.abspath(os.path.dirname(__file__))
-    covdir = os.path.join(basedir, 'coverage')
-    cov.html_report(directory=covdir)
-    cov.erase()
+class TestConfig(BaseConfig):
+    DEBUG = True
+    TESTING = True
+    WTF_CSRF_ENABLED = False
+    SQLALCHEMY_DATABASE_URI = tsConst.SQL_DATABASE_URI
+
+
+class DevelopmentConfig(BaseConfig):
+    DEBUG = True
+
+
+class ProductionConfig(BaseConfig):
+    DEBUG = False

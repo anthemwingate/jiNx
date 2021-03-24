@@ -29,7 +29,7 @@ import pafy
 # Import DiTTo_YoutubePredictor Utilities
 from youtubePredictor_forms import VideoForm
 from youtubePredictor_dataManager import DataManager
-from DiTTo_YoutubePredictor import youtubePredictor_constants, youtubePreditor_logger
+from ypTester import youtubePredictor_logger, youtubePredictor_constants
 
 app = Flask(__name__)
 app.secret_key = 'development key'
@@ -228,7 +228,7 @@ if __name__ == '__main__':
         os.environ.get('POSTGRESQL_PORT'), )
 
     youtubePredictorDatamanager.init()
-    yp_app_log = youtubePreditor_logger.YoutubePredictorLogger()
+    yp_app_log = youtubePredictor_logger.YoutubePredictorLogger()
 
     app.logger.setLevel(logging.DEBUG)
     from gevent import pywsgi

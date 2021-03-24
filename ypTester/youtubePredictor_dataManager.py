@@ -19,8 +19,7 @@ from prettytable import from_db_cursor
 from flask import jsonify, flash
 
 # Import DiTTo_YoutubePredictor Utilities
-from DiTTo_YoutubePredictor import youtubePredictor_constants as youtubePredictorConstants, \
-    youtubePreditor_logger as ypLog
+from ypTester import youtubePredictor_logger as ypLog, youtubePredictor_constants as youtubePredictorConstants
 
 # Import APIs
 from ibm_watson import SpeechToTextV1, ToneAnalyzerV3, NaturalLanguageUnderstandingV1
@@ -48,7 +47,7 @@ class DataManager:
             apikey=natural_language_understanding_api_key)
         self.natural_language_understanding = NaturalLanguageUnderstandingV1(
             version=youtubePredictorConstants.NATURAL_LANGUAGE_UNDERSTANDING_VERSION,
-            authenticator=self.natural_language_understanding.authenticator)
+            authenticator= self.natural_language_understanding_authenticator)
 
         # Tone Analyzer Service Initialization
         self.tone_analyzer_authenticator = IAMAuthenticator(apikey=tone_analyzer_api_key)

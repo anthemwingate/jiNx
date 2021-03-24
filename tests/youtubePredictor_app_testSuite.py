@@ -17,13 +17,11 @@ from __future__ import absolute_import
 # Import Data Handling Libraries
 from flask.ext.testing import TestCase
 import unittest
-import os
 import sqlite3
-from mockito import when, unstub
 
 # Import DiTTo_YoutubePredictor Utilities
-from DiTTo_YoutubePredictor import youtubePredictor_app as app
-from test import youtubePredictor_testSuiteConstants as tsConst
+from ypTester import youtubePredictor_app as app
+import youtubePredictor_testSuiteConstants as tsConst
 
 
 def connect_db():
