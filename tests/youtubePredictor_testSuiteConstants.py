@@ -29,10 +29,12 @@ DATA_MANAGER_TEST_DB = "this is a database"
 
 # App Testing
 USER_INPUT = 'this is a URL'
-VIDEO_STATS_RECORD = dict(url=USER_INPUT, anger=True, disgust=True, fear=False, joy=False, sadness=True, views=42)
+VIEW_COUNT = 42
+VIDEO_STATS_DICT = dict(url=USER_INPUT, anger=True, disgust=True, fear=False, joy=False, sadness=True, views=42)
+VIDEO_STATS_LIST = [True, True, False, False, True]
 APP_TEST_DB = 'youtubePredictor_testDatabase.db'
 APP_TEST_TABLE = 'ypTestStats'
 CREATE_TEST_TABLE = f'CREATE TABLE {APP_TEST_TABLE} (ID SERIAL, URL TEXT NOT NULL UNIQUE, ANGER BOOLEAN NOT NULL, DISGUST BOOLEAN NOT NULL, FEAR BOOLEAN NOT NULL, JOY BOOLEAN NOT NULL, SADNESS BOOLEAN NOT NULL, VIEWS INTEGER NOT NULL);'
-GET_TEST_TABLE = "SELECT * FROM TranscriptStats ORDER by Id"
-ADD_TEST_RECORD = "INSERT INTO TranscriptStats VALUES (USER_INPUT, True, True, False, False, True, 42)"
+GET_TEST_TABLE = f"SELECT * FROM {APP_TEST_TABLE} ORDER by Id"
+ADD_TEST_RECORD = f"INSERT INTO {APP_TEST_TABLE} VALUES (USER_INPUT, True, True, False, False, True, 42)"
 SQL_DATABASE_URI = 'sqlite:///:memory:'
