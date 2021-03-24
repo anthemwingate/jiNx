@@ -22,7 +22,7 @@ URL_TEMPLATE = 'wss://{}/speech-to-text/api/v1/recognize'
 UPLOAD_FOLDER_PATH = 'save/'
 PACKAGE_VERSION = 0.0
 LOGGING_FORMAT = '%(asctime)-15s %(message)s'
-LOG_FILE_PATH = "../logs/youtubePredictor.log"
+LOG_FILE_PATH = "./logs/youtubePredictor.log"
 # Credentials
 NATURAL_LANGUAGE_UNDERSTANDING_VERSION = ''
 SPEECH_TO_TEXT_VERSION = ''
