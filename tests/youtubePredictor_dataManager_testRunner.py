@@ -37,4 +37,5 @@ if __name__ == '__main__':
     basedir = os.path.abspath(os.path.dirname(__file__))
     covdir = os.path.join(basedir, 'coverage')
     cov.html_report(directory=covdir)
+    cov.xml_report()
     cov.erase()

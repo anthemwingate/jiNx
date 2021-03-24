@@ -20,7 +20,7 @@ from flask.ext.script import Manager
 from flask.ext.migrate import Migrate, MigrateCommand
 
 # Import DiTTo_YoutubePredictor Utilities
-import ypTester.youtubePredictor_app as app
+import youtubePredictor.youtubePredictor_app as app
 import youtubePredictor_app_testSuite as framework
 
 app.config.from_object(os.environ['APP_SETTINGS'])

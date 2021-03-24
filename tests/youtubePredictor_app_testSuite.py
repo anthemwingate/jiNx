@@ -20,7 +20,7 @@ import unittest
 import sqlite3
 
 # Import DiTTo_YoutubePredictor Utilities
-from ypTester import youtubePredictor_app as app
+from youtubePredictor import youtubePredictor_app as app
 import youtubePredictor_testSuiteConstants as tsConst
 
 

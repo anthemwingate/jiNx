@@ -22,8 +22,8 @@ import psycopg2
 from mockito import when, unstub
 
 # Import DiTTo_YoutubePredictor Utilities
-import ypTester.youtubePredictor_constants as ypConst
-import ypTester.youtubePredictor_dataManager as dataMgr
+import youtubePredictor.youtubePredictor_constants as ypConst
+import youtubePredictor.youtubePredictor_dataManager as dataMgr
 import youtubePredictor_testSuiteConstants as testConst
 
 
