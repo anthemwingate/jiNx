@@ -1,3 +1,3 @@
-[![build status of branch=youtubePredictor_reorg_anthem](https://travis-ci.com/ssw-695-spring-2021-group-afhk/DiTTo_YoutubePredictor.svg?branch=youtubePredictor_reorg_anthem)](https://travis-ci.com/ssw-695-spring-2021-group-afhk/DiTTo_YoutubePredictor/youtubePredictor_reorg_anthem)
-[![codecov](https://codecov.io/gh/ssw-695-spring-2021-group-afhk/DiTTo_YoutubePredictor/branch/youtubePredictor_reorg_anthem/graph/badge.svg)](https://codecov.io/gh/ssw-695-spring-2021-group-afhk/DiTTo_YoutubePredictoryoutubePredictor/youtubePredictor_reorg_anthem)
-# DiTTo_YoutubePredictor/youtubePredictor_reorg_anthem
+[![build status of branch=youtubePredictor_Anthem](https://travis-ci.com/ssw-695-spring-2021-group-afhk/DiTTo_YoutubePredictor.svg?branch=youtubePredictor_Anthem)](https://travis-ci.com/ssw-695-spring-2021-group-afhk/DiTTo_YoutubePredictor/youtubePredictor_Anthem)
+[![codecov](https://codecov.io/gh/ssw-695-spring-2021-group-afhk/DiTTo_YoutubePredictor/branch/youtubePredictor_Anthem/graph/badge.svg)](https://codecov.io/gh/ssw-695-spring-2021-group-afhk/DiTTo_YoutubePredictoryoutubePredictor_Anthem)
+# DiTTo_YoutubePredictor/youtubePredictor_Anthem
