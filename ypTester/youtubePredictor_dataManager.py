@@ -19,7 +19,7 @@ from prettytable import from_db_cursor
 from flask import jsonify, flash
 
 # Import DiTTo_YoutubePredictor Utilities
-from ypTester import youtubePreditor_logger as ypLog, youtubePredictor_constants as youtubePredictorConstants
+from ypTester import youtubePredictor_logger as ypLog, youtubePredictor_constants as youtubePredictorConstants
 
 # Import APIs
 from ibm_watson import SpeechToTextV1, ToneAnalyzerV3, NaturalLanguageUnderstandingV1
