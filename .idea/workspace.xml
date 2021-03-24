@@ -315,7 +315,21 @@
       <option name="project" value="LOCAL" />
       <updated>1616548194843</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="corrected minor typos in logger class">
+      <created>1616548414682</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1616548414682</updated>
+    </task>
+    <task id="LOCAL-00017" summary="refactoring testing to remediate errors">
+      <created>1616548988468</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1616548988468</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -344,7 +358,9 @@
     <MESSAGE value="added iteration to create_transcript_file method" />
     <MESSAGE value="reorg to attempt to fix build failure" />
     <MESSAGE value="expanded backend test framwork and identified key TODO items" />
-    <option name="LAST_COMMIT_MESSAGE" value="expanded backend test framwork and identified key TODO items" />
+    <MESSAGE value="corrected minor typos in logger class" />
+    <MESSAGE value="refactoring testing to remediate errors" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactoring testing to remediate errors" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
@@ -353,7 +369,7 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/DiTTo_YoutubePredictor$youtubePredictor_dataManager_testRunner.coverage" NAME="youtubePredictor_dataManager_testRunner Coverage Results" MODIFIED="1616543010745" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ypTester" />
     <SUITE FILE_PATH="coverage/DiTTo_YoutubePredictor$youtubePredictor_testRunner__1_.coverage" NAME="youtubePredictor_testRunner (1) Coverage Results" MODIFIED="1616463779536" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
-    <SUITE FILE_PATH="coverage/DiTTo_YoutubePredictor$youtubePredictor_dataManager_testRunner__1_.coverage" NAME="youtubePredictor_dataManager_testRunner (1) Coverage Results" MODIFIED="1616543960063" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/DiTTo_YoutubePredictor$youtubePredictor_dataManager_testRunner__1_.coverage" NAME="youtubePredictor_dataManager_testRunner (1) Coverage Results" MODIFIED="1616548865623" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/DiTTo_YoutubePredictor$youtubePredictor_testRunner.coverage" NAME="youtubePredictor_testRunner Coverage Results" MODIFIED="1616456584067" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
   </component>
 </project>
