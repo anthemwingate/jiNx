@@ -15,7 +15,7 @@
 from setuptools import setup
 
 # Import DiTTo_YoutubePredictor Utilities
-from ypTester import youtubePredictor_constants
+from youtubePredictor import youtubePredictor_constants
 
 DESCRIPTION='The team from DiTTo present a Youtube video analyzer implementation which predicts potential number of views for a video'
 GITHUB_URL='https://github.com/ssw-695-spring-2021-group-afhk/DiTTo_YoutubePredictor'
@@ -52,8 +52,8 @@ with open('README.md') as f:
     README = f.read()
 
 setup(
-    name='ypTester',
-    packages=['ypTester',],
+    name='youtubePredictor',
+    packages=['youtubePredictor',],
     version=youtubePredictor_constants.PACKAGE_VERSION,
     description=DESCRIPTION,
     url=GITHUB_URL,
