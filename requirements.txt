@@ -32,7 +32,6 @@ sqlite3-api==2.0.1
 python-vlc==3.0.11115
 urllib3== 1.26.4
 pymedia2-pyrana==0.6.0
-PyAudio==0.2.11
 fluteline==0.0.8
 setuptools~=54.0.0
 Werkzeug~=1.0.1
