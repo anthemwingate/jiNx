@@ -36,13 +36,12 @@ import pyaudio
 import vlc
 
 # Import DiTTo_YoutubePredictor Utilities
-import youtubePredictor_logger as ypLog
 import youtubePredictor_constants as youtubePredictorConstants
 import youtubePredictor_dataManager as DataManager
 import youtubePredictor_logger as ypLogger
 
 # Import APIs
-from ibm_watson import SpeechToTextV1, ToneAnalyzerV3, NaturalLanguageUnderstandingV1
+from ibm_watson import SpeechToTextV1, ToneAnalyzerV3
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 
 
@@ -72,10 +71,12 @@ class UrlAudioGen(fluteline.Producer):
 
 
 class DataBuilder:
-    def __init__(self, speech_to_text_api_key, speech_to_text_endpoint_url, tone_analyzer_api_key,
-                 tone_analyzer_endpoint_url):
+    def __init__(self,
+                 speech_to_text_api_key,
+                 tone_analyzer_api_key,
+                 ):
         # Speech To Text Service Initialization
-        self.speech_to_text_authenticator = IAMAuthenticator(apikey=tone_analyzer_api_key)
+        self.speech_to_text_authenticator = IAMAuthenticator(apikey=speech_to_text_api_key)
         self.speech_to_text = SpeechToTextV1(authenticator=self.speech_to_text_authenticator)
 
         # Tone Analyzer Service Initialization
@@ -86,8 +87,8 @@ class DataBuilder:
         self.db_builder_log = ypLogger.YoutubePredictorLogger()
         self.transcript = ""
         self.py_aud = pyaudio.PyAudio()
-        self.CHUNK = 1024
-        self.s_rate = 44100
+        self.CHUNK = 1024  # @TODO move to constants class
+        self.S_RATE = 44100  # @TODO move to constants class
 
     def analyze_transcript(self, audio_stream):
         self.db_builder_log.log_method_started(method_name=self.analyze_transcript.__name__, msg='Analyzing transcript')
@@ -174,7 +175,7 @@ class DataBuilder:
                                                      url=pafy.new(url))
         stream = self.py_aud.open(format=self.py_aud.get_format_from_width(2),
                                   channels=1,
-                                  rate=self.s_rate,
+                                  rate=self.S_RATE,
                                   output=True)
         data = url_request.read(self.CHUNK)
         while data:
@@ -187,8 +188,6 @@ if __name__ == '__main__':
     load_dotenv(os.path.join(os.path.dirname(__file__), '.env'))
     data_bldr = DataBuilder(
         os.environ.get('SPEECH_TO_TEXT_API_KEY'),
-        os.environ.get('SPEECH_TO_TEXT_ENDPOINT_URL'),
         os.environ.get('TONE_ANALYZER_API_KEY'),
-        os.environ.get('TONE_ANALYZER_ENDPOINT_URL'),
     )
     data_bldr.get_urls()

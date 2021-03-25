@@ -23,7 +23,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_databaseBuilder.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_databaseBuilder.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_webStreamer.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_webStreamer.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -424,7 +423,8 @@
     <MESSAGE value="added codecov to requirements" />
     <MESSAGE value="changed cov.html_report to cov.xml_report" />
     <MESSAGE value="minor refactor for log file path" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor refactor for log file path" />
+    <MESSAGE value="continued dev on websockets implementation fot DataBuilder class" />
+    <option name="LAST_COMMIT_MESSAGE" value="continued dev on websockets implementation fot DataBuilder class" />
   </component>
   <component name="WindowStateProjectService">
     <state x="-2523" y="-443" key="FileChooserDialogImpl" timestamp="1616703313950">
