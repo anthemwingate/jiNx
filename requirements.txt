@@ -29,4 +29,7 @@ alembic==1.5.7
 gunicorn==20.0.4
 itsdangerous==1.1.0
 sqlite3-api==2.0.1
-python-vlc==
+python-vlc==3.0.11115
+urllib3== 1.26.4
+pymedia2-pyrana==0.6.0
+PyAudio==0.2.11

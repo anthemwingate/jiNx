@@ -30,6 +30,8 @@ import requests
 import pafy
 import fluteline
 from urllib.request import urlopen
+from urllib3 import request
+import pyaudio
 
 import vlc
 
@@ -83,7 +85,9 @@ class DataBuilder:
         self.record_count = 0
         self.db_builder_log = ypLogger.YoutubePredictorLogger()
         self.transcript = ""
-
+        self.py_aud = pyaudio.PyAudio()
+        self.CHUNK = 1024
+        self.s_rate = 44100
 
     def analyze_transcript(self, audio_stream):
         self.db_builder_log.log_method_started(method_name=self.analyze_transcript.__name__, msg='Analyzing transcript')
@@ -101,7 +105,7 @@ class DataBuilder:
             self.db_builder_log.log_info(method_name=self.analyze_transcript.__name__, msg=jsonify(response))
         else:
             self.db_builder_log.log_method_completed(method_name=self.analyze_transcript.__name__,
-                                         msg='Transcript analysis completed')
+                                                     msg='Transcript analysis completed')
 
     def calculate_tones(self):
         self.db_builder_log.log_method_started(method_name=self.calculate_tones.__name__, msg='Calculating tones')
@@ -112,7 +116,8 @@ class DataBuilder:
 
             for tone in response["document_tone"]["tone_categories"][0]["tones"]:
                 scores.append(tone["score"])
-            self.db_builder_log.log_method_completed(method_name=self.calculate_tones.__name__, msg='Tone calculation completed')
+            self.db_builder_log.log_method_completed(method_name=self.calculate_tones.__name__,
+                                                     msg='Tone calculation completed')
             return scores
         except YoutubePredictorError('IBM Watson Tone Analyzer Service connection failure') as e:
             self.db_builder_log.log_error(ex=e, method_name=self.calculate_tones.__name__)
@@ -141,7 +146,8 @@ class DataBuilder:
             csv_writer.writerow(record)
             training_file.close()
             self.record_count += 1
-            self.db_builder_log.log_method_completed(method_name=self.create_csv_file.__name__, msg="CSV file creation completed")
+            self.db_builder_log.log_method_completed(method_name=self.create_csv_file.__name__,
+                                                     msg="CSV file creation completed")
         except YoutubePredictorError('Unable to create file') as e:
             self.db_builder_log.log_error(ex=e, method_name=self.create_csv_file.__name__)
             raise
@@ -164,9 +170,16 @@ class DataBuilder:
 
     def web_streamer(self, url, view_count):
         self.db_builder_log.log_method_started(method_name=self.web_streamer.__name__, msg="Streaming audio")
-        streamer = UrlAudioGen(url=url)
-        self.analyze_transcript(audio_stream=streamer.produce())
-        streamer.exit()
+        url_request = request.RequestMethods.urlopen(method=request.RequestMethods.request_encode_url(method="GET"),
+                                                     url=pafy.new(url))
+        stream = self.py_aud.open(format=self.py_aud.get_format_from_width(2),
+                                  channels=1,
+                                  rate=self.s_rate,
+                                  output=True)
+        data = url_request.read(self.CHUNK)
+        while data:
+            self.analyze_transcript(audio_stream=stream.produce())
+        stream.exit()
         self.create_csv_file(url=url, view_count=view_count)
 
 
