@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b1b57f69-993d-402a-a7bd-bfabe35b29c6" name="Default Changelist" comment="reorg">
-      <change beforePath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_logger.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_logger.py" afterDir="false" />
+    <list default="true" id="f356cc26-27e5-4a44-ba90-b6448e44ec8c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_env.template" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor/_env.template" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_dataManager.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_dataManager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_databaseBuilder.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_databaseBuilder.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_webStreamer.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +36,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="youtubePredictor_Anthem" />
+        <entry key="$PROJECT_DIR$" value="youtubePredictor_testFrame" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -48,48 +53,26 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.standard" value="true" />
-    <property name="node.js.path.for.package.eslint" value="project" />
-    <property name="node.js.path.for.package.standard" value="project" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
-  </component>
-  <component name="PyConsoleOptionsProvider">
-    <option name="myPythonConsoleState">
-      <console-settings module-name="DiTTo_YoutubePredictor" is-module-sdk="true">
-        <option name="myUseModuleSdk" value="true" />
-        <option name="myModuleName" value="DiTTo_YoutubePredictor" />
-      </console-settings>
-    </option>
-  </component>
-  <component name="PyCoverageOptionsProvider">
-    <option name="myUseBundledCoveragePy" value="true" />
-    <option name="myBranchCoverage" value="true" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor\tests" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor\tests" />
-      <recent name="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor\ypTester" />
-      <recent name="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor\diTToYoutubePredictor" />
-      <recent name="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor\test" />
+      <recent name="C:\Users\Anthe\IdeaProjects\DiTTo_YoutubePredictor\youtubePredictor" />
+      <recent name="C:\Users\Anthe\IdeaProjects\DiTTo_YoutubePredictor\youtubePredictor\templates" />
       <recent name="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor" />
-    </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="" />
+      <recent name="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor\youtubePredictor_pkg" />
+      <recent name="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor\tests" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.youtubePredictor_dataManager_testRunner (1)">
+  <component name="RunManager">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -101,107 +84,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="youtubePredictor_dataManager_testRunner (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="DiTTo_YoutubePredictor" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/youtubePredictor_dataManager_testRunner.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="youtubePredictor_dataManager_testRunner" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="DiTTo_YoutubePredictor" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ypTester" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor\tests\youtubePredictor_dataManager_testRunner.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="youtubePredictor_testRunner (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="DiTTo_YoutubePredictor" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/youtubePredictor_testRunner.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="youtubePredictor_testRunner" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="DiTTo_YoutubePredictor" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor\test\youtubePredictor_testRunner.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Python.youtubePredictor_dataManager_testRunner (1)" />
-        <item itemvalue="Python.youtubePredictor_dataManager_testRunner" />
-        <item itemvalue="Python.youtubePredictor_testRunner (1)" />
-        <item itemvalue="Python.youtubePredictor_testRunner" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="b1b57f69-993d-402a-a7bd-bfabe35b29c6" name="Default Changelist" comment="added functools import and additional logging messages" />
+      <changelist id="f356cc26-27e5-4a44-ba90-b6448e44ec8c" name="Default Changelist" comment="" />
       <created>1616262653271</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -209,164 +96,9 @@
       <workItem from="1616262654877" duration="30232000" />
       <workItem from="1616293527345" duration="43129000" />
       <workItem from="1616389232769" duration="6431000" />
-      <workItem from="1616441214524" duration="18089000" />
-      <workItem from="1616462039057" duration="1023000" />
+      <workItem from="1616649116812" duration="230000" />
+      <workItem from="1616649387762" duration="7580000" />
     </task>
-    <task id="LOCAL-00001" summary="added functools import and additional logging messages">
-      <created>1616425165832</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1616425165832</updated>
-    </task>
-    <task id="LOCAL-00002" summary="added youtubePredictor_logger class to handle logging">
-      <created>1616447831116</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1616447831116</updated>
-    </task>
-    <task id="LOCAL-00003" summary="removed packages from setup.py">
-      <created>1616448002266</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1616448002266</updated>
-    </task>
-    <task id="LOCAL-00004" summary="removed packages from setup.py">
-      <created>1616448532070</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1616448532070</updated>
-    </task>
-    <task id="LOCAL-00005" summary="removed packages from setup.py">
-      <created>1616448726832</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1616448726832</updated>
-    </task>
-    <task id="LOCAL-00006" summary="reorg">
-      <created>1616449025295</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1616449025295</updated>
-    </task>
-    <task id="LOCAL-00007" summary="reorg">
-      <created>1616449133246</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1616449133246</updated>
-    </task>
-    <task id="LOCAL-00008" summary="reorg">
-      <created>1616450201803</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1616450201803</updated>
-    </task>
-    <task id="LOCAL-00009" summary="reorg">
-      <created>1616456618206</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1616456618206</updated>
-    </task>
-    <task id="LOCAL-00010" summary="reorg">
-      <created>1616458694134</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1616458694134</updated>
-    </task>
-    <task id="LOCAL-00011" summary="reorg">
-      <created>1616461168241</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1616461168241</updated>
-    </task>
-    <task id="LOCAL-00012" summary="added iteration to create_transcript_file method">
-      <created>1616539704809</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1616539704809</updated>
-    </task>
-    <task id="LOCAL-00013" summary="reorg to attempt to fix build failure">
-      <created>1616540627907</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1616540627907</updated>
-    </task>
-    <task id="LOCAL-00014" summary="reorg to attempt to fix build failure">
-      <created>1616543490310</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1616543490310</updated>
-    </task>
-    <task id="LOCAL-00015" summary="expanded backend test framwork and identified key TODO items">
-      <created>1616548194843</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1616548194843</updated>
-    </task>
-    <task id="LOCAL-00016" summary="corrected minor typos in logger class">
-      <created>1616548414682</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1616548414682</updated>
-    </task>
-    <task id="LOCAL-00017" summary="refactoring testing to remediate errors">
-      <created>1616548988468</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1616548988468</updated>
-    </task>
-    <task id="LOCAL-00018" summary="added TODO items">
-      <created>1616549402659</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1616549402659</updated>
-    </task>
-    <task id="LOCAL-00019" summary="renamed package. refactored travis and setup to reflect the change.">
-      <created>1616550522233</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1616550522233</updated>
-    </task>
-    <task id="LOCAL-00020" summary="added codecov to requirements">
-      <created>1616550706654</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1616550706654</updated>
-    </task>
-    <task id="LOCAL-00021" summary="changed cov.html_report to cov.xml_report">
-      <created>1616550839737</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1616550839737</updated>
-    </task>
-    <task id="LOCAL-00022" summary="minor refactor for log file path">
-      <created>1616551016435</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1616551016435</updated>
-    </task>
-    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -384,34 +116,8 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
-  <component name="VcsManagerConfiguration">
-    <ignored-roots>
-      <path value="$PROJECT_DIR$/AngularFlask" />
-    </ignored-roots>
-    <MESSAGE value="added functools import and additional logging messages" />
-    <MESSAGE value="added youtubePredictor_logger class to handle logging" />
-    <MESSAGE value="removed packages from setup.py" />
-    <MESSAGE value="reorg" />
-    <MESSAGE value="added iteration to create_transcript_file method" />
-    <MESSAGE value="reorg to attempt to fix build failure" />
-    <MESSAGE value="expanded backend test framwork and identified key TODO items" />
-    <MESSAGE value="corrected minor typos in logger class" />
-    <MESSAGE value="refactoring testing to remediate errors" />
-    <MESSAGE value="added TODO items" />
-    <MESSAGE value="renamed package. refactored travis and setup to reflect the change." />
-    <MESSAGE value="added codecov to requirements" />
-    <MESSAGE value="changed cov.html_report to cov.xml_report" />
-    <MESSAGE value="minor refactor for log file path" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor refactor for log file path" />
-  </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/DiTTo_YoutubePredictor$youtubePredictor_dataManager_testRunner.coverage" NAME="youtubePredictor_dataManager_testRunner Coverage Results" MODIFIED="1616543010745" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ypTester" />
-    <SUITE FILE_PATH="coverage/DiTTo_YoutubePredictor$youtubePredictor_testRunner__1_.coverage" NAME="youtubePredictor_testRunner (1) Coverage Results" MODIFIED="1616463779536" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
-    <SUITE FILE_PATH="coverage/DiTTo_YoutubePredictor$youtubePredictor_dataManager_testRunner__1_.coverage" NAME="youtubePredictor_dataManager_testRunner (1) Coverage Results" MODIFIED="1616551107568" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
-    <SUITE FILE_PATH="coverage/DiTTo_YoutubePredictor$youtubePredictor_testRunner.coverage" NAME="youtubePredictor_testRunner Coverage Results" MODIFIED="1616456584067" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
   </component>
 </project>

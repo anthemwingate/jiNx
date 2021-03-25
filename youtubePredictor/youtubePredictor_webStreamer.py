@@ -1,55 +1,45 @@
-# Project                                                  : DiTTo Yoututbe Predictor
-# Author                                                   : Team DiTTo Stevens Institute of Tecchnology SSW 695A Spring 2021
-# Architect/Core Implementation                            : Anthem Rukiya J. Wingate
-# Architect/Production Design                              : Hanqing Liu
-# Version Control Management and Quality Assurance Tester  : Farnaz Sabetpour
-# Purpose                                                  : Flask APP to run Youtube Predictor Implementation
-# Revision History                                         : Version 1.0
-
-# Notes:
-#
-#
-#
+from urllib2 import urlopen
+import pyaudio
+import pymedia.audio.acodec as acodec
+import pymedia.muxer as muxer
+dm= muxer.Demuxer( 'mp3' )
 
 
-# Import Data Handling Libraries
-import contextlib
-import time
-import pafy
-import fluteline
+pyaud = pyaudio.PyAudio()
 
-# Import DiTTo_YoutubePredictor Utilities
-import youtubePredictor_constants
+srate=44100
 
-# Import APIs
-import watson_streaming
-import watson_streaming.utilities
+stream = pyaud.open(format = pyaud.get_format_from_width(2),
+                    channels = 1,
+                    rate = srate,
+                    output = True)
 
 
-def initialize_websocket(videoURL, credentials):
-    input_video = pafy.new(videoURL)
-    input_audio_stream_url = input_video._audiostreams[youtubePredictor_constants.AUDIO_STREAM_QUALITY].url
-    settings = {
-        'content_type': 'audio/webm',
-        'timestamps': False,
-        'word_confidence': False,
-        'continuous': True,
-        'interim_results': True,
-    }
+url = "http://www.bensound.org/bensound-music/bensound-dubstep.mp3"
 
-    nodes = [
-        watson_streaming.utilities.FileAudioGen(input_audio_stream_url),
-        watson_streaming.Transcriber(settings, credentials),
-        watson_streaming.utilities.Printer(),
-    ]
+u = urlopen(url)
 
-    fluteline.connect(nodes)
-    fluteline.start(nodes)
+data = u.read(8192)
 
-    try:
-        with contextlib.closing(?.open(input_audio_stream_url)) as f: # @TODO identify a library to open webm files
-            audio_chunk_length = f.getnframes() / f.getnchannels() / f.getframerate()
-        # Sleep till the end of the file + some seconds slack
-        time.sleep(audio_chunk_length + 5)
-    finally:
-        fluteline.stop(nodes)
+while data:
+
+    #Start Decode using pymedia
+    dec= None
+    s= " "
+    sinal=[]
+    while len( s ):
+        s= data
+        if len( s ):
+            frames= dm.parse( s )
+            for fr in frames:
+                if dec== None:
+                    # Open decoder
+                    dec= acodec.Decoder( dm.streams[ 0 ] )
+                r= dec.decode( fr[ 1 ] )
+                if r and r.data:
+                    din = r.data;
+            s=""
+    #decode ended
+
+    stream.write(din)
+    data = u.read(8192)

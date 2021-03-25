@@ -94,6 +94,8 @@ class DataManager:
         self.data_mgr_log.log_method_started(method_name=self.get_all_records_from_database.__name__,
                                              msg='Getting records')
         self.cursor.execute(youtubePredictorConstants.GET_TABLE)
+        self.data_mgr_log.log_method_completed(method_name=self.get_all_records_from_database.__name__,
+                                               msg="Get all records completed")
         return self.cursor.fetchall()
 
     def get_column_headers(self):
@@ -107,21 +109,23 @@ class DataManager:
         try:
             update_st = youtubePredictorConstants.GET_SINGLE_RECORD
             self.cursor.execute(update_st, (i,))
-            self.data_mgr_log.log_method_started(method_name=self.get_record_from_database.__name__,
-                                                 msg='Record found.')
+            self.data_mgr_log.log_method_completed(method_name=self.get_all_records_from_database.__name__,
+                                                   msg="Get record from database completed")
             return self.cursor.fetchone()
         except YoutubePredictorError('Record not found.') as e:
             self.reset_cursor()
-            self.data_mgr_log.log_error(e)
+            self.data_mgr_log.log_error(ex=e, method_name=self.get_record_from_database.__name__)
 
     def update_record_in_database(self, val, i):
         self.data_mgr_log.log_method_started(method_name=self.update_record_in_database.__name__,
                                              msg=f'Updating record with id: {i}')
         try:
-            newtones = self.calculate_tones(val) + (i,)  # @TODO needs rework, newtones isn't a complete record
+            newtones = self.calculate_tones(val, i)  # @TODO needs rework, newtones isn't a complete record
             update_st = youtubePredictorConstants.UPDATE_RECORD
             self.cursor.execute(update_st, newtones)
             self.conn.commit()
+            self.data_mgr_log.log_method_completed(method_name=self.update_record_in_database.__name__,
+                                                 msg="Record updated")
         except YoutubePredictorError('Record not found') as e:
             self.reset_cursor()
             self.data_mgr_log.log_error(ex=e, method_name=self.update_record_in_database.__name__)
@@ -136,6 +140,8 @@ class DataManager:
             update_st = youtubePredictorConstants.REMOVE_SINGLE_RECORD
             self.cursor.execute(update_st, (i,))
             self.conn.commit()
+            self.data_mgr_log.log_method_completed(method_name=self.delete_record_from_database.__name__,
+                                                 msg="Record deleted")
         except YoutubePredictorError('Record not found') as e:
             self.reset_cursor()
             self.data_mgr_log.log_error(ex=e, method_name=self.delete_record_from_database.__name__)
@@ -154,6 +160,7 @@ class DataManager:
 
             for chunk in response['results']:
                 self.transcript += chunk['alternatives'][0]['transcript']
+            self.data_mgr_log.log_method_completed(method_name=self.analyze_transcript.__name__, msg='Transcript analyzed')
         except YoutubePredictorError('IBM Watson Speech to Text Service connection failure') as e:
             self.data_mgr_log.log_error(ex=e, method_name=self.analyze_transcript.__name__)
             self.data_mgr_log.log_info(method_name=self.analyze_transcript.__name__, msg=jsonify(response))
@@ -170,7 +177,7 @@ class DataManager:
 
             for tone in response["document_tone"]["tone_categories"][0]["tones"]:
                 scores.append(tone["score"])
-            self.data_mgr_log.log_info(method_name=self.calculate_tones.__name__, msg='Tone calculation completed')
+            self.data_mgr_log.log_method_completed(method_name=self.calculate_tones.__name__, msg='Tone calculation completed')
             return scores
         except YoutubePredictorError('IBM Watson Tone Analyzer Service connection failure') as e:
             self.data_mgr_log.log_error(ex=e, method_name=self.calculate_tones.__name__)
@@ -187,7 +194,7 @@ class DataManager:
             record.append(views)
             self.cursor.execute(update_st, record)
             self.conn.commit()
-            self.data_mgr_log.log_info(method_name=self.add_video_stats.__name__, msg='Record added to database')
+            self.data_mgr_log.log_method_completed(method_name=self.add_video_stats.__name__, msg='Record added to database')
             return record
         except YoutubePredictorError('IBM Watson PostGreSQL Service connection failure') as e:
             self.reset_cursor()
@@ -200,9 +207,9 @@ class DataManager:
         try:
             transcript_file = open(f"transcripts\{title}.txt", "w+")
             for line in self.transcript:
-                transcript_file.write(line.encode('utf-8'), )
+                transcript_file.write(line)
             transcript_file.close()
-            self.data_mgr_log.log_info(method_name=self.create_transcript_file.__name__, msg='File creation completed')
+            self.data_mgr_log.log_method_completed(method_name=self.create_transcript_file.__name__, msg='File creation completed')
         except YoutubePredictorError('Unable to create file') as e:
             self.data_mgr_log.log_error(ex=e, method_name=self.add_video_stats.__name__)
             raise
@@ -233,7 +240,7 @@ class DataManager:
             raise
         else:
             csvfile.close()
-            self.data_mgr_log.log_info(method_name=self.import_data_from_file.__name__,
+            self.data_mgr_log.log_method_completed(method_name=self.import_data_from_file.__name__,
                                        msg='CSV File successfully imported.')
 
         if is_added and is_skipped_record:
@@ -254,5 +261,5 @@ class DataManager:
             self.data_mgr_log.log_error(ex=e, method_name=self.remove_all_data_from_database.__name__)
             raise
         else:
-            self.data_mgr_log.log_info(method_name=self.remove_all_data_from_database.__name__,
+            self.data_mgr_log.log_method_completed(method_name=self.remove_all_data_from_database.__name__,
                                        msg='Contents removal completed')
