@@ -38,3 +38,4 @@ Werkzeug~=1.0.1
 gevent~=21.1.2
 WTForms~=2.3.3
 fluteline~=0.0.8
+numpy==1.20.1
