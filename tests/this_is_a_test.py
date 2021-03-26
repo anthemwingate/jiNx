@@ -42,7 +42,9 @@ if __name__ == '__main__':
     cov = coverage.Coverage()
     cov.start()
     unittest.NotReallyATestCase.maxDiff = None
-    unittest.main(verbosity=2)    print("\nTesting Concluded with result:", test_result)
+    framework = unittest.TestLoader().loadTestsFromTestCase(NotReallyATestCase)
+    test_result = unittest.TextTestRunner(verbosity=2).run(framework).wasSuccessful()
+    print("\nTesting Concluded with result:", test_result)
     cov.stop()
     cov.save()
     print('Coverage Summary: ')
