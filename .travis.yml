@@ -19,31 +19,31 @@ install:
  - pip install python-dotenv
  - pip install ibm-watson
  - pip install ibm-cloud-sdk-core
- - pip watson-developer-cloud
- - pip Flask_WTF
- - prettyTable
- - jinja2
- - codecov
- - beautifulsoup4
- - requests
- - os.path2
- - flask-sockets
- - pafy
- - watson-streaming
- - mockito
- - Flask-Bcrypt
- - Flask-Login
- - Flask-Migrate
- - Falsk-SQLAlchemy
- - SQLAlchemy
- - Flask-Script
- - Flask-Testing
- - Mako
- - MarkupSafe
- - alembic
- - gunicorn
- - itsdangerous
- - swlilite3
+ - pip install watson-developer-cloud
+ - pip install Flask_WTF
+ - pip install prettyTable
+ - pip install jinja2
+ - pip install beautifulsoup4
+ - pip install requests
+ - pip install os.path2
+ - pip install flask-sockets
+ - pip install pafy
+ - pip install watson-streaming
+ - pip install mockito
+ - pip install Flask-Bcrypt
+ - pip install Flask-Login
+ - pip install Flask-Migrate
+ - pip install Flask-SQLAlchemy
+ - pip install SQLAlchemy
+ - pip install Flask-Script
+ - pip install Flask-Testing
+ - pip install Mako
+ - pip install MarkupSafe
+ - pip install alembic
+ - pip install gunicorn
+ - pip install itsdangerous
+ - pip install swlilite3
+ - pip install codecov
  - pip install coverage
  - sudo apt-get install python-pyaudio
  - pip install -e .
