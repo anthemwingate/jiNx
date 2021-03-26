@@ -41,7 +41,7 @@ class NotReallyATestCase(unittest.TestCase):
 if __name__ == '__main__':
     cov = coverage.Coverage()
     cov.start()
-    unittest.NotReallyATestCase.maxDiff = None
+    unittest.TestCase.maxDiff = None
     framework = unittest.TestLoader().loadTestsFromTestCase(NotReallyATestCase)
     test_result = unittest.TextTestRunner(verbosity=2).run(framework).wasSuccessful()
     print("\nTesting Concluded with result:", test_result)
