@@ -42,7 +42,7 @@ install:
  - pip install alembic
  - pip install gunicorn
  - pip install itsdangerous
- - pip install swlilite3
+ - pip install sqllite3
  - pip install codecov
  - pip install coverage
  - sudo apt-get install python-pyaudio
