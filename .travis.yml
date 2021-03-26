@@ -1,13 +1,56 @@
 language: python
 python:
- - "3.5"
-# command to run tests
-script:
- - coverage run -m unittest 
-
+ - "3.9"
+include:
+ - name: "3.9 Unit Test"
+env:
+ global:
+  # TRAVIS TESTING CONFIGURATION
+  - COMMIT=${TRAVIS_COMMIT::8}
+  - CGO_ENABLED=0
+  - GOOS=linux
+  - GOARCH=amd64
+  - TEST_SUITE=suite_3_9_unit
+before_script:
+ - export PYTHONPATH=$PYTHONPATH:$(pwd)
 install:
+ - pip install Flask
+ - pip install psycopg2
+ - pip install python-dotenv
+ - pip install ibm-watson
+ - pip install ibm-cloud-sdk-core
+ - pip watson-developer-cloud
+ - pip Flask_WTF
+ - prettyTable
+ - jinja2
+ - codecov
+ - beautifulsoup4
+ - requests
+ - os.path2
+ - flask-sockets
+ - pafy
+ - watson-streaming
+ - mockito
+ - Flask-Bcrypt
+ - Flask-Login
+ - Flask-Migrate
+ - Falsk-SQLAlchemy
+ - SQLAlchemy
+ - Flask-Script
+ - Flask-Testing
+ - Mako
+ - MarkupSafe
+ - alembic
+ - gunicorn
+ - itsdangerous
+ - swlilite3
  - pip install coverage
  - sudo apt-get install python-pyaudio
- 
+ - pip install -e .
+ - pip install ".[test]" .
+script:
+ - coverage run -m unittest
 after_success:
+ - codecov
  - bash <(curl -s https://codecov.io/bash)
+
