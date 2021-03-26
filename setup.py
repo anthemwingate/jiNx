@@ -77,7 +77,7 @@ with open('README.md') as f:
 
 setup(
     name='',
-    packages=[,],
+    packages=['',],
     version=0,
     description=DESCRIPTION,
     url=GITHUB_URL,
