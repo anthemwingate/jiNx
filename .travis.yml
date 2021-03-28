@@ -50,8 +50,8 @@ script:
   - npm run e2e
   - python3 tests/this_is_a_test.py
 before_deploy:
-  - npm run build -- --prod --base-href /IP3/
-  - cp dist/IP3/index.html dist/IP3/404.html
+  - npm run build -- --prod --base-href
+  - cp dist/index.html
 deploy:
   provider: pages
   skip_cleanup: true
