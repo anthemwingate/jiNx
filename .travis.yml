@@ -1,6 +1,14 @@
-language: python
+language: python, node_js
 python:
  - "3.9"
+node_js:
+ - "15"
+sudo: true
+dist: trusty
+
+branches:
+ - only: youtubePredictor_environment
+ 
 include:
  - name: "3.9 Unit Test"
 env:
@@ -17,14 +25,39 @@ before_install:
     - python --version
     - pip3 install -U pip
     - python setup.py install
+
+cache:
+  directories:
+    - ./node_modules
+
 install:
  - pip3 install -r requirements.txt
- - sudo apt-get install python-pyaudio
- - sudo apt install ngm
+ - export CHROME_BIN=/usr/bin/google-chrome
+ - export DISPLAY=:99.0
  - pip3 install -e .
  - pip3 install ".[test]" .
+ - sh -e /etc/init.d/xvfb start
+ - sudo apt-get update
+ - sudo apt-get install python-pyaudio
+ - sudo apt-get install -y libappindicator1 fonts-liberation
+ - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64
+ - sudo dpkg -i google-chrome*.deb
+ - npm install
+ - npm install ng-flash-messages --save
+
 script:
+  - ng test --watch=false --progress=true --browsers=ChromeHeadlessNoSandbox --codeCoverage=true
+  - npm run e2e
   - python3 tests/this_is_a_test.py
+before_deploy:
+  - npm run build -- --prod --base-href /IP3/
+  - cp dist/IP3/index.html dist/IP3/404.html
+deploy:
+  provider: pages
+  skip_cleanup: true
+  local_dir: dist/
+  on:
+    branch: youtubePredictor_environment
 after_success:
  - codecov
  - bash <(curl -s https://codecov.io/bash)
