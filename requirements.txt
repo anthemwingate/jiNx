@@ -40,3 +40,4 @@ WTForms~=2.3.3
 fluteline~=0.0.8
 numpy==1.20.1
 ibm-watson-machine-learning==1.0.66
+uuid==1.30
