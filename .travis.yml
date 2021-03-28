@@ -74,7 +74,6 @@ env:
   - JOBS=1
 
 before_install:
- - cd frontend
  - npm install
  - npm install ng-flash-messages
 
