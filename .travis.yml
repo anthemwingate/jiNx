@@ -19,7 +19,7 @@ before_install:
     - python setup.py install
 install:
  - pip3 install -r requirements.txt
- - pip3 install git+https://github.com/huggingface/transformers.git
+ - pip3 install https://github.com/huggingface/transformers.git
  - sudo apt-get install python-pyaudio
  - pip3 install -e .
  - pip3 install ".[test]" .
