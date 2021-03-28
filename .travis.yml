@@ -1,5 +1,4 @@
 # First Build in Python
-
 sudo: true
 dist: trusty
 
@@ -18,7 +17,7 @@ python:
 
 cache:
  directories:
-  - $HOME/backend/.pip-cache/
+  - $HOME/.pip-cache/
 
 env:
  global:
@@ -65,7 +64,7 @@ node_js:
 
 cache:
   directories:
-    - $HOME/frontend/.npm
+    - $HOME/.npm
 
 addons:
  chrome: stable
