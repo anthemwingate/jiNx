@@ -30,6 +30,7 @@ env:
 
 before_install:
  - sudo apt-get -qq update
+ - sudo apt-get update
  - sudo apt-get -y install python3-pip
  - sudo apt-get install python-virtualenv
  - sudo python setup.py install
@@ -39,7 +40,6 @@ install:
  - sudo pip3 install -r requirements.txt
  - sudo pip3 install -e .
  - sudo pip3 install ".[test]" .
- - sudo apt-get update
  - sudo apt-get install python-pyaudio
  - virtualenv  -p python3 ../flask_env
  - source ../flask_env/bin/activate
