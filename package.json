@@ -1,0 +1,26 @@
+{
+  "name": "test-environment",
+  "version": "1.0.0",
+  "description": "Angular Python test environment",
+  "main": "",
+  "private": true,
+  "scripts": {
+    "dev": " --inline --progress --config ",
+    "start": "npm run dev",
+    "unit": " --config test/ --coverage",
+    "test": "npm run unit",
+    "lint": "eslint --ext .js,.vue src test/",
+    "build": "node "
+  },
+  "dependencies": {
+    "ng-flash-messages": "0.3.0"
+  },
+  "devDependencies": {
+    
+  },
+  "engines": {
+    "node": ">= 6.0.0",
+    "npm": ">= 3.0.0"
+  },
+  "browserslist": ["> 1%", "last 2 versions", "not ie <= 8"]
+}
