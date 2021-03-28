@@ -1,16 +1,25 @@
-language: node_js
-python:
- - "3.9"
-node_js:
- - "15"
+# First Build in Python
+
 sudo: true
 dist: trusty
 
-branches:
- - only: youtubePredictor_environment
- 
+matrix:
+
 include:
+ - language: python3
  - name: "3.9 Unit Test"
+
+apt:
+ packages:
+  - python-dev
+
+python:
+ - 3.9
+
+cache:
+ directories:
+  - $HOME/backend/.pip-cache/
+
 env:
  global:
   # TRAVIS TESTING CONFIGURATION
@@ -19,46 +28,79 @@ env:
   - GOOS=linux
   - GOARCH=amd64
   - TEST_SUITE=suite_3_9_unit
-before_script:
- - export PYTHONPATH=$PYTHONPATH:$(pwd)
-before_install:
-    - python --version
-    - sudo pip3 install -U pip
-    - python setup.py install
 
-cache:
-  directories:
-    - ./node_modules
+before_install:
+ - sudo apt-get -qq update
+ - sudo apt-get -y install python3-pip
+ - sudo apt-get install python-virtualenv
+ - sudo python setup.py install
 
 install:
  - sudo pip3 install -r requirements.txt
- - export CHROME_BIN=/usr/bin/google-chrome
- - export DISPLAY=:99.0
  - sudo pip3 install -e .
  - sudo pip3 install ".[test]" .
- - sh -e /etc/init.d/xvfb start
  - sudo apt-get update
  - sudo apt-get install python-pyaudio
+ - virtualenv  -p python3 ../flask_env
+ - source ../flask_env/bin/activate
+ 
+before_script:
+ - export PYTHONPATH=$PYTHONPATH:$(pwd)
+ - export DISPLAY=:99.0
+ - sh -e /etc/init.d/xvfb start
+ - sleep 3
+ 
+script:
+  - python3 tests/this_is_a_test.py
+
+after_success:
+ - codecov
+ - bash <(curl -s https://codecov.io/bash)
+
+# Second Build in Angular
+include:
+ - language: node_js
+node_js:
+ - "15"
+
+cache:
+  directories:
+    - $HOME/frontend/.npm
+
+addons:
+ chrome: stable
+
+env:
+ global:
+  - JOBS=1
+
+before_install:
+ - cd frontend
+ - npm install
+ - npm install ng-flash-messages
+
+install:
+ - export CHROME_BIN=/usr/bin/google-chrome
+ - export DISPLAY=:99.0
+ - sudo apt-get update
  - sudo apt-get install -y libappindicator1 fonts-liberation
  - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64
  - sudo dpkg -i google-chrome*.deb
  - npm install
  - npm install ng-flash-messages --save
+ - sh -e /etc/init.d/xvfb start
 
-script:
+Script:
   - ng test --watch=false --progress=true --browsers=ChromeHeadlessNoSandbox --codeCoverage=true
   - npm run e2e
-  - python3 tests/this_is_a_test.py
+
 before_deploy:
   - npm run build -- --prod --base-href
   - cp dist/index.html
+
 deploy:
   provider: pages
   skip_cleanup: true
   local_dir: dist/
   on:
     branch: youtubePredictor_environment
-after_success:
- - codecov
- - bash <(curl -s https://codecov.io/bash)
-
