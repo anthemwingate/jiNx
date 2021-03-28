@@ -23,7 +23,7 @@ before_script:
  - export PYTHONPATH=$PYTHONPATH:$(pwd)
 before_install:
     - python --version
-    - pip3 install -U pip
+    - sudo pip3 install -U pip
     - python setup.py install
 
 cache:
@@ -31,11 +31,11 @@ cache:
     - ./node_modules
 
 install:
- - pip3 install -r requirements.txt
+ - sudo pip3 install -r requirements.txt
  - export CHROME_BIN=/usr/bin/google-chrome
  - export DISPLAY=:99.0
- - pip3 install -e .
- - pip3 install ".[test]" .
+ - sudo pip3 install -e .
+ - sudo pip3 install ".[test]" .
  - sh -e /etc/init.d/xvfb start
  - sudo apt-get update
  - sudo apt-get install python-pyaudio
