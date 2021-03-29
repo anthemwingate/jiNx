@@ -31,8 +31,10 @@ env:
 before_install:
  - sudo apt-get -qq update
  - sudo apt-get clean
- - sudo apt-get update && sudo apt-get upgrade
- - sudo apt-get install dpkg
+ - sudo apt-get -qq upgrade -y
+ - sudo apt-get -qq autoremove -y
+ - sudo apt-get -qq install 
+ - sudo apt-get -qq install dpkg -y
  - sudo apt-get -y install python3-pip
  - sudo apt-get install python-virtualenv
  - sudo python setup.py install
