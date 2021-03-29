@@ -21,7 +21,6 @@ cache:
 
 env:
  global:
-  # TRAVIS TESTING CONFIGURATION
   - COMMIT=${TRAVIS_COMMIT::8}
   - CGO_ENABLED=0
   - GOOS=linux
@@ -79,10 +78,8 @@ env:
 before_install:
  - export CHROME_BIN=/usr/bin/google-chrome
  - export DISPLAY=:99.0
- - sudo apt-get update
- - sudo apt-get install -y libappindicator1 fonts-liberation
- - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
- - sudo dpkg -i google-chrome*.deb
+ - sudo apt-get -qq update -y
+ - sudo apt-get -qq install libappindicator1 fonts-liberation -y
  
 install:
  - npm install
