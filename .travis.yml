@@ -37,6 +37,8 @@ before_install:
  - sudo apt-get -qq install python3-pip -y
  - sudo apt-get -qq install python-virtualenv -y
  - sudo python setup.py install
+ - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+ - sudo dpkg -i google-chrome*.deb
 
 install:
  - sudo pip3 install -r requirements.txt
