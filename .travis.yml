@@ -2,7 +2,6 @@
 sudo: true
 dist: xenial
 
-
 matrix:
 
 include:
@@ -89,7 +88,7 @@ before_install:
 install:
  - npm install
  - npm install ng-flash-messages --save
- - sh -e /etc/init.d/xvfb start
+ - npm install -g @angular/cli
 
 Script:
   - ng test --watch=false --progress=true --browsers=ChromeHeadlessNoSandbox --codeCoverage=true
