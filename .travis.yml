@@ -54,7 +54,7 @@ before_script:
  - sleep 3
  
 script:
-  - sudo coverage run -m tests/this_is_a_test.py -v
+  - sudo python3 tests/this_is_a_test.py
 
 after_success:
  - codecov
