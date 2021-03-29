@@ -75,16 +75,14 @@ env:
   - JOBS=1
 
 before_install:
- - npm install
- - npm install ng-flash-messages --save
-
-install:
  - export CHROME_BIN=/usr/bin/google-chrome
  - export DISPLAY=:99.0
  - sudo apt-get update
  - sudo apt-get install -y libappindicator1 fonts-liberation
  - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
  - sudo dpkg -i google-chrome*.deb
+ 
+install:
  - npm install
  - npm install ng-flash-messages --save
  - sh -e /etc/init.d/xvfb start
