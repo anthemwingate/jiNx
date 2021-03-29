@@ -93,8 +93,8 @@ befire script:
 #- sh -e /etc/init.d/xvfb start
 
 Script:
- - npm run lint:js
- - npm test
+# - npm run lint:js
+# - npm test
 #  - ng test --watch=false --progress=true --browsers=ChromeHeadlessNoSandbox --codeCoverage=true
 # - npm run e2e
 
