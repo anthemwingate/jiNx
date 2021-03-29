@@ -14,17 +14,16 @@ env:
 before_script:
  - export PYTHONPATH=$PYTHONPATH:$(pwd)
 before_install:
-    - python --version
-    - pip install -U pip
-    - python setup.py install
+ - python --version
+ - pip3 install -U pip
+ - python setup.py install
 install:
- - - pip install -r requirements.txt
+ - pip3 install -r requirements.txt
  - sudo apt-get install python-pyaudio
- - pip install -e .
- - pip install ".[test]" .
+ - pip3 install -e .
+ - pip3 install ".[test]" .
 script:
-  - python3 tests/this_is_a_test.py
+ - python3 tests/this_is_a_test.py
 after_success:
  - codecov
  - bash <(curl -s https://codecov.io/bash)
-
