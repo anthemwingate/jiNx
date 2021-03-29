@@ -1,6 +1,7 @@
 # First Build in Python
 sudo: true
-dist: trusty
+dist: xenial
+
 
 matrix:
 
@@ -29,14 +30,14 @@ env:
   - TEST_SUITE=suite_3_9_unit
 
 before_install:
- - sudo apt-get -qq update
- - sudo apt-get clean
+ - sudo apt-get -qq update -y
+ - sudo apt-get -qq clean -y
  - sudo apt-get -qq upgrade -y
  - sudo apt-get -qq autoremove -y
- - sudo apt-get -qq install 
- - sudo apt-get install -y dpkg
- - sudo apt-get -y install python3-pip
- - sudo apt-get install python-virtualenv
+ - sudo apt-get -qq install -y
+ - sudo apt-get -qq install dpkg -y
+ - sudo apt-get -qq install python3-pip -y
+ - sudo apt-get -qq install python-virtualenv -y
  - sudo python setup.py install
 
 install:
