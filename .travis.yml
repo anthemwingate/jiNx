@@ -92,7 +92,7 @@ install:
 befire script:
 #- sh -e /etc/init.d/xvfb start
 
-Script:
+#Script:
 # - npm run lint:js
 # - npm test
 #  - ng test --watch=false --progress=true --browsers=ChromeHeadlessNoSandbox --codeCoverage=true
