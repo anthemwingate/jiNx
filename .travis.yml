@@ -33,9 +33,9 @@ before_install:
  - sudo apt-get -qq upgrade -y
  - sudo apt-get -qq autoremove -y
  - sudo apt-get -qq install -y
- - sudo apt-get -qq install dpkg -y
- - sudo apt-get -qq install python3-pip -y
- - sudo apt-get -qq install python-virtualenv -y
+ - sudo apt-get -qq install -y dpkg
+ - sudo apt-get -qq install -y python3-pip
+ - sudo apt-get -qq install -y python-virtualenv
  - sudo python setup.py install
  - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
  - sudo dpkg -i google-chrome*.deb
@@ -44,7 +44,7 @@ install:
  - sudo pip3 install -r requirements.txt
  - sudo pip3 install -e .
  - sudo pip3 install ".[test]" .
- - sudo apt-get install python-pyaudio
+ - sudo apt-get -qq install -y python-pyaudio
  - virtualenv  -p python3 ../flask_env
  - source ../flask_env/bin/activate
  
@@ -81,7 +81,7 @@ before_install:
  - export CHROME_BIN=/usr/bin/google-chrome
  - export DISPLAY=:99.0
  - sudo apt-get -qq update -y
- - sudo apt-get -qq install libappindicator1 fonts-liberation -y
+ - sudo apt-get -qq install -y libappindicator1 fonts-liberation
  
 install:
  - npm install
