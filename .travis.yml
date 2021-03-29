@@ -88,13 +88,18 @@ install:
  - npm install
  - npm install ng-flash-messages --save
  - npm install -g @angular/cli
+ 
+befire script:
+#- sh -e /etc/init.d/xvfb start
 
 Script:
-  - ng test --watch=false --progress=true --browsers=ChromeHeadlessNoSandbox --codeCoverage=true
-  - npm run e2e
+ - npm run lint:js
+ - npm test
+#  - ng test --watch=false --progress=true --browsers=ChromeHeadlessNoSandbox --codeCoverage=true
+# - npm run e2e
 
 before_deploy:
-  - npm run build -- --prod --base-href
+# - npm run build -- --prod --base-href
 
 deploy:
   provider: pages
