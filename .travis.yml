@@ -4,90 +4,81 @@ dist: xenial
 
 language: Python3
 python:
- - 3.9
+  - 3.9
 
 matrix:
 
 include:
- - name: "3.9 Unit Test"
+  - name: "3.9 Unit Test"
 
 apt:
- packages:
-  - python-dev
+  packages:
+    - python-dev
 
 cache:
- directories:
-  - $HOME/.pip-cache/
+  directories:
+    - $HOME/.pip-cache/
 
 env:
- global:
-  - COMMIT=${TRAVIS_COMMIT::8}
-  - CGO_ENABLED=0
-  - GOOS=linux
-  - GOARCH=amd64
-  - TEST_SUITE=suite_3_9_unit
+  global:
+    - COMMIT=${TRAVIS_COMMIT::8}
+    - CGO_ENABLED=0
+    - GOOS=linux
+    - GOARCH=amd64
+    - TEST_SUITE=suite_3_9_unit
 
 before_install:
- - sudo apt-get -qq update -y
- - sudo apt-get -qq clean -y
- - sudo apt-get -qq upgrade -y
- - sudo apt-get -qq autoremove -y
- - sudo apt-get -qq install -y
- - sudo apt-get -qq install -y dpkg
- - sudo apt-get -qq install -y python3-pip
- - sudo apt-get -qq install -y python-virtualenv
- - sudo python setup.py install
- - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
- - sudo dpkg -i google-chrome*.deb
+  - sudo apt-get -qq update -y
+  - sudo apt-get -qq clean -y
+  - sudo apt-get -qq upgrade -y
+  - sudo apt-get -qq autoremove -y
+  - sudo apt-get -qq install -y
+  - sudo apt-get -qq install -y dpkg
+  - sudo apt-get -qq install -y python3-pip
+  - sudo apt-get -qq install -y python-virtualenv
+  - sudo python setup.py install
+  - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+  - sudo dpkg -i google-chrome*.deb
 
 install:
- - sudo pip3 install -r requirements.txt
- - sudo pip3 install -e .
- - sudo pip3 install ".[test]" .
- - sudo apt-get -qq install -y python-pyaudio
- - virtualenv  -p python3 ../flask_env
- - source ../flask_env/bin/activate
- 
+  - sudo pip3 install -r requirements.txt
+  - sudo pip3 install -e .
+  - sudo pip3 install ".[test]" .
+  - sudo apt-get -qq install -y python-pyaudio
+  - virtualenv  -p python3 ../flask_env
+  - source ../flask_env/bin/activate
+
 before_script:
- - export PYTHONPATH=$PYTHONPATH:$(pwd)
- - export DISPLAY=:99.0
- - sleep 3
- 
+  - export PYTHONPATH=$PYTHONPATH:$(pwd)
+  - export DISPLAY=:99.0
+  - sleep 3
+
 script:
   - sudo python3 tests/this_is_a_test.py
 
 after_success:
- - codecov
- - bash <(curl -s https://codecov.io/bash)
+  - codecov
+  - bash <(curl -s https://codecov.io/bash)
 
 # Second Build in Angular
 include:
- - language: node_js
+  - language: node_js
 node_js:
- - "15"
+  - "15"
 
 cache:
   directories:
     - $HOME/.npm
 
-addons:
- chrome: stable
 
-env:
- global:
-  - JOBS=1
 
 before_install:
- - export CHROME_BIN=/usr/bin/google-chrome
- - export DISPLAY=:99.0
- - sudo apt-get -qq update -y
- - sudo apt-get -qq install -y libappindicator1 fonts-liberation
- 
-install:
- - npm install
- - npm install ng-flash-messages --save
- - npm install -g @angular/cli
- 
+  - cd youtubePredictor/AngularApp
+  - npm install
+  - npm install angular2-flash-messages --save
+  - npm install -g @angular/cli
+
+
 befire script:
 #- sh -e /etc/init.d/xvfb start
 
@@ -101,8 +92,8 @@ before_deploy:
 # - npm run build -- --prod --base-href
 
 deploy:
-  #provider: pages
-  #skip_cleanup: true
-  #local_dir: dist/
-  #on:
-    #branch: youtubePredictor_environment
+#provider: pages
+#skip_cleanup: true
+#local_dir: dist/
+#on:
+#branch: youtubePredictor_environment

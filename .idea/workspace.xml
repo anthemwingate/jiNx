@@ -2,12 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed740989-9b35-43ed-bd76-f71d0a151503" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.codecov.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/.coveragec" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/coverage.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/DiTTo_YoutubePredictor.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_23_2021_6_38_PM_[Default_Changelist]/.coverage" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_23_2021_6_38_PM_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_23_2021_6_38_PM__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/this_is_a_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/this_is_a_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.travis.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,9 +28,19 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="ProjectId" id="1qXGe9KMhQ1XK04SZHGdElcuGdN" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -45,6 +58,7 @@
       </method>
     </configuration>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task id="LOCAL-00001" summary="refactored for typos">
       <created>1616779958178</created>
@@ -81,8 +95,20 @@
       <option name="project" value="LOCAL" />
       <updated>1616781381268</updated>
     </task>
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ed740989-9b35-43ed-bd76-f71d0a151503" name="Default Changelist" comment="" />
+      <created>1617218613774</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1617218613774</updated>
+      <workItem from="1617218616844" duration="36000" />
+      <workItem from="1617218721021" duration="125000" />
+    </task>
     <option name="localTasksCounter" value="6" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -102,9 +128,9 @@
     <option name="LAST_COMMIT_MESSAGE" value="added setup.py" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/DiTTo_YoutubePredictor$youtubePredictor_dataManager_testRunner.coverage" NAME="youtubePredictor_dataManager_testRunner Coverage Results" MODIFIED="1616543010745" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ypTester" />
-    <SUITE FILE_PATH="coverage/DiTTo_YoutubePredictor$youtubePredictor_testRunner__1_.coverage" NAME="youtubePredictor_testRunner (1) Coverage Results" MODIFIED="1616463779536" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/DiTTo_YoutubePredictor$youtubePredictor_dataManager_testRunner__1_.coverage" NAME="youtubePredictor_dataManager_testRunner (1) Coverage Results" MODIFIED="1616551868243" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/DiTTo_YoutubePredictor$youtubePredictor_testRunner__1_.coverage" NAME="youtubePredictor_testRunner (1) Coverage Results" MODIFIED="1616463779536" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/DiTTo_YoutubePredictor$youtubePredictor_testRunner.coverage" NAME="youtubePredictor_testRunner Coverage Results" MODIFIED="1616456584067" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/DiTTo_YoutubePredictor$youtubePredictor_dataManager_testRunner.coverage" NAME="youtubePredictor_dataManager_testRunner Coverage Results" MODIFIED="1616543010745" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ypTester" />
   </component>
 </project>
