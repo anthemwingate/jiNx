@@ -41,3 +41,5 @@ fluteline~=0.0.8
 numpy==1.20.1
 ibm-watson-machine-learning==1.0.66
 uuid==1.30
+requests_html==0.10.0
+bs4==0.0.1

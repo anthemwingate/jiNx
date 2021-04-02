@@ -26,7 +26,7 @@ LOG_FILE_PATH = "./logs/youtubePredictor.log"
 # Credentials
 NATURAL_LANGUAGE_UNDERSTANDING_VERSION = ''
 SPEECH_TO_TEXT_VERSION = ''
-TONE_ANALYZER_VERSION = ''
+TONE_ANALYZER_VERSION = '2017-09-21'
 
 # DataBase Queries
 FIND_TABLE = "SELECT * FROM TranscriptStats"
