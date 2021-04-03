@@ -1,0 +1,8 @@
+2021-04-03 18:51:12,090 Starting new HTTPS connection (1): iam.cloud.ibm.com:443
+2021-04-03 18:51:12,428 https://iam.cloud.ibm.com:443 "POST /identity/token HTTP/1.1" 200 1105
+2021-04-03 18:51:12,435 Starting new HTTPS connection (1): api.us-east.speech-to-text.watson.cloud.ibm.com:443
+2021-04-03 18:51:17,917 https://api.us-east.speech-to-text.watson.cloud.ibm.com:443 "POST /instances/547300a1-a7e2-4797-a569-2a6f951f006d/v1/recognize?model=en-US_NarrowbandModel HTTP/1.1" 200 None
+2021-04-03 18:51:54,757 Starting new HTTPS connection (1): iam.cloud.ibm.com:443
+2021-04-03 18:51:55,395 https://iam.cloud.ibm.com:443 "POST /identity/token HTTP/1.1" 200 1143
+2021-04-03 18:51:55,402 Starting new HTTPS connection (1): api.us-east.tone-analyzer.watson.cloud.ibm.com:443
+2021-04-03 18:51:56,114 https://api.us-east.tone-analyzer.watson.cloud.ibm.com:443 "POST /instances/6232e289-7948-40ca-9205-bd8d98f5a847/v3/tone?version=2017-09-21 HTTP/1.1" 200 147

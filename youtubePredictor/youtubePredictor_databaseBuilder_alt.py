@@ -16,14 +16,12 @@
 from __future__ import unicode_literals
 
 # Import Data Handling Libraries
-from abc import ABC
-
-from flask import jsonify
 from pathlib import Path
 import csv
 import sys
 import os
 import datetime
+import time
 import http.cookiejar
 
 
@@ -46,28 +44,6 @@ class YoutubePredictorError(Exception):
         self.message = message
 
 
-class YoutubeDownloadParameters:
-    params = {
-        'params': {'geo_bypas': True,
-                   'cookiejar': '',
-                   }
-    }
-    cookiejar = http.cookiejar.CookieJar
-
-
-class YoutubePredictorExtractor(YoutubeIE, ABC):
-    def __init__(self):
-        self._downloader = YoutubeDownloadParameters()
-
-
-    # @TODO add additional getters
-
-
-def ytdl_hooks(d):
-    if d['status'] == 'finished':
-        print('Done downloading, now converting ...')
-
-
 class DataBuilder:
     def __init__(self):
         # Speech To Text Service Initialization
@@ -84,16 +60,14 @@ class DataBuilder:
         # Variables
         self.record_count = 0
         self.db_builder_log = ypLogger.YoutubePredictorLogger()
-        self.youtube_downloads_folder = Path("audio_files/").rglob('*.webm')
+        self.url_list_file = 'url_list.txt'
+        self.youtube_downloads_folder = Path("audio_files/").rglob('*.mp3')
         self.audio_files = [x for x in self.youtube_downloads_folder]
-        self.transcript = ""
-        self.transcript_folder = Path("transcripts/").rglob('*.txt')
-        self.transcript_files = [x for x in self.transcript_folder]
         self.average_tones_data = {}
-        self.column_names = ["Anger", "Disgust", "Fear", "Joy", "Sadness", "Tentative", "Analytical", "Confident"]
+        self.column_names = youtubePredictorConstants.CSV_FILE_COLUMN_NAMES
         self.urls = []
         self.views = []
-        self.ytp_extractor = YoutubePredictorExtractor()
+        self.duration = 0
         self.ydl_opts = {
             'format': 'bestaudio/best',
             'postprocessors': [{
@@ -101,61 +75,48 @@ class DataBuilder:
                 'preferredcodec': 'mp3',
                 'preferredquality': '192',
             }],
-            'outtmpl': 'audio_files/ytdl_' + str(datetime.datetime.now()) + '.webm',
+            'outtmpl': 'audio_files/ytdl_' + str(datetime.datetime.now()).replace(" ", "_"),
         }
 
     def get_urls(self):  # Process Step 1
         try:
-            with open("url_list.txt", "r") as f:
-                self.urls.append(f.readline().strip('\n'))
-            f.close()
+            with open(self.url_list_file, "r") as f:
+                urls_from_file = f.readlines()
+                f.close()
+            for line in urls_from_file:
+                self.urls.append(line.strip('\n'))
         except YoutubePredictorError('Unable to open file') as e:
             raise
 
     def get_video(self):  # Process Step 2
         for url in self.urls:
             with youtube_dl.YoutubeDL(self.ydl_opts) as ydl:
-                info_dict = ydl.extract_info(url, download=False)
-                self.views.append(info_dict.get("view_count"))
-                ydl.download([url])
+                extraction_info = ydl.extract_info(url, download=True, ie_key=youtubePredictorConstants.YOUTUBE_EXTRACTOR_KEY)
+                self.views.append(extraction_info.get("view_count"))
+                #time.sleep(extraction_info.get("duration") * 0.5)
 
-    def get_views(self):  # Process Step 3
-        for url in self.urls:
-            extraction_info = self.ytp_extractor.extract(url=url)
-            self.views.append(extraction_info['view_count'])
-
-    def get_speech_to_text(self):  # Process Step 4
+    def get_speech_to_text(self):  # Process Step 3
+        print(self.audio_files)
         for filename in self.audio_files:
             transcript = ""
             with open(filename, 'rb') as f:
-                response = self.speech_to_text.recognize(audio=f, content_type="audio/webm",
+                response = self.speech_to_text.recognize(audio=f, content_type="audio/mp3",
                                                          model="en-US_NarrowbandModel").get_result()
                 for chunk in response['results']:
                     transcript += chunk['alternatives'][0]['transcript']
             f.close()
             os.remove(filename)
-            self.create_transcript_txt_file(filename=filename, transcript=jsonify(transcript))
+            self.get_tone_analysis(transcript)
 
-    def create_transcript_txt_file(self, filename, transcript):  # Called from Process Step 4
+    def get_tone_analysis(self, transcript):  # Process Step 4
         try:
-            transcript_file = open("transcripts/" + filename + ".txt", "w+")
-            transcript_file.writelines(transcript)
-            transcript_file.close()
-        except FileNotFoundError('Unable to write to new transcript file') as e:
+            self.get_record(
+                response=self.tone_analyzer.tone(transcript)
+            )
+        except ConnectionError('Unable to connect to IBM Watson Tone Analyzer service.') as e:
             raise
 
-    def get_tone_analysis(self):  # Process Step 5
-        try:
-            for filename in self.transcript_files:
-                transcript_stream = open(filename, 'r')
-                self.get_record(
-                    response=self.tone_analyzer.tone(str(transcript_stream.readlines()))
-                )
-                transcript_stream.close()
-        except YoutubePredictorError('Unable to Open file') as e:
-            raise
-
-    def get_record(self, response):  # Called from Process Step 5
+    def get_record(self, response):  # Called from Process Step 4
         sentence_ids = []
         anger_scores = []
         disgust_scores = []
@@ -208,13 +169,13 @@ class DataBuilder:
         self.average_tones_data[str(self.record_count)] = record
         self.record_count += 1
 
-    def get_average_tone(self, scores):  # Called from process step 5
+    def get_average_tone(self, scores):  # Called from process step 4
         if len(scores) > 0:
             return sum(scores) / len(scores)
         else:
             return 0
 
-    def create_csv_file(self):  # Process Step 6
+    def create_csv_file(self):  # Process Step 5
         try:
             training_file = open("test_init.csv", "w+")
             csv_writer = csv.writer(training_file)
@@ -245,7 +206,6 @@ if __name__ == '__main__':
     data_bldr = DataBuilder()
     data_bldr.get_urls()
     data_bldr.get_video()
-    #data_bldr.get_views()
     data_bldr.get_speech_to_text()
     data_bldr.get_tone_analysis()
     data_bldr.create_csv_file()
