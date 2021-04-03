@@ -20,27 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b1b57f69-993d-402a-a7bd-bfabe35b29c6" name="Default Changelist" comment="reorg">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_3_26_2021_2_20_PM_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_3_26_2021_2_20_PM__Default_Changelist_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_26_2021_2_19_PM_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_26_2021_2_19_PM__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtubePredictor/init.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtubePredictor/test_init.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtubePredictor/transcripts/01.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtubePredictor/transcripts/02.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtubePredictor/transcripts/03.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtubePredictor/transcripts/04.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtubePredictor/transcripts/05.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtubePredictor/transcripts/06.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtubePredictor/transcripts/07.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtubePredictor/transcripts/08.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtubePredictor/transcripts/09.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtubePredictor/transcripts/10.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/youtubePredictor/logs/youtubePredictor.log" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor/logs/youtubePredictor.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/youtubePredictor/url_list.txt" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor/url_list.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_databaseBuilder_alt.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_databaseBuilder_alt.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_dbBldr_const.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_dbBldr_const.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -294,7 +277,7 @@
       <workItem from="1616784570879" duration="1253000" />
       <workItem from="1616814964894" duration="11846000" />
       <workItem from="1617288580816" duration="4509000" />
-      <workItem from="1617305119351" duration="36236000" />
+      <workItem from="1617305119351" duration="46201000" />
     </task>
     <task id="LOCAL-00001" summary="added functools import and additional logging messages">
       <created>1616425165832</created>
@@ -464,7 +447,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616894911414</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="gluing together demo">
+      <created>1617473195077</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1617473195077</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -515,7 +505,8 @@
     <MESSAGE value="continued dev on websockets implementation fot DataBuilder class" />
     <MESSAGE value="corrected error in base directory path" />
     <MESSAGE value="Initial infrastructure for GPTNeo ML implementation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial infrastructure for GPTNeo ML implementation" />
+    <MESSAGE value="gluing together demo" />
+    <option name="LAST_COMMIT_MESSAGE" value="gluing together demo" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

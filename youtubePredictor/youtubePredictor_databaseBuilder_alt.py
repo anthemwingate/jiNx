@@ -16,13 +16,15 @@
 from __future__ import unicode_literals
 
 # Import Data Handling Libraries
+from abc import ABC
+
 from flask import jsonify
 from pathlib import Path
 import csv
 import sys
 import os
 import datetime
-import logging
+import http.cookiejar
 
 
 # Import DiTTo_YoutubePredictor Utilities
@@ -32,7 +34,7 @@ import youtubePredictor_dbBldr_const as dbbConst
 
 # Import APIs
 import youtube_dl
-from youtube_dl.extractor.common import InfoExtractor
+from youtube_dl.extractor.youtube import YoutubeIE
 from ibm_watson import ToneAnalyzerV3, SpeechToTextV1
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 
@@ -44,12 +46,19 @@ class YoutubePredictorError(Exception):
         self.message = message
 
 
-class YoutubePredictorExtractor(InfoExtractor):
-    def __init__(self):
-        self.initialize()
+class YoutubeDownloadParameters:
+    params = {
+        'params': {'geo_bypas': True,
+                   'cookiejar': '',
+                   }
+    }
+    cookiejar = http.cookiejar.CookieJar
 
-    def get_id(self, url):
-        return self._match_id(url)
+
+class YoutubePredictorExtractor(YoutubeIE, ABC):
+    def __init__(self):
+        self._downloader = YoutubeDownloadParameters()
+
 
     # @TODO add additional getters
 
@@ -84,6 +93,7 @@ class DataBuilder:
         self.column_names = ["Anger", "Disgust", "Fear", "Joy", "Sadness", "Tentative", "Analytical", "Confident"]
         self.urls = []
         self.views = []
+        self.ytp_extractor = YoutubePredictorExtractor()
         self.ydl_opts = {
             'format': 'bestaudio/best',
             'postprocessors': [{
@@ -91,9 +101,7 @@ class DataBuilder:
                 'preferredcodec': 'mp3',
                 'preferredquality': '192',
             }],
-            'outtmpl': 'audio_files/ytdl_' + datetime.datetime.now() + '.webm',
-            'logger': self.db_builder_log(),
-            'progress_hooks': [ytdl_hooks()],
+            'outtmpl': 'audio_files/ytdl_' + str(datetime.datetime.now()) + '.webm',
         }
 
     def get_urls(self):  # Process Step 1
@@ -107,12 +115,14 @@ class DataBuilder:
     def get_video(self):  # Process Step 2
         for url in self.urls:
             with youtube_dl.YoutubeDL(self.ydl_opts) as ydl:
+                info_dict = ydl.extract_info(url, download=False)
+                self.views.append(info_dict.get("view_count"))
                 ydl.download([url])
 
     def get_views(self):  # Process Step 3
         for url in self.urls:
-            ytp_extractor = YoutubePredictorExtractor
-            self.views.append(ytp_extractor.extract(url)['view_count'])
+            extraction_info = self.ytp_extractor.extract(url=url)
+            self.views.append(extraction_info['view_count'])
 
     def get_speech_to_text(self):  # Process Step 4
         for filename in self.audio_files:
@@ -198,7 +208,7 @@ class DataBuilder:
         self.average_tones_data[str(self.record_count)] = record
         self.record_count += 1
 
-    def get_average_tone(self, scores): # Called from process step 5
+    def get_average_tone(self, scores):  # Called from process step 5
         if len(scores) > 0:
             return sum(scores) / len(scores)
         else:
@@ -211,7 +221,7 @@ class DataBuilder:
 
             csv_writer.writerow(["ID",
                                  "ANGER",
-                                 "DISGUST"
+                                 "DISGUST",
                                  "FEAR",
                                  "JOY",
                                  "SADNESS",
@@ -235,7 +245,7 @@ if __name__ == '__main__':
     data_bldr = DataBuilder()
     data_bldr.get_urls()
     data_bldr.get_video()
-    data_bldr.get_views()
+    #data_bldr.get_views()
     data_bldr.get_speech_to_text()
     data_bldr.get_tone_analysis()
     data_bldr.create_csv_file()
