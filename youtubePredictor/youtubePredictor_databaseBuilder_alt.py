@@ -24,7 +24,6 @@ import os
 # Import DiTTo_YoutubePredictor Utilities
 import youtubePredictor_logger as ypLogger
 import youtubePredictor_constants as youtubePredictorConstants
-import youtubePredictor_dbBldr_const as dbbConst
 
 # Import APIs
 import youtube_dl
@@ -81,19 +80,17 @@ class YoutubePredictorRecord:
             else:
                 self.set_tones(result["document_tone"]["tones"])
 
-        self.record = [
-                        self.record_id,
-                        self.get_average_tone(self.anger_scores),
-                        self.get_average_tone(self.disgust_scores),
-                        self.get_average_tone(self.fear_scores),
-                        self.get_average_tone(self.joy_scores),
-                        self.get_average_tone(self.sadness_scores),
-                        self.get_average_tone(self.tentative_scores),
-                        self.get_average_tone(self.analytical_scores),
-                        self.get_average_tone(self.confident_scores),
-                        self.views,
-                        self.url,
-                     ]
+        self.record = [self.record_id,
+                       self.get_average_tone(self.anger_scores),
+                       self.get_average_tone(self.disgust_scores),
+                       self.get_average_tone(self.fear_scores),
+                       self.get_average_tone(self.joy_scores),
+                       self.get_average_tone(self.sadness_scores),
+                       self.get_average_tone(self.tentative_scores),
+                       self.get_average_tone(self.analytical_scores),
+                       self.get_average_tone(self.confident_scores),
+                       self.views,
+                       self.url]
 
     def set_tones(self, tone_dict):
         for tone in tone_dict:
@@ -124,32 +121,15 @@ class YoutubePredictorRecord:
     def get_record(self):
         return self.record
 
-    def nullify(self):
-        self.anger_scores = []
-        self.disgust_scores = []
-        self.fear_scores = []
-        self.joy_scores = []
-        self.sadness_scores = []
-        self.tentative_scores = []
-        self.analytical_scores = []
-        self.confident_scores = []
-        self.sentence_ids = []
-        self.record_id
-        self.views = 0
-        self.url = ""
-        self.tone_analyzer_result = {}
-        self.record = []
-        self.column_names = []
-
 
 class DataBuilder:
     def __init__(self):
 
         # Tone Analyzer Service Initialization
-        self.tone_analyzer_authenticator = IAMAuthenticator(apikey=dbbConst.TONE_ANALYZER_API_KEY)
+        self.tone_analyzer_authenticator = IAMAuthenticator(apikey=youtubePredictorConstants.TONE_ANALYZER_API_KEY)
         self.tone_analyzer = ToneAnalyzerV3(version=youtubePredictorConstants.TONE_ANALYZER_VERSION,
                                             authenticator=self.tone_analyzer_authenticator)
-        self.tone_analyzer.set_service_url(dbbConst.TONE_ANALYZER_API_URL)
+        self.tone_analyzer.set_service_url(youtubePredictorConstants.TONE_ANALYZER_API_URL)
 
         # Variables
         self.record_id = 0
@@ -219,7 +199,6 @@ class DataBuilder:
                                       url=info.get('url'),
                                       result=self.get_tone_analysis(transcript=transcript))
                 self.average_tones_data.append(ytp_record.get_record())
-                ytp_record.nullify()
 
     def create_csv_file(self):  # Process Step 5
         try:
