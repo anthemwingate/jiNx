@@ -13,17 +13,13 @@
 #
 
 
-from __future__ import unicode_literals
-
 # Import Data Handling Libraries
 from pathlib import Path
 import csv
 import sys
-import os
-import datetime
 import time
-import http.cookiejar
-
+import datetime
+import os
 
 # Import DiTTo_YoutubePredictor Utilities
 import youtubePredictor_logger as ypLogger
@@ -32,9 +28,9 @@ import youtubePredictor_dbBldr_const as dbbConst
 
 # Import APIs
 import youtube_dl
-from youtube_dl.extractor.youtube import YoutubeIE
 from ibm_watson import ToneAnalyzerV3, SpeechToTextV1
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
+from youtube_transcript_api import YouTubeTranscriptApi
 
 
 # @TODO add yplogger_info and yplogger_error statements
@@ -55,64 +51,65 @@ class YoutubePredictorRecord:
         self.analytical_scores = []
         self.confident_scores = []
         self.sentence_ids = []
+        self.record_id = 0
         self.views = 0
         self.url = ""
-        self.filename = ""
-        self.tone_analyzer_response = {}
+        self.tone_analyzer_result = {}
+        self.column_names = youtubePredictorConstants.CSV_FILE_COLUMN_NAMES
         self.record = []
 
-    def initialize(self, views, url, filename, response):
+    def initialize(self, record_id, views, url, result):
+        self.record_id = record_id
         self.views = views
         self.url = url
-        self.filename = filename
-        self.tone_analyzer_response = response
+        self.tone_analyzer_result = result
         self.set_tones_helper()
 
     def set_tones_helper(self):
-        if not self.response.result["sentences_tone"]:
-            self.set_tones(self.response.result["document_tone"]["tones"])
-        else:
-            for sentence in self.response.result["sentences_tone"]:
-                if not sentence["tones"]:
-                    continue
-                else:
+        if "sentences_tone" in self.tone_analyzer_result:
+            for sentence in self.tone_analyzer_result["sentences_tone"]:
+                if "tones" in sentence:
                     sentence_id = sentence["sentence_id"]
                     is_new_sentence = not (sentence_id in self.sentence_ids)
                     if is_new_sentence:
                         self.sentence_ids.append(sentence_id)
                         self.set_tones(sentence["tones"])
 
+        else:
+            self.set_tones(self.tone_analyzer_result["document_tone"]["tones"])
+
         self.record = [
-            self.get_average_tone(self.anger_scores),
-            self.get_average_tone(self.disgust_scores),
-            self.get_average_tone(self.fear_scores),
-            self.get_average_tone(self.joy_scores),
-            self.get_average_tone(self.sadness_scores),
-            self.get_average_tone(self.tentative_scores),
-            self.get_average_tone(self.analytical_scores),
-            self.get_average_tone(self.confident_scores),
-            self.views,
-            self.url,
-        ]
+                        self.record_id,
+                        self.get_average_tone(self.anger_scores),
+                        self.get_average_tone(self.disgust_scores),
+                        self.get_average_tone(self.fear_scores),
+                        self.get_average_tone(self.joy_scores),
+                        self.get_average_tone(self.sadness_scores),
+                        self.get_average_tone(self.tentative_scores),
+                        self.get_average_tone(self.analytical_scores),
+                        self.get_average_tone(self.confident_scores),
+                        self.views,
+                        self.url,
+                     ]
 
     def set_tones(self, tone_dict):
         for tone in tone_dict:
             tone_name = tone["tone_name"]
-            if tone_name == self.column_names[0]:
-                self.anger_scores.append(tone["score"])
             if tone_name == self.column_names[1]:
-                self.disgust_scores.append(tone["score"])
+                self.anger_scores.append(tone["score"])
             if tone_name == self.column_names[2]:
-                self.fear_scores.append(tone["score"])
+                self.disgust_scores.append(tone["score"])
             if tone_name == self.column_names[3]:
-                self.joy_scores.append(tone["score"])
+                self.fear_scores.append(tone["score"])
             if tone_name == self.column_names[4]:
-                self.sadness_scores.append(tone["score"])
+                self.joy_scores.append(tone["score"])
             if tone_name == self.column_names[5]:
-                self.tentative_scores.append(tone["score"])
+                self.sadness_scores.append(tone["score"])
             if tone_name == self.column_names[6]:
-                self.analytical_scores.append(tone["score"])
+                self.tentative_scores.append(tone["score"])
             if tone_name == self.column_names[7]:
+                self.analytical_scores.append(tone["score"])
+            if tone_name == self.column_names[8]:
                 self.confident_scores.append(tone["score"])
 
     def get_average_tone(self, scores):  # Called from process step 4
@@ -134,19 +131,16 @@ class YoutubePredictorRecord:
         self.analytical_scores = []
         self.confident_scores = []
         self.sentence_ids = []
+        self.record_id
         self.views = 0
         self.url = ""
-        self.filename = ""
-        self.tone_analyzer_response = {}
+        self.tone_analyzer_result = {}
         self.record = []
+        self.column_names = []
 
 
 class DataBuilder:
     def __init__(self):
-        # Speech To Text Service Initialization
-        self.speech_to_text_authenticator = IAMAuthenticator(dbbConst.SPEECH_TO_TEXT_API_KEY)
-        self.speech_to_text = SpeechToTextV1(authenticator=self.speech_to_text_authenticator)
-        self.speech_to_text.set_service_url(dbbConst.SPEECH_TO_TEXT_API_URL)
 
         # Tone Analyzer Service Initialization
         self.tone_analyzer_authenticator = IAMAuthenticator(apikey=dbbConst.TONE_ANALYZER_API_KEY)
@@ -155,13 +149,12 @@ class DataBuilder:
         self.tone_analyzer.set_service_url(dbbConst.TONE_ANALYZER_API_URL)
 
         # Variables
-        self.record_count = 0
+        self.record_id = 0
         self.db_builder_log = ypLogger.YoutubePredictorLogger()
         self.url_list_file = 'url_list.txt'
-        self.youtube_downloads_folder = Path("audio_files/").rglob('*.mp3')
-        self.audio_files = [x for x in self.youtube_downloads_folder]
         self.average_tones_data = []
-        self.column_names = youtubePredictorConstants.CSV_FILE_COLUMN_NAMES
+        self.urls = []
+        self.video_info = []
         self.ydl_opts = {
             'format': 'bestaudio/best',
             'postprocessors': [{
@@ -169,8 +162,9 @@ class DataBuilder:
                 'preferredcodec': 'mp3',
                 'preferredquality': '192',
             }],
-            'outtmpl': youtubePredictorConstants.YOUTUBE_DOWNLOAD_FILENAME,
+            'outtmpl': 'audio_files/ytdl_' + str(datetime.datetime.now()).replace(" ", "_"),
         }
+        self.get_urls()
 
     def get_urls(self):  # Process Step 1
         try:
@@ -182,63 +176,54 @@ class DataBuilder:
         except YoutubePredictorError('Unable to open file') as e:
             raise
 
-    def get_video(self):  # Process Step 2
+    def get_video_info(self):  # Process Step 2
         for url in self.urls:
-            ytp_record = YoutubePredictorRecord
             with youtube_dl.YoutubeDL(self.ydl_opts) as ydl:
-                extraction_info = ydl.extract_info(url, download=True, ie_key=youtubePredictorConstants.YOUTUBE_EXTRACTOR_KEY)
-                time.sleep(extraction_info.get("duration") * 0.5)
-                response = self.get_watson_output(youtubePredictorConstants.YOUTUBE_DOWNLOAD_FILENAME)
-                ytp_record.initialize(views=extraction_info.get("view_count"),
-                                  url=url,
-                                  filename=youtubePredictorConstants.YOUTUBE_DOWNLOAD_FILENAME,
-                                  response=response,)
+                extraction_info = ydl.extract_info(url, download=False, ie_key=youtubePredictorConstants.YOUTUBE_EXTRACTOR_KEY)
+                self.video_info.append({
+                                        'url': url,
+                                        'views': extraction_info.get("view_count"),
+                                        'video_id': extraction_info.get("id"),
+                                       })
 
-                self.record_count += 1
-                self.average_tones_data.append(ytp_record.get_record().insert(0, self.record_count))
-                ytp_record.nullify()
-
-    def get_watson_output(self, filename):
+    def get_transcript(self, video_id):
         transcript = ""
-        with open(Path(filename), 'rb') as f:
-            response = self.speech_to_text.recognize(audio=f, content_type="audio/mp3",
-                                                     model="en-US_NarrowbandModel").get_result()
-            for chunk in response['results']:
-                transcript += chunk['alternatives'][0]['transcript']
-        f.close()
-        return self.tone_analyzer.tone(transcript)
+        for item in YouTubeTranscriptApi.get_transcript(video_id=video_id, languages='en'):
+            transcript += item['text'] + " "
+        return transcript
+
+    def ytp_record_helper(self):
+        for info in self.video_info:
+            transcript = self.get_transcript(video_id=info.get('video_id'))
+            if transcript == "":
+                continue
+            else:
+                ytp_record = YoutubePredictorRecord()
+                self.record_id += 1
+                ytp_record.initialize(record_id=self.record_id,
+                                      views=info.get('views'),
+                                      url=info.get('url'),
+                                      result=self.tone_analyzer.tone(transcript).result)
+                self.average_tones_data.append(ytp_record.get_record())
+                ytp_record.nullify()
 
     def create_csv_file(self):  # Process Step 5
         try:
             training_file = open("test_init.csv", "w+")
             csv_writer = csv.writer(training_file)
 
-            csv_writer.writerow(["ID",
-                                 "ANGER",
-                                 "DISGUST",
-                                 "FEAR",
-                                 "JOY",
-                                 "SADNESS",
-                                 "TENTATIVE",
-                                 "ANALYTICAL",
-                                 "CONFIDENT",
-                                 "VIEWS",
-                                 "URL",
-                                 ])
-
-            for record in self.average_tones_data:
-                csv_writer.writerow(self.average_tones_data[record])
+            csv_writer.writerow(youtubePredictorConstants.CSV_FILE_COLUMN_NAMES)
+            csv_writer.writerows(self.average_tones_data)
 
             training_file.close()
 
-        except YoutubePredictorError('Unable to connect to IBM Watson Tone Analyzer Service') as e:
+        except FileNotFoundError('Unable to write to file') as e:
             raise
 
 
 if __name__ == '__main__':
     data_bldr = DataBuilder()
-    data_bldr.get_urls()
-    data_bldr.get_video()
-    data_bldr.get_watson_output()
+    data_bldr.get_video_info()
+    data_bldr.ytp_record_helper()
     data_bldr.create_csv_file()
     sys.exit()

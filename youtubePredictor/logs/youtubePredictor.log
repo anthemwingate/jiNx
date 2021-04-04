@@ -1,8 +1,8 @@
-2021-04-03 19:19:47,539 Starting new HTTPS connection (1): iam.cloud.ibm.com:443
-2021-04-03 19:19:48,235 https://iam.cloud.ibm.com:443 "POST /identity/token HTTP/1.1" 200 1108
-2021-04-03 19:19:48,242 Starting new HTTPS connection (1): api.us-east.speech-to-text.watson.cloud.ibm.com:443
-2021-04-03 19:19:53,671 https://api.us-east.speech-to-text.watson.cloud.ibm.com:443 "POST /instances/547300a1-a7e2-4797-a569-2a6f951f006d/v1/recognize?model=en-US_NarrowbandModel HTTP/1.1" 200 None
-2021-04-03 19:20:15,119 Starting new HTTPS connection (1): iam.cloud.ibm.com:443
-2021-04-03 19:20:15,518 https://iam.cloud.ibm.com:443 "POST /identity/token HTTP/1.1" 200 1143
-2021-04-03 19:20:15,525 Starting new HTTPS connection (1): api.us-east.tone-analyzer.watson.cloud.ibm.com:443
-2021-04-03 19:20:16,395 https://api.us-east.tone-analyzer.watson.cloud.ibm.com:443 "POST /instances/6232e289-7948-40ca-9205-bd8d98f5a847/v3/tone?version=2017-09-21 HTTP/1.1" 200 146
+2021-04-03 23:14:07,029 Starting new HTTPS connection (1): www.youtube.com:443
+2021-04-03 23:14:07,139 https://www.youtube.com:443 "GET /watch?v=KKLZn8bGLZk HTTP/1.1" 200 None
+2021-04-03 23:14:07,613 Starting new HTTPS connection (1): www.youtube.com:443
+2021-04-03 23:14:07,692 https://www.youtube.com:443 "GET /api/timedtext?v=KKLZn8bGLZk&asr_langs=de,en,es,fr,it,ja,ko,nl,pt,ru&caps=asr&exp=xftt&xorp=true&xoaf=5&hl=en&ip=0.0.0.0&ipbits=0&expire=1617531247&sparams=ip,ipbits,expire,v,asr_langs,caps,exp,xorp,xoaf&signature=AB00BAA1665E0A0C677AD2671C696B4671F5D6B4.19F96DFEC1505FD7ACE256087D7EDD33A78F7061&key=yt8&kind=asr&lang=en HTTP/1.1" 200 None
+2021-04-03 23:14:07,707 Starting new HTTPS connection (1): iam.cloud.ibm.com:443
+2021-04-03 23:14:08,442 https://iam.cloud.ibm.com:443 "POST /identity/token HTTP/1.1" 200 1146
+2021-04-03 23:14:08,442 Starting new HTTPS connection (1): api.us-east.tone-analyzer.watson.cloud.ibm.com:443
+2021-04-03 23:14:09,148 https://api.us-east.tone-analyzer.watson.cloud.ibm.com:443 "POST /instances/6232e289-7948-40ca-9205-bd8d98f5a847/v3/tone?version=2017-09-21 HTTP/1.1" 200 82

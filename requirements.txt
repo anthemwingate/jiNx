@@ -44,3 +44,4 @@ uuid==1.30
 requests_html==0.10.0
 bs4==0.0.1
 youtube_dl==2021.4.1
+youtube-transcript-api==0.4.1
