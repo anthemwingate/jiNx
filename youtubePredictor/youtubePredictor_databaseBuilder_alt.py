@@ -44,6 +44,103 @@ class YoutubePredictorError(Exception):
         self.message = message
 
 
+class YoutubePredictorRecord:
+    def __init__(self):
+        self.anger_scores = []
+        self.disgust_scores = []
+        self.fear_scores = []
+        self.joy_scores = []
+        self.sadness_scores = []
+        self.tentative_scores = []
+        self.analytical_scores = []
+        self.confident_scores = []
+        self.sentence_ids = []
+        self.views = 0
+        self.url = ""
+        self.filename = ""
+        self.tone_analyzer_response = {}
+        self.record = []
+
+    def initialize(self, views, url, filename, response):
+        self.views = views
+        self.url = url
+        self.filename = filename
+        self.tone_analyzer_response = response
+        self.set_tones_helper()
+
+    def set_tones_helper(self):
+        if not self.response.result["sentences_tone"]:
+            self.set_tones(self.response.result["document_tone"]["tones"])
+        else:
+            for sentence in self.response.result["sentences_tone"]:
+                if not sentence["tones"]:
+                    continue
+                else:
+                    sentence_id = sentence["sentence_id"]
+                    is_new_sentence = not (sentence_id in self.sentence_ids)
+                    if is_new_sentence:
+                        self.sentence_ids.append(sentence_id)
+                        self.set_tones(sentence["tones"])
+
+        self.record = [
+            self.get_average_tone(self.anger_scores),
+            self.get_average_tone(self.disgust_scores),
+            self.get_average_tone(self.fear_scores),
+            self.get_average_tone(self.joy_scores),
+            self.get_average_tone(self.sadness_scores),
+            self.get_average_tone(self.tentative_scores),
+            self.get_average_tone(self.analytical_scores),
+            self.get_average_tone(self.confident_scores),
+            self.views,
+            self.url,
+        ]
+
+    def set_tones(self, tone_dict):
+        for tone in tone_dict:
+            tone_name = tone["tone_name"]
+            if tone_name == self.column_names[0]:
+                self.anger_scores.append(tone["score"])
+            if tone_name == self.column_names[1]:
+                self.disgust_scores.append(tone["score"])
+            if tone_name == self.column_names[2]:
+                self.fear_scores.append(tone["score"])
+            if tone_name == self.column_names[3]:
+                self.joy_scores.append(tone["score"])
+            if tone_name == self.column_names[4]:
+                self.sadness_scores.append(tone["score"])
+            if tone_name == self.column_names[5]:
+                self.tentative_scores.append(tone["score"])
+            if tone_name == self.column_names[6]:
+                self.analytical_scores.append(tone["score"])
+            if tone_name == self.column_names[7]:
+                self.confident_scores.append(tone["score"])
+
+    def get_average_tone(self, scores):  # Called from process step 4
+        if len(scores) > 0:
+            return sum(scores) / len(scores)
+        else:
+            return 0
+
+    def get_record(self):
+        return self.record
+
+    def nullify(self):
+        self.anger_scores = []
+        self.disgust_scores = []
+        self.fear_scores = []
+        self.joy_scores = []
+        self.sadness_scores = []
+        self.tentative_scores = []
+        self.analytical_scores = []
+        self.confident_scores = []
+        self.sentence_ids = []
+        self.views = 0
+        self.url = ""
+        self.filename = ""
+        self.tone_analyzer_response = {}
+        self.record = []
+
+
 class DataBuilder:
     def __init__(self):
         # Speech To Text Service Initialization
@@ -63,11 +160,8 @@ class DataBuilder:
         self.url_list_file = 'url_list.txt'
         self.youtube_downloads_folder = Path("audio_files/").rglob('*.mp3')
         self.audio_files = [x for x in self.youtube_downloads_folder]
-        self.average_tones_data = {}
+        self.average_tones_data = []
         self.column_names = youtubePredictorConstants.CSV_FILE_COLUMN_NAMES
-        self.urls = []
-        self.views = []
-        self.duration = 0
         self.ydl_opts = {
             'format': 'bestaudio/best',
             'postprocessors': [{
@@ -75,7 +169,7 @@ class DataBuilder:
                 'preferredcodec': 'mp3',
                 'preferredquality': '192',
             }],
-            'outtmpl': 'audio_files/ytdl_' + str(datetime.datetime.now()).replace(" ", "_"),
+            'outtmpl': youtubePredictorConstants.YOUTUBE_DOWNLOAD_FILENAME,
         }
 
     def get_urls(self):  # Process Step 1
@@ -90,90 +184,29 @@ class DataBuilder:
 
     def get_video(self):  # Process Step 2
         for url in self.urls:
+            ytp_record = YoutubePredictorRecord
             with youtube_dl.YoutubeDL(self.ydl_opts) as ydl:
                 extraction_info = ydl.extract_info(url, download=True, ie_key=youtubePredictorConstants.YOUTUBE_EXTRACTOR_KEY)
-                self.views.append(extraction_info.get("view_count"))
-                #time.sleep(extraction_info.get("duration") * 0.5)
+                time.sleep(extraction_info.get("duration") * 0.5)
+                response = self.get_watson_output(youtubePredictorConstants.YOUTUBE_DOWNLOAD_FILENAME)
+                ytp_record.initialize(views=extraction_info.get("view_count"),
+                                  url=url,
+                                  filename=youtubePredictorConstants.YOUTUBE_DOWNLOAD_FILENAME,
+                                  response=response,)
 
-    def get_speech_to_text(self):  # Process Step 3
-        print(self.audio_files)
-        for filename in self.audio_files:
-            transcript = ""
-            with open(filename, 'rb') as f:
-                response = self.speech_to_text.recognize(audio=f, content_type="audio/mp3",
-                                                         model="en-US_NarrowbandModel").get_result()
-                for chunk in response['results']:
-                    transcript += chunk['alternatives'][0]['transcript']
-            f.close()
-            os.remove(filename)
-            self.get_tone_analysis(transcript)
+                self.record_count += 1
+                self.average_tones_data.append(ytp_record.get_record().insert(0, self.record_count))
+                ytp_record.nullify()
 
-    def get_tone_analysis(self, transcript):  # Process Step 4
-        try:
-            self.get_record(
-                response=self.tone_analyzer.tone(transcript)
-            )
-        except ConnectionError('Unable to connect to IBM Watson Tone Analyzer service.') as e:
-            raise
-
-    def get_record(self, response):  # Called from Process Step 4
-        sentence_ids = []
-        anger_scores = []
-        disgust_scores = []
-        fear_scores = []
-        joy_scores = []
-        sadness_scores = []
-        tentative_scores = []
-        analytical_scores = []
-        confident_scores = []
-        for sentence in response.result["sentences_tone"]:
-            if not sentence["tones"]:
-                continue
-            else:
-                sentence_id = sentence["sentence_id"]
-                is_new_sentence = not (sentence_id in sentence_ids)
-                if is_new_sentence:
-                    sentence_ids.append(sentence_id)
-                    for tone in sentence["tones"]:
-                        tone_name = tone["tone_name"]
-                        if tone_name == self.column_names[0]:
-                            anger_scores.append(tone["score"])
-                        if tone_name == self.column_names[1]:
-                            disgust_scores.append(tone["score"])
-                        if tone_name == self.column_names[2]:
-                            fear_scores.append(tone["score"])
-                        if tone_name == self.column_names[3]:
-                            joy_scores.append(tone["score"])
-                        if tone_name == self.column_names[4]:
-                            sadness_scores.append(tone["score"])
-                        if tone_name == self.column_names[5]:
-                            tentative_scores.append(tone["score"])
-                        if tone_name == self.column_names[6]:
-                            analytical_scores.append(tone["score"])
-                        if tone_name == self.column_names[7]:
-                            confident_scores.append(tone["score"])
-
-        record = [
-            self.record_count + 1,
-            self.get_average_tone(anger_scores),
-            self.get_average_tone(disgust_scores),
-            self.get_average_tone(fear_scores),
-            self.get_average_tone(joy_scores),
-            self.get_average_tone(sadness_scores),
-            self.get_average_tone(tentative_scores),
-            self.get_average_tone(analytical_scores),
-            self.get_average_tone(confident_scores),
-            self.views[self.record_count],
-            self.urls[self.record_count]
-        ]
-        self.average_tones_data[str(self.record_count)] = record
-        self.record_count += 1
-
-    def get_average_tone(self, scores):  # Called from process step 4
-        if len(scores) > 0:
-            return sum(scores) / len(scores)
-        else:
-            return 0
+    def get_watson_output(self, filename):
+        transcript = ""
+        with open(Path(filename), 'rb') as f:
+            response = self.speech_to_text.recognize(audio=f, content_type="audio/mp3",
+                                                     model="en-US_NarrowbandModel").get_result()
+            for chunk in response['results']:
+                transcript += chunk['alternatives'][0]['transcript']
+        f.close()
+        return self.tone_analyzer.tone(transcript)
 
     def create_csv_file(self):  # Process Step 5
         try:
@@ -206,7 +239,6 @@ if __name__ == '__main__':
     data_bldr = DataBuilder()
     data_bldr.get_urls()
     data_bldr.get_video()
-    data_bldr.get_speech_to_text()
-    data_bldr.get_tone_analysis()
+    data_bldr.get_watson_output()
     data_bldr.create_csv_file()
     sys.exit()

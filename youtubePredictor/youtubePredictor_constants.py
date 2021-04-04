@@ -24,6 +24,7 @@ PACKAGE_VERSION = 0.0
 LOGGING_FORMAT = '%(asctime)-15s %(message)s'
 LOG_FILE_PATH = "./logs/youtubePredictor.log"
 YOUTUBE_EXTRACTOR_KEY = 'Youtube'
+YOUTUBE_DOWNLOAD_FILENAME = 'audio_files/ytdl_temp'
 
 # Credentials
 NATURAL_LANGUAGE_UNDERSTANDING_VERSION = ''
