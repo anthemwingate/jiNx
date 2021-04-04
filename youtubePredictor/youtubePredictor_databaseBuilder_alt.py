@@ -34,6 +34,8 @@ from youtube_transcript_api import YouTubeTranscriptApi
 
 
 # @TODO add yplogger_info and yplogger_error statements
+# @TODO remove skipped lines from init.csv
+# @TODO get better Tone analyser results
 
 class YoutubePredictorError(Exception):
     def __init__(self, message):
@@ -54,7 +56,7 @@ class YoutubePredictorRecord:
         self.record_id = 0
         self.views = 0
         self.url = ""
-        self.tone_analyzer_result = {}
+        self.tone_analyzer_result = []
         self.column_names = youtubePredictorConstants.CSV_FILE_COLUMN_NAMES
         self.record = []
 
@@ -66,17 +68,18 @@ class YoutubePredictorRecord:
         self.set_tones_helper()
 
     def set_tones_helper(self):
-        if "sentences_tone" in self.tone_analyzer_result:
-            for sentence in self.tone_analyzer_result["sentences_tone"]:
-                if "tones" in sentence:
-                    sentence_id = sentence["sentence_id"]
-                    is_new_sentence = not (sentence_id in self.sentence_ids)
-                    if is_new_sentence:
-                        self.sentence_ids.append(sentence_id)
-                        self.set_tones(sentence["tones"])
+        for result in self.tone_analyzer_result:
+            if "sentences_tone" in result:
+                for sentence in result["sentences_tone"]:
+                    if "tones" in sentence:
+                        sentence_id = sentence["sentence_id"]
+                        is_new_sentence = not (sentence_id in self.sentence_ids)
+                        if is_new_sentence:
+                            self.sentence_ids.append(sentence_id)
+                            self.set_tones(sentence["tones"])
 
-        else:
-            self.set_tones(self.tone_analyzer_result["document_tone"]["tones"])
+            else:
+                self.set_tones(result["document_tone"]["tones"])
 
         self.record = [
                         self.record_id,
@@ -187,15 +190,26 @@ class DataBuilder:
                                        })
 
     def get_transcript(self, video_id):
-        transcript = ""
-        for item in YouTubeTranscriptApi.get_transcript(video_id=video_id, languages='en'):
-            transcript += item['text'] + " "
-        return transcript
+        transcript = []
+        try:
+            youtube_transcript_iterable = YouTubeTranscriptApi.get_transcript(video_id=video_id, languages=['en'])
+            for item in youtube_transcript_iterable:
+                transcript.append(item['text'])
+        except Exception('Unable to get transcript from YouttubeTranscriptApi') as e:
+            raise
+        finally:
+            return transcript
+
+    def get_tone_analysis(self, transcript):
+        results = []
+        for chunk in transcript:
+            results.append(self.tone_analyzer.tone(chunk).result)
+        return results
 
     def ytp_record_helper(self):
         for info in self.video_info:
             transcript = self.get_transcript(video_id=info.get('video_id'))
-            if transcript == "":
+            if not transcript:
                 continue
             else:
                 ytp_record = YoutubePredictorRecord()
@@ -203,13 +217,13 @@ class DataBuilder:
                 ytp_record.initialize(record_id=self.record_id,
                                       views=info.get('views'),
                                       url=info.get('url'),
-                                      result=self.tone_analyzer.tone(transcript).result)
+                                      result=self.get_tone_analysis(transcript=transcript))
                 self.average_tones_data.append(ytp_record.get_record())
                 ytp_record.nullify()
 
     def create_csv_file(self):  # Process Step 5
         try:
-            training_file = open("test_init.csv", "w+")
+            training_file = open("init.csv", "w+")
             csv_writer = csv.writer(training_file)
 
             csv_writer.writerow(youtubePredictorConstants.CSV_FILE_COLUMN_NAMES)
