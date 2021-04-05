@@ -15,9 +15,7 @@
 
 # Import Data Handling Libraries
 from pathlib import Path
-import csv
 import sys
-import time
 from prettytable import PrettyTable
 import os
 
@@ -29,10 +27,10 @@ import youtubePredictor_constants as youtubePredictorConstants
 import youtube_dl
 from ibm_watson import ToneAnalyzerV3, SpeechToTextV1
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
-from youtube_transcript_api import YouTubeTranscriptApi
 
 
 # @TODO add yplogger_info and yplogger_error statements
+# @TODO configure log files to be readable
 
 class YoutubePredictorError(Exception):
     def __init__(self, message):
