@@ -20,11 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b1b57f69-993d-402a-a7bd-bfabe35b29c6" name="Default Changelist" comment="reorg">
-      <change afterPath="$PROJECT_DIR$/youtubePredictor/test.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtubePredictor/logs/youtubePredictor.log" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor/logs/youtubePredictor.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_constants.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_databaseBuilder_playlist.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_databaseBuilder_playlist.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_databaseBuilder_app.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_databaseBuilder_app.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +56,14 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="JupyterTrust" id="e07da601-d351-4399-bc39-0c1bc2104750" />
   <component name="ProjectId" id="1q211B5EEE3SAHWfd2NsXUyedM8" />
@@ -105,17 +111,17 @@
       <recent name="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor\tests" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor\youtubePredictor\databaseBuilder" />
       <recent name="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor\tests" />
       <recent name="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor\ypTester" />
       <recent name="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor\diTToYoutubePredictor" />
       <recent name="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor\test" />
-      <recent name="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.youtubePredictor_databaseBuilder_playlist">
+  <component name="RunManager" selected="Python.youtubePredictor_databaseBuilder_analysis">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -173,42 +179,17 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="youtubePredictor_dataManager_testRunner" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="youtubePredictor_databaseBuilder_analysis" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="DiTTo_YoutubePredictor" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ypTester" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor\tests\youtubePredictor_dataManager_testRunner.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="youtubePredictor_databaseBuilder_alt" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="DiTTo_YoutubePredictor" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/youtubePredictor" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/youtubePredictor/youtubePredictor_databaseBuilder_alt.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor\youtubePredictor\databaseBuilder\youtubePredictor_databaseBuilder_analysis.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -217,7 +198,29 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="youtubePredictor_databaseBuilder_playlist" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="youtubePredictor_databaseBuilder_app" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="DiTTo_YoutubePredictor" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/youtubePredictor" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor\youtubePredictor\youtubePredictor_databaseBuilder_app.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="youtube_databaseBuilder_transcription" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="DiTTo_YoutubePredictor" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -227,7 +230,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/youtubePredictor/youtubePredictor_databaseBuilder_playlist.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor\youtubePredictor\databaseBuilder\youtube_databaseBuilder_transcription.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -260,11 +263,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.youtubePredictor_databaseBuilder_playlist" />
-        <item itemvalue="Python.youtubePredictor_databaseBuilder_alt" />
+        <item itemvalue="Python.youtubePredictor_databaseBuilder_analysis" />
+        <item itemvalue="Python.youtube_databaseBuilder_transcription" />
+        <item itemvalue="Python.youtubePredictor_databaseBuilder_app" />
         <item itemvalue="Python.ytp_test" />
         <item itemvalue="Python.youtubePredictor_dataManager_testRunner (1)" />
-        <item itemvalue="Python.youtubePredictor_dataManager_testRunner" />
       </list>
     </recent_temporary>
   </component>
@@ -285,7 +288,7 @@
       <workItem from="1616814964894" duration="11846000" />
       <workItem from="1617288580816" duration="4509000" />
       <workItem from="1617305119351" duration="102481000" />
-      <workItem from="1617590346508" duration="1552000" />
+      <workItem from="1617590346508" duration="5452000" />
     </task>
     <task id="LOCAL-00001" summary="added functools import and additional logging messages">
       <created>1616425165832</created>
@@ -518,7 +521,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617589770280</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="gluing together demo">
+      <created>1617594400527</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1617594400527</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

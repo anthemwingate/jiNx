@@ -35,6 +35,7 @@ from youtube_transcript_api import YouTubeTranscriptApi
 # @TODO add yplogger_info and yplogger_error statements
 # @TODO rebuild as app
 # @TODO split download and analsis functionality into two separate implementations
+# @TODO move ydl-0pts to constants
 
 
 class YoutubePredictorError(Exception):
@@ -137,28 +138,14 @@ class DataBuilder:
         # Variables
         self.record_id = 0
         self.db_builder_log = ypLogger.YoutubePredictorLogger()
-        self.url_list_file = 'url_list.txt'
+        self.url_list_file = '../url_list.txt'
         self.average_tones_data = []
         self.urls = []
         self.ytdl_stt_info = []
         self.video_info = []
         self.youtube_downloads_folder = Path("audio_files/").rglob('*.mp3')
         self.audio_files = [x for x in self.youtube_downloads_folder]
-        self.ydl_opts = {
-                            'ignoreerrors': True,
-                            'skip_download': True,
-                            'format': 'bestaudio/best',
-                            'postprocessors': [{
-                                'key': 'FFmpegExtractAudio',
-                                'preferredcodec': 'mp3',
-                                'preferredquality': '192',
-                            }],
-                            'writesubtitles': True,
-                            'writeautomaticsub': True,
-                            'subtitleslangs': ['en'],
-                            'outtmpl': 'subtitles_files/%(id)s.%(ext)s',
-                            'quiet': True,
-                        }
+        self.ydl_opts = youtubePredictorConstants.YOUTUBE_DOWNLOAD_OPTIONS
         self.get_urls()
 
     def get_urls(self):  # Process Step 1
@@ -240,7 +227,7 @@ class DataBuilder:
 
     def create_csv_file(self):  # Process Step 5
         try:
-            training_file = open("init.csv", "w+")
+            training_file = open("../init.csv", "w+")
             csv_writer = csv.writer(training_file)
 
             csv_writer.writerow(youtubePredictorConstants.CSV_FILE_COLUMN_NAMES)
