@@ -20,12 +20,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b1b57f69-993d-402a-a7bd-bfabe35b29c6" name="Default Changelist" comment="reorg">
+      <change afterPath="$PROJECT_DIR$/youtubePredictor/gpt2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/youtubePredictor/test_urls.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_databaseBuilder_playlist.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/youtubePredictor/logs/youtubePredictor.log" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor/logs/youtubePredictor.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/youtubePredictor/test.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/youtubePredictor/url_list.txt" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor/url_list.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_constants.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_databaseBuilder.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_databaseBuilder_alt.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_databaseBuilder_alt.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_dbBldr_const.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +119,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.youtubePredictor_databaseBuilder_alt">
+  <component name="RunManager" selected="Python.youtubePredictor_databaseBuilder_playlist">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -212,22 +216,19 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="youtubePredictor_testRunner (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="youtubePredictor_databaseBuilder_playlist" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="DiTTo_YoutubePredictor" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/youtubePredictor" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/youtubePredictor_testRunner.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/youtubePredictor/youtubePredictor_databaseBuilder_playlist.py" />
       <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
       <option name="REDIRECT_INPUT" value="false" />
@@ -255,11 +256,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.youtubePredictor_databaseBuilder_playlist" />
         <item itemvalue="Python.youtubePredictor_databaseBuilder_alt" />
         <item itemvalue="Python.ytp_test" />
         <item itemvalue="Python.youtubePredictor_dataManager_testRunner (1)" />
         <item itemvalue="Python.youtubePredictor_dataManager_testRunner" />
-        <item itemvalue="Python.youtubePredictor_testRunner (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -279,7 +280,7 @@
       <workItem from="1616784570879" duration="1253000" />
       <workItem from="1616814964894" duration="11846000" />
       <workItem from="1617288580816" duration="4509000" />
-      <workItem from="1617305119351" duration="73020000" />
+      <workItem from="1617305119351" duration="102033000" />
     </task>
     <task id="LOCAL-00001" summary="added functools import and additional logging messages">
       <created>1616425165832</created>
@@ -491,7 +492,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617509102607</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="gluing together demo">
+      <created>1617509750540</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1617509750540</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -557,10 +565,11 @@
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/DiTTo_YoutubePredictor$youtubePredictor_databaseBuilder_playlist.coverage" NAME="youtubePredictor_databaseBuilder_playlist Coverage Results" MODIFIED="1617588932791" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/youtubePredictor" />
     <SUITE FILE_PATH="coverage/DiTTo_YoutubePredictor$youtubePredictor_dataManager_testRunner.coverage" NAME="youtubePredictor_dataManager_testRunner Coverage Results" MODIFIED="1616543010745" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ypTester" />
     <SUITE FILE_PATH="coverage/DiTTo_YoutubePredictor$youtubePredictor_testRunner__1_.coverage" NAME="youtubePredictor_testRunner (1) Coverage Results" MODIFIED="1616463779536" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/DiTTo_YoutubePredictor$youtubePredictor_dataManager_testRunner__1_.coverage" NAME="youtubePredictor_dataManager_testRunner (1) Coverage Results" MODIFIED="1616551868243" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/DiTTo_YoutubePredictor$youtubePredictor_testRunner.coverage" NAME="youtubePredictor_testRunner Coverage Results" MODIFIED="1616456584067" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
-    <SUITE FILE_PATH="coverage/DiTTo_YoutubePredictor$youtubePredictor_databaseBuilder_alt.coverage" NAME="youtubePredictor_databaseBuilder_alt Coverage Results" MODIFIED="1617491981293" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/youtubePredictor" />
+    <SUITE FILE_PATH="coverage/DiTTo_YoutubePredictor$youtubePredictor_databaseBuilder_alt.coverage" NAME="youtubePredictor_databaseBuilder_alt Coverage Results" MODIFIED="1617572137890" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/youtubePredictor" />
   </component>
 </project>

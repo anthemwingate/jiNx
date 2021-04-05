@@ -17,9 +17,10 @@
 from pathlib import Path
 import csv
 import sys
+import vtt2text
+import requests
+from bs4 import BeautifulSoup
 import time
-import datetime
-import os
 
 # Import DiTTo_YoutubePredictor Utilities
 import youtubePredictor_logger as ypLogger
@@ -29,13 +30,11 @@ import youtubePredictor_constants as youtubePredictorConstants
 import youtube_dl
 from ibm_watson import ToneAnalyzerV3, SpeechToTextV1
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
-from youtube_transcript_api import YouTubeTranscriptApi
 
 
 # @TODO add yplogger_info and yplogger_error statements
 # @TODO remove skipped lines from init.csv
 # @TODO get better Tone analyser results
-
 
 class YoutubePredictorError(Exception):
     def __init__(self, message):
@@ -137,24 +136,28 @@ class DataBuilder:
         # Variables
         self.record_id = 0
         self.db_builder_log = ypLogger.YoutubePredictorLogger()
-        self.url_list_file = 'url_list.txt'
+        self.url_list_file = 'test_urls.txt'
+        self.download_archive_file = 'downloaded_files.txt'
         self.average_tones_data = []
         self.urls = []
-        self.ytdl_stt_info = []
         self.video_info = []
-        self.youtube_downloads_folder = Path("audio_files/").rglob('*.mp3')
-        self.audio_files = [x for x in self.youtube_downloads_folder]
+        self.subtitles_folder = Path("subtitles_files/").rglob('*')
+        self.subtitles_files = [x for x in self.subtitles_folder]
         self.ydl_opts = {
-                        'download_archive': 'downloaded_files.txt',
-                        'format': 'bestaudio/best',
-                        'postprocessors': [{
-                            'key': 'FFmpegExtractAudio',
-                            'preferredcodec': 'mp3',
-                            'preferredquality': '192',
-                        }],
-                        'writesubtitles': True,
-                        'subtitle': '--write-sub --sub-lang en',
-                        'outtmpl': 'audio_files/%(id)s.%(ext)s',
+            'ignoreerrors': True,
+            'skip_download': True,
+            'download_archive': self.download_archive_file,
+            'format': 'bestaudio/best',
+            'postprocessors': [{
+                'key': 'FFmpegExtractAudio',
+                'preferredcodec': 'mp3',
+                'preferredquality': '192',
+            }],
+            'writesubtitles': True,
+            'writeautomaticsub': True,
+            'subtitleslangs': ['en'],
+            'outtmpl': 'subtitles_files/%(id)s.%(ext)s',
+            'quiet': True,
         }
         self.get_urls()
 
@@ -165,19 +168,32 @@ class DataBuilder:
                 f.close()
             for line in urls_from_file:
                 self.urls.append(line.strip('\n'))
-        except YoutubePredictorError('Unable to open file') as e:
+        except FileNotFoundError('Unable to open file') as e:
             raise
 
-    def get_video_info(self):  # Process Step 2
-        for url in self.urls:
-            with youtube_dl.YoutubeDL(self.ydl_opts) as ydl:
-                extraction_info = ydl.extract_info(url, download=False,
-                                                   ie_key=youtubePredictorConstants.YOUTUBE_EXTRACTOR_KEY)
-                self.video_info.append({
-                    'url': url,
-                    'views': extraction_info.get("view_count"),
-                    'video_id': extraction_info.get("id"),
-                })
+    def get_subtitles(self, url):
+        with youtube_dl.YoutubeDL(self.ydl_opts) as ydl:
+            ydl.download([url])
+            time.sleep(30)
+
+    def get_view_count(self):
+        print(self.subtitles_files)
+        for filename in self.subtitles_files:
+            a, b = str(filename).split("\\")
+            c, d = str(b).split(".", 1)
+            sep = ""
+            url = sep.join([youtubePredictorConstants.YOUTUBE_URL_PREFIX, c])
+            print(url)
+            soup = BeautifulSoup(requests.get(url).text, 'lxml')
+            views = soup.select_one('meta[itemprop="interactionCount"][content]')['content']
+            print(views)
+            subtitle_file_contents = str(vtt2text.clean(filename))
+            print(subtitle_file_contents)
+            result = self.get_tone_analysis(subtitle_file_contents)
+            print(result)
+            self.video_info.append({'result': result,
+                                    'views': views,
+                                    'url': url})
 
     def get_tone_analysis(self, transcript):
         results = []
@@ -185,54 +201,20 @@ class DataBuilder:
             results.append(self.tone_analyzer.tone(chunk).result)
         return results
 
-    def get_video(self, url):
-        with youtube_dl.YoutubeDL(self.ydl_opts) as ydl:
-            ydl.download([url])
-            time.sleep(120)
-
-    def get_transcript_from_youtube(self, video_id):
-        transcript = []
-        try:
-            youtube_transcript_iterable = YouTubeTranscriptApi.get_transcript(video_id=video_id, languages=['en'])
-            for item in youtube_transcript_iterable:
-                transcript.append(item['text'])
-        except Exception('Unable to get transcript from YouttubeTranscriptApi') as e:
-            raise
-        finally:
-            return transcript
-
-    def get_transcript_from_stt(self, filename):
-        transcript = []
-        with open(filename, 'rb') as f:
-            try:
-                response = self.speech_to_text.recognize(audio=f, content_type="audio/mp3",
-                                                         model="en-US_NarrowbandModel").get_result()
-                for chunk in response['results']:
-                    transcript.append(str(chunk['alternatives'][0]['transcript']))
-            except ConnectionError(
-                    'Unable to get transcript from IBM Watson Speech to Text for filename ' + filename) as e:
-                raise
-        f.close()
-        return transcript
-
     def api_manager(self):
-        for info in self.video_info:
-            transcript = self.get_transcript_from_youtube(video_id=info.get('video_id'))
-            if not transcript:
-                self.get_video(url=info.get('url'))
-                for filename in self.audio_files:
-                    transcript = self.get_transcript_from_stt(filename=filename)
-                    os.remove(filename)
+        for url in self.urls:
+            self.get_subtitles(url)
+            self.get_view_count()
+            for info in self.video_info:
+                self.ytp_record_helper(info)
 
-            self.ytp_record_helper(info=info, transcript=transcript)
-
-    def ytp_record_helper(self, info, transcript):
+    def ytp_record_helper(self, info):
         ytp_record = YoutubePredictorRecord()
         self.record_id += 1
         ytp_record.initialize(record_id=self.record_id,
                               views=info.get('views'),
                               url=info.get('url'),
-                              result=self.get_tone_analysis(transcript=transcript))
+                              result=info.get('result'))
         self.average_tones_data.append(ytp_record.get_record())
 
     def create_csv_file(self):  # Process Step 5
@@ -251,7 +233,6 @@ class DataBuilder:
 
 if __name__ == '__main__':
     data_bldr = DataBuilder()
-    data_bldr.get_video_info()
     data_bldr.api_manager()
     data_bldr.create_csv_file()
     sys.exit()
