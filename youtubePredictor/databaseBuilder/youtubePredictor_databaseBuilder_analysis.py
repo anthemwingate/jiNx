@@ -22,15 +22,12 @@ import requests
 from bs4 import BeautifulSoup
 
 # Import DiTTo_YoutubePredictor Utilities
-import youtubePredictor_logger as ypLogger
 import youtubePredictor_constants as youtubePredictorConstants
 
 # Import APIs
 from ibm_watson import ToneAnalyzerV3
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 
-
-# @TODO add yplogger_info and yplogger_error statements
 # @TODO remove skipped lines from init.csv
 
 
@@ -128,11 +125,10 @@ class DataBuilder:
 
         # Variables
         self.record_id = 0
-        self.db_builder_log = ypLogger.YoutubePredictorLogger()
         self.download_archive_file = 'downloaded_files.txt'
         self.average_tones_data = []
         self.video_info = []
-        self.subtitles_folder = Path("../subtitles_files/").rglob('*')
+        self.subtitles_folder = Path("subtitles_files/").rglob('*')
         self.subtitles_files = [x for x in self.subtitles_folder]
 
     def get_view_count(self):
