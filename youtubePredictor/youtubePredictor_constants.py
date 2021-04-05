@@ -24,9 +24,9 @@ PACKAGE_VERSION = 0.0
 LOGGING_FORMAT = '%(asctime)-15s %(message)s'
 LOG_FILE_PATH = "./logs/youtubePredictor.log"
 YOUTUBE_EXTRACTOR_KEY = 'Youtube'
+YOUTUBE_URL_PREFIX = 'https://www.youtube.com/watch?v='
 
 # Credentials
-
 
 # DataBase Queries
 CSV_FILE_COLUMN_NAMES = ["ID",
