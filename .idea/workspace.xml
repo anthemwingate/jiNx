@@ -19,18 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b1b57f69-993d-402a-a7bd-bfabe35b29c6" name="Default Changelist" comment="reorg">
-      <change afterPath="$PROJECT_DIR$/youtubePredictor/gpt2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/youtubePredictor/test_urls.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_databaseBuilder_playlist.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtubePredictor/logs/youtubePredictor.log" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor/logs/youtubePredictor.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtubePredictor/test.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtubePredictor/url_list.txt" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor/url_list.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_constants.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_databaseBuilder_alt.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_databaseBuilder_alt.py" afterDir="false" />
-    </list>
+    <list default="true" id="b1b57f69-993d-402a-a7bd-bfabe35b29c6" name="Default Changelist" comment="reorg" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -62,6 +51,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="JupyterTrust" id="e07da601-d351-4399-bc39-0c1bc2104750" />
   <component name="ProjectId" id="1q211B5EEE3SAHWfd2NsXUyedM8" />
@@ -289,7 +279,7 @@
       <workItem from="1616784570879" duration="1253000" />
       <workItem from="1616814964894" duration="11846000" />
       <workItem from="1617288580816" duration="4509000" />
-      <workItem from="1617305119351" duration="102033000" />
+      <workItem from="1617305119351" duration="102481000" />
     </task>
     <task id="LOCAL-00001" summary="added functools import and additional logging messages">
       <created>1616425165832</created>
@@ -508,7 +498,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617509750540</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="gluing together demo">
+      <created>1617589427893</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1617589427893</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
