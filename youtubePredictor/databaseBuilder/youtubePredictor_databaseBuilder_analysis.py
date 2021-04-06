@@ -162,7 +162,7 @@ class DataBuilder:
 
     def create_csv_file(self):
         try:
-            training_file = open("../init.csv", "w+")
+            training_file = open("init.csv", "w+", newline='')
             csv_writer = csv.writer(training_file)
 
             csv_writer.writerow(youtubePredictorConstants.CSV_FILE_COLUMN_NAMES)

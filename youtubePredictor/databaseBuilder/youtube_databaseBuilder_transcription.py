@@ -1,11 +1,12 @@
 import youtube_dl
 import sys
+import youtubePredictor_constants
 
 
 def get_urls():
     try:
         urls = []
-        with open('../url_list.txt', "r") as f:
+        with open('url_list.txt', "r") as f:
             urls_from_file = f.readlines()
             f.close()
         for line in urls_from_file:
@@ -17,21 +18,7 @@ def get_urls():
 
 
 def get_subtitles(url):
-    ydl_opts = {
-        'ignoreerrors': True,
-        'skip_download': True,
-        'format': 'bestaudio/best',
-        'postprocessors': [{
-            'key': 'FFmpegExtractAudio',
-            'preferredcodec': 'mp3',
-            'preferredquality': '192',
-        }],
-        'writesubtitles': True,
-        'writeautomaticsub': True,
-        'subtitleslangs': ['en'],
-        'outtmpl': 'subtitles_files/%(id)s.%(ext)s',
-        'quiet': True,
-    }
+    ydl_opts = youtubePredictor_constants.YOUTUBE_DOWNLOAD_OPTIONS
     with youtube_dl.YoutubeDL(ydl_opts) as ydl:
         ydl.download([url])
 

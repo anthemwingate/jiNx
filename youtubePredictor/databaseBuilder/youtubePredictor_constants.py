@@ -42,7 +42,7 @@ YOUTUBE_DOWNLOAD_OPTIONS = {
 }
 
 # Credentials
-
+TONE_ANALYZER_VERSION = '2017-09-21'
 
 # DataBase Queries
 CSV_FILE_COLUMN_NAMES = ["ID",
