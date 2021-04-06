@@ -16,8 +16,8 @@
 from flask import Flask, render_template, request, flash, redirect, url_for, send_from_directory
 
 # Import DiTTo_YoutubePredictor Utilities
-from youtubePredictor.youtubePredictor_app.youtubePredictor_databaseBuilder_app import DataBuilder
-from youtubePredictor.youtubePredictor_app.youtubePredictor_form import VideoForm
+from youtubePredictor.youtubePredictor_frontend.youtubePredictor_databaseBuilder_app import DataBuilder
+from youtubePredictor.youtubePredictor_frontend.youtubePredictor_form import VideoForm
 
 # App config.
 DEBUG = True
