@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>DiTTo Youtube Predictor</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}"/>
+</head>
+<body>
+
+<header class="container">
+    <div class="row text-center">
+        <h1>Submit Youtube Video URL</h1>
+    </div>
+</header>
+
+
+<section class="jumbotron">
+    <div class="container">
+        <div class="row text-center">
+
+            <form action="/youtPredictor_videoSubmission" method=post>
+                {{ form.hidden_tag() }}
+
+                {{ form.video_source.label }}<br>
+                {{ form.video_source(rows="4", cols="50") }}
+                <br>
+                {% for message in form.video_source.errors %}
+                    <br>
+                    <font color="red">{{ message }}</font>
+                    <br>
+                {% endfor %}
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <br>
+                            <font color="red">{{ message }}</font>
+                            <br>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <br>
+                {{ form.submit(class="other-buttons") }}
+                {{ form.cancel(class="other-buttons") }}
+
+            </form>
+
+        </div>
+    </div>
+</section>
+</body>
+</html>

@@ -20,7 +20,6 @@ from prettytable import PrettyTable
 import os
 
 # Import DiTTo_YoutubePredictor Utilities
-import youtubePredictor_logger as ypLogger
 import youtubePredictor_constants as youtubePredictorConstants
 
 # Import APIs
@@ -131,7 +130,6 @@ class DataBuilder:
 
         # Variables
         self.record_id = 0
-        self.db_builder_log = ypLogger.YoutubePredictorLogger()
         self.average_tones_data = []
         self.urls = []
         self.ytdl_stt_info = []
@@ -140,12 +138,11 @@ class DataBuilder:
         self.audio_files = [x for x in self.youtube_downloads_folder]
         self.ydl_opts = youtubePredictorConstants.YOUTUBE_DOWNLOAD_OPTIONS
         self.ydl_alt_opts = youtubePredictorConstants.YOUTUBE_DOWNLOAD_ALTERNATIVE_OPTIONS
-        self.get_urls()
 
-    # @TODO: utilization of the url list file must be replaced with a user input of the url via flask app
-    def get_urls(self):  # Process Step 1
-        test_url = 'https://www.youtube.com/watch?v=ojhTu9aAa_Y&t=8s'
-        self.urls.append(test_url.strip('\n'))
+    def get_urls(self, url):  # Process Step 1
+        # test_url = 'https://www.youtube.com/watch?v=ojhTu9aAa_Y&t=8s'
+        # self.urls.append(test_url.strip('\n'))
+        self.urls.append(url.strip('\n'))
 
     def get_video_info(self):  # Process Step 2
         for url in self.urls:
@@ -225,11 +222,13 @@ class DataBuilder:
             print('VIDEO ANALYSIS\n')
             print(record_table)
             print('\nPREDICTION\n')
-            print(f"This video is predicted an average of {self.get_prediction(record)} views.")
+            print(f"There is a predicted average of {self.get_prediction(record)} views for this video.")
 
 
 if __name__ == '__main__':
+    # In app testing
     data_bldr = DataBuilder()
+    data_bldr.get_urls()
     data_bldr.get_video_info()
     data_bldr.api_manager()
     data_bldr.display_results()

@@ -52,6 +52,11 @@ YOUTUBE_DOWNLOAD_ALTERNATIVE_OPTIONS = {
 }
 
 # Credentials
+TONE_ANALYZER_VERSION = '2017-09-21'
+TONE_ANALYZER_API_KEY= "sboLvwxsHld_-XM9AyKHOdxAjo1O3l9J6sJkFCwMn5R3"
+TONE_ANALYZER_API_URL= "https://api.us-south.tone-analyzer.watson.cloud.ibm.com/instances/e2f460e5-23e7-429d-a469-5a68c2190a10"
+SPEECH_TO_TEXT_API_KEY='B5zgcNw0ZgBlhVbAbqdHfWF6Zv_Q1vQmeA0XWduhSIiU'
+SPEECH_TO_TEXT_API_URL='https://api.us-east.speech-to-text.watson.cloud.ibm.com/instances/547300a1-a7e2-4797-a569-2a6f951f006d'
 
 # DataBase Queries
 CSV_FILE_COLUMN_NAMES = ["ID",

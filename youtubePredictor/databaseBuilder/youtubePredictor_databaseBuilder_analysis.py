@@ -28,8 +28,6 @@ import youtubePredictor_constants as youtubePredictorConstants
 from ibm_watson import ToneAnalyzerV3
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 
-# @TODO remove skipped lines from init.csv
-
 
 class YoutubePredictorError(Exception):
     def __init__(self, message):
