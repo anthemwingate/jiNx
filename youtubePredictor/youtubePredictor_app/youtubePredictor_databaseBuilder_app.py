@@ -18,6 +18,8 @@ from pathlib import Path
 import sys
 from prettytable import PrettyTable
 import os
+import pickle
+import gpt_2_simple as gpt2
 
 # Import DiTTo_YoutubePredictor Utilities
 import youtubePredictor_constants as youtubePredictorConstants
@@ -138,6 +140,7 @@ class DataBuilder:
         self.audio_files = [x for x in self.youtube_downloads_folder]
         self.ydl_opts = youtubePredictorConstants.YOUTUBE_DOWNLOAD_OPTIONS
         self.ydl_alt_opts = youtubePredictorConstants.YOUTUBE_DOWNLOAD_ALTERNATIVE_OPTIONS
+        self.model = {}
 
     def get_urls(self, url):  # Process Step 1
         # test_url = 'https://www.youtube.com/watch?v=ojhTu9aAa_Y&t=8s'
@@ -209,10 +212,27 @@ class DataBuilder:
                               result=self.get_tone_analysis(info.get('subtitles')))
         self.average_tones_data.append(ytp_record.get_record())
 
+    def open_model(self):
+        model_file = open(youtubePredictorConstants.ML_MODEL, 'rb')
+        self.model = pickle.load(model_file)
+        model_file.close()
+
     def get_prediction(self, record):
-        # @TODO add GPT2 implementation here
-        predicted_views = "Zhu Li, do the thing!"
-        return predicted_views
+        self.open_model()
+        sess = gpt2.start_tf_sess()
+        gpt2.load_gpt2(sess, model_name=self.model, run_name='youtubePredictor_viewPrediction')
+        predicted_views = gpt2.generate(sess,
+                                        model_name=model,
+                                        prefix="What do you call an entrepreneur",
+                                        length=50,
+                                        temperature=0.7,
+                                        top_p=0.9,
+                                        nsamples=5,
+                                        batch_size=5,
+                                        return_as_list=True)[0]
+
+        # predicted_views = "Zhu Li, do the thing!"
+        return str(predicted_views)
 
     def display_results(self):
         for record in self.average_tones_data:

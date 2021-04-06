@@ -50,6 +50,7 @@ YOUTUBE_DOWNLOAD_ALTERNATIVE_OPTIONS = {
     }],
     'outtmpl': 'audio_files/%(id)s.%(ext)s',
 }
+ML_MODEL = 'youtubePredictor_gpt2_finetuned_355M.sav'
 
 # Credentials
 TONE_ANALYZER_VERSION = '2017-09-21'
