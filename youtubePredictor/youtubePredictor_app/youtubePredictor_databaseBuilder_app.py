@@ -19,10 +19,10 @@ import sys
 from prettytable import PrettyTable
 import os
 import pickle
-import gpt_2_simple as gpt2
 
 # Import DiTTo_YoutubePredictor Utilities
 import youtubePredictor_constants as youtubePredictorConstants
+
 
 # Import APIs
 import youtube_dl
@@ -216,22 +216,24 @@ class DataBuilder:
         model_file = open(youtubePredictorConstants.ML_MODEL, 'rb')
         self.model = pickle.load(model_file)
         model_file.close()
-
-    def get_prediction(self, record):
-        self.open_model()
+        # @TODO when tensorflow issue is resolved, move the gpt2 implementation to get_prediction()
         sess = gpt2.start_tf_sess()
         gpt2.load_gpt2(sess, model_name=self.model, run_name='youtubePredictor_viewPrediction')
         predicted_views = gpt2.generate(sess,
-                                        model_name=model,
-                                        prefix="What do you call an entrepreneur",
-                                        length=50,
-                                        temperature=0.7,
-                                        top_p=0.9,
-                                        nsamples=5,
-                                        batch_size=5,
-                                        return_as_list=True)[0]
+                                    model_name=model,
+                                    prefix="What do you call an entrepreneur",
+                                    length=50,
+                                    temperature=0.7,
+                                    top_p=0.9,
+                                    nsamples=5,
+                                    batch_size=5,
+                                    return_as_list=True)[0]
 
-        # predicted_views = "Zhu Li, do the thing!"
+
+    def get_prediction(self, record):
+        # self.open_model()
+        # @TODO resolve issue with deprecated module tensorflow.contrib utilized by gpt-2-simple
+        predicted_views = "Zhu Li, do the thing!"
         return str(predicted_views)
 
     def display_results(self):
