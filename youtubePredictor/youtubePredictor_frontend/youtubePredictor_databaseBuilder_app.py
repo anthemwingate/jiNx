@@ -22,7 +22,6 @@ import pickle
 
 # Import DiTTo_YoutubePredictor Utilities
 import youtubePredictor_constants as youtubePredictorConstants
-from youtubePredictor.youtubePredictor_backend import youtubePredictor_dataManager as DataManager
 
 # Import APIs
 import youtube_dl
@@ -119,17 +118,17 @@ class YoutubePredictorRecord:
 
 
 class DataBuilder:
-    def __init__(self, TONE_ANALYZER_API_KEY, TONE_ANALYZER_API_URL, SPEECH_TO_TEXT_API_KEY, SPEECH_TO_TEXT_API_URL):
+    def __init__(self):
         # Speech To Text Service Initialization
-        self.speech_to_text_authenticator = IAMAuthenticator(SPEECH_TO_TEXT_API_KEY)
+        self.speech_to_text_authenticator = IAMAuthenticator(youtubePredictorConstants.SPEECH_TO_TEXT_API_KEY)
         self.speech_to_text = SpeechToTextV1(authenticator=self.speech_to_text_authenticator)
-        self.speech_to_text.set_service_url(SPEECH_TO_TEXT_API_URL)
+        self.speech_to_text.set_service_url(youtubePredictorConstants.SPEECH_TO_TEXT_API_URL)
 
         # Tone Analyzer Service Initialization
-        self.tone_analyzer_authenticator = IAMAuthenticator(apikey=TONE_ANALYZER_API_KEY)
+        self.tone_analyzer_authenticator = IAMAuthenticator(apikey=youtubePredictorConstants.TONE_ANALYZER_API_KEY)
         self.tone_analyzer = ToneAnalyzerV3(version=youtubePredictorConstants.TONE_ANALYZER_VERSION,
                                             authenticator=self.tone_analyzer_authenticator)
-        self.tone_analyzer.set_service_url(TONE_ANALYZER_API_URL)
+        self.tone_analyzer.set_service_url(youtubePredictorConstants.TONE_ANALYZER_API_URL)
 
         # Variables
         self.record_id = 0
@@ -142,8 +141,6 @@ class DataBuilder:
         self.ydl_opts = youtubePredictorConstants.YOUTUBE_DOWNLOAD_OPTIONS
         self.ydl_alt_opts = youtubePredictorConstants.YOUTUBE_DOWNLOAD_ALTERNATIVE_OPTIONS
         self.model = {}
-        self.record_table = PrettyTable()
-        self.record_table.field_names = youtubePredictorConstants.CSV_FROM_DATABASE_FILE_COLUMN_NAMES
 
     def get_urls(self, url):  # Process Step 1
         # test_url = 'https://www.youtube.com/watch?v=ojhTu9aAa_Y&t=8s'
@@ -240,29 +237,16 @@ class DataBuilder:
 
     def display_results(self):
         for record in self.average_tones_data:
-            prediction = self.get_prediction(record)
-            record.append(prediction)
-            self.record_table.add_row(record)
-            data_mgr.add_record_to_database(record)
-        return self.record_table
+            record_table = PrettyTable()
+            record_table.field_names = youtubePredictorConstants.CSV_FILE_COLUMN_NAMES
+            record_table.add_row(record)
+            record_table.add_column("Prediction", [self.get_prediction(record)])
+            return record_table
 
 
 if __name__ == '__main__':
     # In app testing
-    data_bldr = DataBuilder(
-                            TONE_ANALYZER_API_KEY=os.environ.get('TONE_ANALYZER_API_KEY'),
-                            TONE_ANALYZER_API_URL=os.environ.get('TONE_ANALYZER_API_URL'),
-                            SPEECH_TO_TEXT_API_KEY=os.environ.get('SPEECH_TO_TEXT_API_KEY'),
-                            SPEECH_TO_TEXT_API_URL=os.environ.get('SPEECH_TO_TEXT_API_URL'),
-                          )
-    data_mgr = DataManager.DataManager(
-                                        POSTGRESQL_USERNAME=os.environ.get('POSTGRESQL_USERNAME'),
-                                        POSTGRESQL_PASSWORD=os.environ.get('POSTGRESQL_PASSWORD'),
-                                        POSTGRESQL_HOST=os.environ.get('POSTGRESQL_HOST'),
-                                        POSTGRESQL_DBNAME=os.environ.get('POSTGRESQL_DBNAME'),
-                                        POSTGRESQL_PORT=os.environ.get('POSTGRESQL_PORT'),
-                                     )
-    data_mgr.init()
+    data_bldr = DataBuilder()
     data_bldr.get_urls()
     data_bldr.get_video_info()
     data_bldr.api_manager()

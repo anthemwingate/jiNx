@@ -20,8 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b1b57f69-993d-402a-a7bd-bfabe35b29c6" name="Default Changelist" comment="reorg">
+      <change afterPath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_frontend/templates/youtubePredictor_videoAnalysis.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_frontend/youtubePredictor_constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_frontend/youtubePredictor_constants.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_frontend/youtubePredictor_databaseBuilder_app.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_frontend/youtubePredictor_databaseBuilder_app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_frontend/youtubePredictor_flask_wrapper.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_frontend/youtubePredictor_flask_wrapper.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -292,7 +294,7 @@
       <workItem from="1617590346508" duration="12775000" />
       <workItem from="1617682913298" duration="13182000" />
       <workItem from="1617735137024" duration="12560000" />
-      <workItem from="1617835846505" duration="5850000" />
+      <workItem from="1617835846505" duration="5194000" />
     </task>
     <task id="LOCAL-00001" summary="added functools import and additional logging messages">
       <created>1616425165832</created>
@@ -595,14 +597,7 @@
       <option name="project" value="LOCAL" />
       <updated>1617746255916</updated>
     </task>
-    <task id="LOCAL-00044" summary="changes to flask implementation">
-      <created>1617841403722</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1617841403722</updated>
-    </task>
-    <option name="localTasksCounter" value="45" />
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -660,8 +655,7 @@
     <MESSAGE value="added prediction implementation using pretrained model" />
     <MESSAGE value="navigating tensorflow 2 compatibility" />
     <MESSAGE value="reorganization" />
-    <MESSAGE value="changes to flask implementation" />
-    <option name="LAST_COMMIT_MESSAGE" value="changes to flask implementation" />
+    <option name="LAST_COMMIT_MESSAGE" value="reorganization" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
