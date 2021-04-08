@@ -13,7 +13,7 @@
 #
 
 # Import Data Handling Libraries
-from flask import Flask, render_template, request, flash, redirect, url_for, send_from_directory
+from flask import Flask, render_template, request, flash, redirect, session, url_for, g, jsonify, make_response
 
 # Import DiTTo_YoutubePredictor Utilities
 from youtubePredictor.youtubePredictor_frontend.youtubePredictor_databaseBuilder_app import DataBuilder
@@ -26,8 +26,8 @@ app.secret_key = 'development key'
 app.config.from_object(__name__)
 
 
-@app.route("/", methods=['GET', 'POST'])
-def index():
+@app.route("/submission", methods=['GET', 'POST'])
+def submission():
     form = VideoForm()
     if request.method == 'POST':
         if not form.validate():
@@ -37,9 +37,13 @@ def index():
         data_bldr.get_urls(url=video_source)
         data_bldr.get_video_info()
         data_bldr.api_manager()
-        flash(data_bldr.display_results())
 
     return render_template('youtubePredictor_videoSubmission.html', form=form)
+
+
+@app.route("/analysis", methods=['GET', 'POST'])
+def analysis():
+    return render_template('youtubePredictor_videoAnalysis', results=data_bldr.display_results())
 
 
 if __name__ == "__main__":

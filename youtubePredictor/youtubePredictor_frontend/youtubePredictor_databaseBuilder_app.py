@@ -23,11 +23,11 @@ import pickle
 # Import DiTTo_YoutubePredictor Utilities
 import youtubePredictor_constants as youtubePredictorConstants
 
-
 # Import APIs
 import youtube_dl
 from ibm_watson import ToneAnalyzerV3, SpeechToTextV1
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
+#import gpt_2_simple as gpt2
 
 
 # @TODO add yplogger_info and yplogger_error statements
@@ -212,7 +212,7 @@ class DataBuilder:
                               result=self.get_tone_analysis(info.get('subtitles')))
         self.average_tones_data.append(ytp_record.get_record())
 
-    def open_model(self):
+    """def open_model(self):
         model_file = open(youtubePredictorConstants.ML_MODEL, 'rb')
         self.model = pickle.load(model_file)
         model_file.close()
@@ -220,31 +220,28 @@ class DataBuilder:
         sess = gpt2.start_tf_sess()
         gpt2.load_gpt2(sess, model_name=self.model, run_name='youtubePredictor_viewPrediction')
         predicted_views = gpt2.generate(sess,
-                                    model_name=model,
-                                    prefix="What do you call an entrepreneur",
-                                    length=50,
-                                    temperature=0.7,
-                                    top_p=0.9,
-                                    nsamples=5,
-                                    batch_size=5,
-                                    return_as_list=True)[0]
-
+                                        model_name=model,
+                                        prefix="What do you call an entrepreneur",
+                                        length=50,
+                                        temperature=0.7,
+                                        top_p=0.9,
+                                        nsamples=5,
+                                        batch_size=5,
+                                        return_as_list=True)[0]"""
 
     def get_prediction(self, record):
         # self.open_model()
         # @TODO resolve issue with deprecated module tensorflow.contrib utilized by gpt-2-simple
         predicted_views = "Zhu Li, do the thing!"
-        return str(predicted_views)
+        return predicted_views
 
     def display_results(self):
         for record in self.average_tones_data:
             record_table = PrettyTable()
             record_table.field_names = youtubePredictorConstants.CSV_FILE_COLUMN_NAMES
             record_table.add_row(record)
-            print('VIDEO ANALYSIS\n')
-            print(record_table)
-            print('\nPREDICTION\n')
-            print(f"There is a predicted average of {self.get_prediction(record)} views for this video.")
+            record_table.add_column("Prediction", [self.get_prediction(record)])
+            return record_table
 
 
 if __name__ == '__main__':

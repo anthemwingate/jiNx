@@ -20,10 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b1b57f69-993d-402a-a7bd-bfabe35b29c6" name="Default Changelist" comment="reorg">
+      <change afterPath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_frontend/templates/youtubePredictor_videoAnalysis.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtubePredictor/line_testing.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor/line_testing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_app/youtubePredictor_databaseBuilder_app.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_app/youtubePredictor_databaseBuilder_app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_frontend/youtubePredictor_constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_frontend/youtubePredictor_constants.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_frontend/youtubePredictor_databaseBuilder_app.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_frontend/youtubePredictor_databaseBuilder_app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_frontend/youtubePredictor_flask_wrapper.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_frontend/youtubePredictor_flask_wrapper.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,8 +34,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -112,26 +113,24 @@
       <recent name="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor\tests" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor\youtubePredictor" />
       <recent name="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor\ColabNotebooks" />
       <recent name="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor\youtubePredictor\databaseBuilder" />
       <recent name="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor\youtubePredictor\youtubePredictor_app" />
       <recent name="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor\tests" />
-      <recent name="C:\Users\Anthem Rukiya\IdeaProjects\DiTTo_YoutubePredictor\ypTester" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.youtubePredictor_flask_wrapper">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.youtubePredictor_flask_wrapper (1)">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -150,28 +149,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="line_testing" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="DiTTo_YoutubePredictor" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/youtubePredictor" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/youtubePredictor/line_testing.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -224,10 +201,32 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="youtubePredictor_flask_wrapper (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="DiTTo_YoutubePredictor" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/youtubePredictor/youtubePredictor_frontend" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/youtubePredictor/youtubePredictor_frontend/youtubePredictor_flask_wrapper.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="youtubePredictor_flask_wrapper" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="DiTTo_YoutubePredictor" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/youtubePredictor/youtubePredictor_app" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -267,11 +266,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.youtubePredictor_flask_wrapper (1)" />
         <item itemvalue="Python.youtubePredictor_flask_wrapper" />
         <item itemvalue="Python.youtubePredictor_databaseBuilder_app (1)" />
         <item itemvalue="Python.youtubePredictor_databaseBuilder_analysis (1)" />
         <item itemvalue="Python.youtube_databaseBuilder_transcription (1)" />
-        <item itemvalue="Python.line_testing" />
       </list>
     </recent_temporary>
   </component>
@@ -294,7 +293,8 @@
       <workItem from="1617305119351" duration="102481000" />
       <workItem from="1617590346508" duration="12775000" />
       <workItem from="1617682913298" duration="13182000" />
-      <workItem from="1617735137024" duration="9394000" />
+      <workItem from="1617735137024" duration="12560000" />
+      <workItem from="1617835846505" duration="5194000" />
     </task>
     <task id="LOCAL-00001" summary="added functools import and additional logging messages">
       <created>1616425165832</created>
@@ -583,7 +583,21 @@
       <option name="project" value="LOCAL" />
       <updated>1617736816065</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="navigating tensorflow 2 compatibility">
+      <created>1617745776400</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1617745776400</updated>
+    </task>
+    <task id="LOCAL-00043" summary="reorganization">
+      <created>1617746255916</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1617746255916</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -639,7 +653,9 @@
     <MESSAGE value="Running DatabaseBuilder to create init.csv" />
     <MESSAGE value="Adding trained gpt2 model to repo from colab notebook" />
     <MESSAGE value="added prediction implementation using pretrained model" />
-    <option name="LAST_COMMIT_MESSAGE" value="added prediction implementation using pretrained model" />
+    <MESSAGE value="navigating tensorflow 2 compatibility" />
+    <MESSAGE value="reorganization" />
+    <option name="LAST_COMMIT_MESSAGE" value="reorganization" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
