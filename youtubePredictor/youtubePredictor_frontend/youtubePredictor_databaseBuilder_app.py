@@ -53,7 +53,7 @@ class YoutubePredictorRecord:
         self.views = 0
         self.url = ""
         self.tone_analyzer_result = []
-        self.column_names = youtubePredictorConstants.CSV_FILE_COLUMN_NAMES
+        self.column_names = youtubePredictorConstants.CSV_FROM_DATABASE_FILE_COLUMN_NAMES
         self.record = []
 
     def initialize(self, record_id, views, url, result):
@@ -167,7 +167,7 @@ class DataBuilder:
                         video_info['subtitles'] = extraction_info.get("subtitles")
                     else:
                         self.get_video(url)
-                        filename = Path(str(os.getcwd()) + "\\audio_files\\" + video_info['video_id'] + '.mp3')
+                        filename = str(os.getcwd() + "\\audio_files\\" + video_info['video_id'] + '.mp3')
                         video_info['subtitles'] = self.get_transcript_from_stt(filename)
 
                     self.video_info.append(video_info)
