@@ -141,6 +141,8 @@ class DataBuilder:
         self.ydl_opts = youtubePredictorConstants.YOUTUBE_DOWNLOAD_OPTIONS
         self.ydl_alt_opts = youtubePredictorConstants.YOUTUBE_DOWNLOAD_ALTERNATIVE_OPTIONS
         self.model = {}
+        self.record_table = PrettyTable()
+        self.record_table.field_names = youtubePredictorConstants.CSV_FROM_DATABASE_FILE_COLUMN_NAMES
 
     def get_urls(self, url):  # Process Step 1
         # test_url = 'https://www.youtube.com/watch?v=ojhTu9aAa_Y&t=8s'
@@ -237,11 +239,10 @@ class DataBuilder:
 
     def display_results(self):
         for record in self.average_tones_data:
-            record_table = PrettyTable()
-            record_table.field_names = youtubePredictorConstants.CSV_FILE_COLUMN_NAMES
-            record_table.add_row(record)
-            record_table.add_column("Prediction", [self.get_prediction(record)])
-            return record_table
+            prediction = self.get_prediction(record)
+            record.append(prediction)
+            self.record_table.add_row(record)
+        return self.record_table
 
 
 if __name__ == '__main__':

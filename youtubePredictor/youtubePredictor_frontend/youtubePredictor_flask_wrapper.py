@@ -43,6 +43,7 @@ def submission():
 
 @app.route("/analysis", methods=['GET', 'POST'])
 def analysis():
+    flash('Video successfully analyzed.')
     return render_template('youtubePredictor_videoAnalysis', results=data_bldr.display_results())
 
 
