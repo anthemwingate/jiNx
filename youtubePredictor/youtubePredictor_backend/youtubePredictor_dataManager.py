@@ -19,11 +19,7 @@ from prettytable import from_db_cursor
 from flask import jsonify, flash
 
 # Import DiTTo_YoutubePredictor Utilities
-from youtubePredictor import youtubePredictor_logger as ypLog, youtubePredictor_constants as youtubePredictorConstants
-
-# Import APIs
-from ibm_watson import SpeechToTextV1, ToneAnalyzerV3, NaturalLanguageUnderstandingV1
-from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
+from youtubePredictor.youtubePredictor_frontend import youtubePredictor_logger as ypLog, youtubePredictor_constants as youtubePredictorConstants
 
 
 class YoutubePredictorError(Exception):
@@ -33,32 +29,12 @@ class YoutubePredictorError(Exception):
 
 class DataManager:
 
-    def __init__(self, speech_to_text_api_key, speech_to_text_endpoint_url, tone_analyzer_api_key,
-                 tone_analyzer_endpoint_url,
-                 natural_language_understanding_api_key, natural_language_understanding_endpoint_url, alchemy_api_key,
-                 postgresql_username, postgresql_password, postgresql_host, postgresql_dbname, postgresql_port):
-
-        # Speech To Text Service Initialization
-        self.speech_to_text_authenticator = IAMAuthenticator(apikey=tone_analyzer_api_key)
-        self.speech_to_text = SpeechToTextV1(authenticator=self.speech_to_text_authenticator)
-
-        # Natural Language Understanding Initialization
-        self.natural_language_understanding_authenticator = IAMAuthenticator(
-            apikey=natural_language_understanding_api_key)
-        self.natural_language_understanding = NaturalLanguageUnderstandingV1(
-            version=youtubePredictorConstants.NATURAL_LANGUAGE_UNDERSTANDING_VERSION,
-            authenticator= self.natural_language_understanding_authenticator)
-
-        # Tone Analyzer Service Initialization
-        self.tone_analyzer_authenticator = IAMAuthenticator(apikey=tone_analyzer_api_key)
-        self.tone_analyzer = ToneAnalyzerV3(version=youtubePredictorConstants.TONE_ANALYZER_VERSION,
-                                            authenticator=self.tone_analyzer_authenticator)
-
-        self.conn_string = "host='{}' dbname='{}' user='{}' password={} port={}".format(postgresql_host,
-                                                                                        postgresql_dbname,
-                                                                                        postgresql_username,
-                                                                                        postgresql_password,
-                                                                                        postgresql_port)
+    def __init__(self, POSTGRESQL_USERNAME, POSTGRESQL_PASSWORD, POSTGRESQL_HOST, POSTGRESQL_DBNAME, POSTGRESQL_PORT):
+        self.conn_string = "host='{}' dbname='{}' user='{}' password={} port={}".format(POSTGRESQL_HOST,
+                                                                                        POSTGRESQL_DBNAME,
+                                                                                        POSTGRESQL_USERNAME,
+                                                                                        POSTGRESQL_PASSWORD,
+                                                                                        POSTGRESQL_PORT)
 
         self.conn = psycopg2.connect(self.conn_string)
         self.cursor = self.conn.cursor()
@@ -103,6 +79,18 @@ class DataManager:
         self.cursor.execute(youtubePredictorConstants.GET_COLUMN_HEADERS)
         return from_db_cursor(self.cursor.fetchall)
 
+    def add_record_to_database(self, record):
+        self.data_mgr_log.log_method_started(method_name=self.add_record_to_database().__name__, msg='Adding record to database')
+        try:
+            update_st = youtubePredictorConstants.ADD_RECORD
+            self.cursor.execute(update_st, record)
+            self.conn.commit()
+            self.data_mgr_log.log_method_completed(method_name=self.add_video_stats.__name__, msg='Record added to database')
+        except YoutubePredictorError('IBM Watson PostGreSQL Service connection failure') as e:
+            self.reset_cursor()
+            self.data_mgr_log.log_error(ex=e, method_name=self.add_video_stats.__name__)
+            return None
+
     def get_record_from_database(self, i):
         self.data_mgr_log.log_method_started(method_name=self.get_record_from_database.__name__,
                                              msg=f'Getting record with id: {i}')
@@ -115,23 +103,6 @@ class DataManager:
         except YoutubePredictorError('Record not found.') as e:
             self.reset_cursor()
             self.data_mgr_log.log_error(ex=e, method_name=self.get_record_from_database.__name__)
-
-    def update_record_in_database(self, val, i):
-        self.data_mgr_log.log_method_started(method_name=self.update_record_in_database.__name__,
-                                             msg=f'Updating record with id: {i}')
-        try:
-            newtones = self.calculate_tones(val, i)  # @TODO needs rework, newtones isn't a complete record
-            update_st = youtubePredictorConstants.UPDATE_RECORD
-            self.cursor.execute(update_st, newtones)
-            self.conn.commit()
-            self.data_mgr_log.log_method_completed(method_name=self.update_record_in_database.__name__,
-                                                   msg="Record updated")
-        except YoutubePredictorError('Record not found') as e:
-            self.reset_cursor()
-            self.data_mgr_log.log_error(ex=e, method_name=self.update_record_in_database.__name__)
-            raise
-        else:
-            self.data_mgr_log.log_info(method_name=self.update_record_in_database.__name__, msg='Record found')
 
     def delete_record_from_database(self, i):
         self.data_mgr_log.log_method_started(method_name=self.delete_record_from_database.__name__,
@@ -148,71 +119,6 @@ class DataManager:
             raise
         else:
             self.data_mgr_log.log_info(method_name=self.delete_record_from_database.__name__, msg='Record deleted')
-
-    def analyze_transcript(self, audio_stream):
-        self.data_mgr_log.log_method_started(method_name=self.analyze_transcript.__name__, msg='Analyzing transcript')
-        try:
-            response = self.speech_to_text.recognize_using_websocket(audio=audio_stream,
-                                                                     content_type='audio/webm',
-                                                                     timestamps=False,
-                                                                     word_confidence=False,
-                                                                     continuous=True).get_result()
-
-            for chunk in response['results']:
-                self.transcript += chunk['alternatives'][0]['transcript']
-            self.data_mgr_log.log_method_completed(method_name=self.analyze_transcript.__name__, msg='Transcript analyzed')
-        except YoutubePredictorError('IBM Watson Speech to Text Service connection failure') as e:
-            self.data_mgr_log.log_error(ex=e, method_name=self.analyze_transcript.__name__)
-            self.data_mgr_log.log_info(method_name=self.analyze_transcript.__name__, msg=jsonify(response))
-        else:
-            self.data_mgr_log.log_info(method_name=self.analyze_transcript.__name__,
-                                       msg='Transcript analysis completed')
-
-    def calculate_tones(self):
-        self.data_mgr_log.log_method_started(method_name=self.calculate_tones.__name__, msg='Calculating tones')
-        scores = []
-
-        try:
-            response = self.tone_analyzer.tone(self.transcript)
-
-            for tone in response["document_tone"]["tone_categories"][0]["tones"]:
-                scores.append(tone["score"])
-            self.data_mgr_log.log_method_completed(method_name=self.calculate_tones.__name__, msg='Tone calculation completed')
-            return scores
-        except YoutubePredictorError('IBM Watson Tone Analyzer Service connection failure') as e:
-            self.data_mgr_log.log_error(ex=e, method_name=self.calculate_tones.__name__)
-            self.data_mgr_log.log_info(method_name=self.calculate_tones.__name__, msg=jsonify(response))
-            return None
-
-    def add_video_stats(self, url, views):
-        self.data_mgr_log.log_method_started(method_name=self.add_video_stats.__name__, msg='Adding stats to database')
-        try:
-            update_st = youtubePredictorConstants.ADD_RECORD
-            record = []
-            record[0] = url
-            record.append(self.calculate_tones())
-            record.append(views)
-            self.cursor.execute(update_st, record)
-            self.conn.commit()
-            self.data_mgr_log.log_method_completed(method_name=self.add_video_stats.__name__, msg='Record added to database')
-            return record
-        except YoutubePredictorError('IBM Watson PostGreSQL Service connection failure') as e:
-            self.reset_cursor()
-            self.data_mgr_log.log_error(ex=e, method_name=self.add_video_stats.__name__)
-            return None
-
-    def create_transcript_file(self, title):
-        self.data_mgr_log.log_method_started(method_name=self.create_transcript_file.__name__, msg='Creating file')
-
-        try:
-            transcript_file = open(f"transcripts\{title}.txt", "w+")
-            for line in self.transcript:
-                transcript_file.write(line)
-            transcript_file.close()
-            self.data_mgr_log.log_method_completed(method_name=self.create_transcript_file.__name__, msg='File creation completed')
-        except YoutubePredictorError('Unable to create file') as e:
-            self.data_mgr_log.log_error(ex=e, method_name=self.add_video_stats.__name__)
-            raise
 
     def import_data_from_file(self, filename):
         self.data_mgr_log.log_method_started(method_name=self.import_data_from_file.__name__,

@@ -53,28 +53,29 @@ YOUTUBE_DOWNLOAD_ALTERNATIVE_OPTIONS = {
 ML_MODEL = 'youtubePredictor_gpt2_finetuned_355M.sav'
 
 # Credentials
-
+TONE_ANALYZER_VERSION = "2017-09-21"
 
 # DataBase Queries
-CSV_FILE_COLUMN_NAMES = ["ID",
-                         "ANGER",
-                         "DISGUST",
-                         "FEAR",
-                         "JOY",
-                         "SADNESS",
-                         "TENTATIVE",
-                         "ANALYTICAL",
-                         "CONFIDENT",
-                         "VIEWS",
-                         "URL",
-                         ]
+CSV_FROM_DATABASE_FILE_COLUMN_NAMES = ["ID",
+                                       "ANGER",
+                                       "DISGUST",
+                                       "FEAR",
+                                       "JOY",
+                                       "SADNESS",
+                                       "TENTATIVE",
+                                       "ANALYTICAL",
+                                       "CONFIDENT",
+                                       "VIEWS",
+                                       "URL",
+                                       "PREDICTION"
+                                       ]
 FIND_TABLE = "SELECT * FROM TranscriptStats"
 GET_COLUMN_HEADERS = "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = " + DATABASE_NAME
-CREATE_TABLE = 'CREATE TABLE TranscriptStats (ID SERIAL, URL TEXT NOT NULL UNIQUE, ANGER BOOLEAN NOT NULL, DISGUST BOOLEAN NOT NULL, FEAR BOOLEAN NOT NULL, JOY BOOLEAN NOT NULL, SADNESS BOOLEAN NOT NULL, VIEWS INTEGER NOT NULL);'  # @TODO check if this semi-colon should be removed
+CREATE_TABLE = 'CREATE TABLE TranscriptStats (ID SERIAL, ANGER BOOLEAN NOT NULL, DISGUST BOOLEAN NOT NULL, FEAR BOOLEAN NOT NULL, JOY BOOLEAN NOT NULL, SADNESS BOOLEAN NOT NULL, VIEWS INTEGER NOT NULL, URL TEXT NOT NULL UNIQUE, PREDICTION TEXT NOT NULL UNIQUE, );'
 GET_TABLE = "SELECT * FROM TranscriptStats ORDER by Id"
-FILL_TABLE = "INSERT INTO TranscriptStats (URL, ANGER, DISGUST, FEAR, JOY, SADNESS, VIEWS) VALUES (%s, %s, %s, %s, %s, %s, %s)"
+FILL_TABLE = "INSERT INTO TranscriptStats (ANGER, DISGUST, FEAR, JOY, SADNESS, VIEWS, URL, PREDICTION) VALUES (%s, %s, %s, %s, %s, %s, %s)"
 GET_SINGLE_RECORD = "SELECT * FROM TranscriptStats WHERE Id=%s"
-UPDATE_RECORD = "UPDATE TranscriptStats SET URL=%s, ANGER=%s, DISGUST=%s, FEAR=%s, JOY=%s, SADNESS=%s, VIEWS=%s WHERE Id=%s"
+UPDATE_RECORD = "UPDATE TranscriptStats SET ANGER=%s, DISGUST=%s, FEAR=%s, JOY=%s, SADNESS=%s, VIEWS=%s, URL=%s, PREDICTION=%s WHERE Id=%s"
 REMOVE_SINGLE_RECORD = "DELETE from TranscriptStats where ID=%s"
-ADD_RECORD = "INSERT INTO TranscriptStats (URL, ANGER, DISGUST, FEAR, JOY, SADNESS, VIEWS) VALUES (%s, %s, %s, %s, %s, %s, %s)"
+ADD_RECORD = "INSERT INTO TranscriptStats (ANGER, DISGUST, FEAR, JOY, SADNESS, VIEWS, URL, PREDICTION) VALUES (%s, %s, %s, %s, %s, %s, %s)"
 CLEAR_TABLE = 'DELETE FROM TranscriptStats'
