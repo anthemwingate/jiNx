@@ -11,23 +11,32 @@
 
 <header class="container">
     <div class="row text-center">
-        <h1>Video Analysis</h1>
+        <h1>Analysis Results</h1>
     </div>
 </header>
 </body>
-
-<body>
-<header class="container">
-    <div class="row text-center">
-        <h1>Prediction</h1>
-    </div>
-</header>
 
 <section class="jumbotron">
     <div class="container">
         <div class="row text-center">
             <br>
-            <p>{{ results }}</p>
+            <p>{{ anger }}</p>
+            <br>
+            <p>{{ disgust }}</p>
+            <br>
+            <p>{{ fear }}</p>
+            <br>
+            <p>{{ joy }}</p>
+            <br>
+            <p>{{ sadness }}</p>
+            <br>
+            <p>{{ tentative }}</p>
+            <br>
+            <p>{{ analytical }}</p>
+            <br>
+            <p>{{ confident }}</p>
+            <br>
+            <p>{{ prediction }}</p>
             <br>
             <input class="other-buttons" onclick="location.href='/';" type="submit" name="submit"
                    value="Analyze Another">

@@ -53,10 +53,7 @@ ML_MODEL = 'youtubePredictor_gpt2_finetuned_355M.sav'
 
 # Credentials
 TONE_ANALYZER_VERSION = "2017-09-21"
-TONE_ANALYZER_API_KEY = "cC-Wnjdx0klZPLv0qbNGms6y8sDcfH4G1OpPCopKWPte"
-TONE_ANALYZER_API_URL = "https://api.us-south.tone-analyzer.watson.cloud.ibm.com/instances/95c8ca9b-79db-4d00-8751-762c2e1afa55"
-SPEECH_TO_TEXT_API_KEY = "L8AJK0BLidDYAhR3_gQ3dv44U1oehONZBFhHJSK44l9-"
-SPEECH_TO_TEXT_API_URL = "https://api.us-south.speech-to-text.watson.cloud.ibm.com/instances/ba93f800-bb3b-4a65-a22f-0d6bae8b09b3"
+
 
 # DataBase Queries
 CSV_FROM_DATABASE_FILE_COLUMN_NAMES = ["ID",

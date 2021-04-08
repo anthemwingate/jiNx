@@ -24,6 +24,8 @@ DEBUG = True
 app = Flask(__name__)
 app.secret_key = 'development key'
 app.config.from_object(__name__)
+
+
 # test_url = https://www.youtube.com/watch?v=ojhTu9aAa_Y&t=8s
 
 @app.route("/", methods=['GET', 'POST'])
@@ -36,18 +38,25 @@ def submission():
     return render_template('youtubePredictor_videoSubmission.html', form=form)
 
 
-@app.route("/handle_url_sub", methods=['GET', 'POST'])
-def handle_url_sub():
+@app.route("/analysis", methods=['GET', 'POST'])
+def analysis():
     video_source = request.form['video_source']
     data_bldr.urls.append(video_source)
     data_bldr.get_video_info()
     data_bldr.api_manager()
-    flash('Analyzing')
+    results = data_bldr.display_results()
 
-
-@app.route("/analysis", methods=['GET', 'POST'])
-def analysis():
-    return render_template('youtubePredictor_videoAnalysis.html', results=data_bldr.display_results())
+    return render_template('youtubePredictor_videoAnalysis.html',
+                           anger=results.get_string(fields=["ANGER"]),
+                           disgust=results.get_string(fields=["DISGUST"]),
+                           fear=results.get_string(fields=["FEAR"]),
+                           joy=results.get_string(fields=["JOY"]),
+                           sadness=results.get_string(fields=["SADNESS"]),
+                           tentative=results.get_string(fields=["TENTATIVE"]),
+                           analytical=results.get_string(fields=["ANALYTICAL"]),
+                           confident=results.get_string(fields=["CONFIDENT"]),
+                           prediction=results.get_string(fields=["PREDICTION"]),
+                           )
 
 
 if __name__ == "__main__":

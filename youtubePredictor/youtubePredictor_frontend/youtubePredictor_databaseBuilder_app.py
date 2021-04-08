@@ -234,7 +234,7 @@ class DataBuilder:
     def get_prediction(self, record):
         # self.open_model()
         # @TODO resolve issue with deprecated module tensorflow.contrib utilized by gpt-2-simple
-        predicted_views = "Zhu Li, do the thing!"
+        predicted_views = "gpt2 prediction goes here"
         return predicted_views
 
     def display_results(self):
