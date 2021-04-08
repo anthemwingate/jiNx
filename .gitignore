@@ -130,3 +130,6 @@ dmypy.json
 
 # Ignore README.md
 README.md
+
+# Ignore .idea/workspace.xml
+.idea/workspace.xml

@@ -23,7 +23,11 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_backend/youtubePredictor_dataManager.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_backend/youtubePredictor_dataManager.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_frontend/youtubePredictor_constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_frontend/youtubePredictor_constants.py" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_frontend/youtubePredictor_databaseBuilder_app.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_frontend/youtubePredictor_databaseBuilder_app.py" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_frontend/youtubePredictor_flask_wrapper.py" beforeDir="false" afterPath="$PROJECT_DIR$/youtubePredictor/youtubePredictor_frontend/youtubePredictor_flask_wrapper.py" afterDir="false" />
+>>>>>>> 8c68c3a... changes to flask implementation
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -293,7 +297,11 @@
       <workItem from="1617590346508" duration="12775000" />
       <workItem from="1617682913298" duration="13182000" />
       <workItem from="1617735137024" duration="12560000" />
+<<<<<<< HEAD
       <workItem from="1617835846505" duration="8906000" />
+=======
+      <workItem from="1617835846505" duration="5850000" />
+>>>>>>> 8c68c3a... changes to flask implementation
     </task>
     <task id="LOCAL-00001" summary="added functools import and additional logging messages">
       <created>1616425165832</created>
@@ -603,6 +611,7 @@
       <option name="project" value="LOCAL" />
       <updated>1617841403722</updated>
     </task>
+<<<<<<< HEAD
     <task id="LOCAL-00045" summary="changes to flask implementation">
       <created>1617842149238</created>
       <option name="number" value="00045" />
@@ -611,6 +620,9 @@
       <updated>1617842149238</updated>
     </task>
     <option name="localTasksCounter" value="46" />
+=======
+    <option name="localTasksCounter" value="45" />
+>>>>>>> 8c68c3a... changes to flask implementation
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
