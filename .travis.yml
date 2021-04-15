@@ -19,8 +19,6 @@ before_install:
     - python setup.py install
 install:
  - pip3 install -r requirements.txt
- - sudo apt-get install python-pyaudio
- - sudo apt-get install ngm
  - pip3 install -e .
  - pip3 install ".[test]" .
 script:
