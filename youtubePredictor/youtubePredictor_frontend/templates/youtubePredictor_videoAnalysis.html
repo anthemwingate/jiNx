@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>DiTTo Youtube Predictor</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}"/>
+</head>
+<body>
+
+<header class="container">
+    <div class="row text-center">
+        <h1>Analysis Results</h1>
+    </div>
+</header>
+</body>
+
+<section class="jumbotron">
+    <div class="container">
+        <div class="row text-center">
+            <br>
+            <p>{{ anger }}</p>
+            <br>
+            <p>{{ disgust }}</p>
+            <br>
+            <p>{{ fear }}</p>
+            <br>
+            <p>{{ joy }}</p>
+            <br>
+            <p>{{ sadness }}</p>
+            <br>
+            <p>{{ tentative }}</p>
+            <br>
+            <p>{{ analytical }}</p>
+            <br>
+            <p>{{ confident }}</p>
+            <br>
+            <p>{{ prediction }}</p>
+            <br>
+            <input class="other-buttons" onclick="location.href='/';" type="submit" name="submit"
+                   value="Analyze Another">
+        </div>
+    </div>
+</section>
+</body>
+</html>
