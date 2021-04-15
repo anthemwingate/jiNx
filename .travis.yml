@@ -1,99 +1,30 @@
-# First Build in Python
-sudo: true
-dist: xenial
-
-language: Python3
+language: python
 python:
-  - 3.9
-
-matrix:
-
+ - "3.9"
 include:
-  - name: "3.9 Unit Test"
-
-apt:
-  packages:
-    - python-dev
-
-cache:
-  directories:
-    - $HOME/.pip-cache/
-
+ - name: "3.9 Unit Test"
 env:
-  global:
-    - COMMIT=${TRAVIS_COMMIT::8}
-    - CGO_ENABLED=0
-    - GOOS=linux
-    - GOARCH=amd64
-    - TEST_SUITE=suite_3_9_unit
-
-before_install:
-  - sudo apt-get -qq update -y
-  - sudo apt-get -qq clean -y
-  - sudo apt-get -qq upgrade -y
-  - sudo apt-get -qq autoremove -y
-  - sudo apt-get -qq install -y
-  - sudo apt-get -qq install -y dpkg
-  - sudo apt-get -qq install -y python3-pip
-  - sudo apt-get -qq install -y python-virtualenv
-  - sudo python setup.py install
-  - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-  - sudo dpkg -i google-chrome*.deb
-
-install:
-  - sudo pip3 install -r requirements.txt
-  - sudo pip3 install -e .
-  - sudo pip3 install ".[test]" .
-  - sudo apt-get -qq install -y python-pyaudio
-  - virtualenv  -p python3 ../flask_env
-  - source ../flask_env/bin/activate
-
+ global:
+  # TRAVIS TESTING CONFIGURATION
+  - COMMIT=${TRAVIS_COMMIT::8}
+  - CGO_ENABLED=0
+  - GOOS=linux
+  - GOARCH=amd64
+  - TEST_SUITE=suite_3_9_unit
 before_script:
-  - export PYTHONPATH=$PYTHONPATH:$(pwd)
-  - export DISPLAY=:99.0
-  - sleep 3
-
-script:
-  - sudo python3 tests/this_is_a_test.py
-
-after_success:
-  - codecov
-  - bash <(curl -s https://codecov.io/bash)
-
-# Second Build in Angular
-include:
-  - language: node_js
-node_js:
-  - "15"
-
-cache:
-  directories:
-    - $HOME/.npm
-
-
-
+ - export PYTHONPATH=$PYTHONPATH:$(pwd)
 before_install:
-  - cd youtubePredictor/AngularApp
-  - npm install
-  - npm install angular2-flash-messages --save
-  - npm install -g @angular/cli
-
-
-befire script:
-#- sh -e /etc/init.d/xvfb start
-
-#Script:
-# - npm run lint:js
-# - npm test
-#  - ng test --watch=false --progress=true --browsers=ChromeHeadlessNoSandbox --codeCoverage=true
-# - npm run e2e
-
-before_deploy:
-# - npm run build -- --prod --base-href
-
-deploy:
-#provider: pages
-#skip_cleanup: true
-#local_dir: dist/
-#on:
-#branch: youtubePredictor_environment
+    - python --version
+    - pip3 install -U pip
+    - python setup.py install
+install:
+ - pip3 install -r requirements.txt
+ - sudo apt-get install python-pyaudio
+ - sudo apt-get install ngm
+ - pip3 install -e .
+ - pip3 install ".[test]" .
+script:
+  - python3 tests/this_is_a_test.py
+after_success:
+ - codecov
+ - bash <(curl -s https://codecov.io/bash)
