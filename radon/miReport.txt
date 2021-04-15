@@ -1,0 +1,14 @@
+C:\Users\Anthe\IdeaProjects\DiTTo_YoutubePredictor\youtubePredictor\line_testing.py - [32mA[0m
+C:\Users\Anthe\IdeaProjects\DiTTo_YoutubePredictor\youtubePredictor\__init__.py - [32mA[0m
+C:\Users\Anthe\IdeaProjects\DiTTo_YoutubePredictor\youtubePredictor\youtubePredictor_backend\youtubePredictor_dataManager.py - [32mA[0m
+C:\Users\Anthe\IdeaProjects\DiTTo_YoutubePredictor\youtubePredictor\youtubePredictor_backend\__init__.py - [32mA[0m
+C:\Users\Anthe\IdeaProjects\DiTTo_YoutubePredictor\youtubePredictor\youtubePredictor_databaseBuilder\youtubePredictor_constants.py - [32mA[0m
+C:\Users\Anthe\IdeaProjects\DiTTo_YoutubePredictor\youtubePredictor\youtubePredictor_databaseBuilder\youtubePredictor_databaseBuilder_analysis.py - [32mA[0m
+C:\Users\Anthe\IdeaProjects\DiTTo_YoutubePredictor\youtubePredictor\youtubePredictor_databaseBuilder\youtube_databaseBuilder_transcription.py - [32mA[0m
+C:\Users\Anthe\IdeaProjects\DiTTo_YoutubePredictor\youtubePredictor\youtubePredictor_databaseBuilder\__init__.py - [32mA[0m
+C:\Users\Anthe\IdeaProjects\DiTTo_YoutubePredictor\youtubePredictor\youtubePredictor_frontend\youtubePredictor_constants.py - [32mA[0m
+C:\Users\Anthe\IdeaProjects\DiTTo_YoutubePredictor\youtubePredictor\youtubePredictor_frontend\youtubePredictor_databaseBuilder_app.py - [32mA[0m
+C:\Users\Anthe\IdeaProjects\DiTTo_YoutubePredictor\youtubePredictor\youtubePredictor_frontend\youtubePredictor_flask_wrapper.py - [32mA[0m
+C:\Users\Anthe\IdeaProjects\DiTTo_YoutubePredictor\youtubePredictor\youtubePredictor_frontend\youtubePredictor_form.py - [32mA[0m
+C:\Users\Anthe\IdeaProjects\DiTTo_YoutubePredictor\youtubePredictor\youtubePredictor_frontend\youtubePredictor_logger.py - [32mA[0m
+C:\Users\Anthe\IdeaProjects\DiTTo_YoutubePredictor\youtubePredictor\youtubePredictor_frontend\__init__.py - [32mA[0m

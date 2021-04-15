@@ -1,0 +1,67 @@
+C:\Users\Anthe\IdeaProjects\DiTTo_YoutubePredictor\youtubePredictor\youtubePredictor_backend\youtubePredictor_dataManager.py
+    [1m[37mM [0m123:4 DataManager.import_data_from_file - [32mB[0m
+    [1m[36mC [0m30:0 DataManager - [32mA[0m
+    [1m[37mM [0m45:4 DataManager.init - [32mA[0m
+    [1m[37mM [0m107:4 DataManager.delete_record_from_database - [32mA[0m
+    [1m[37mM [0m159:4 DataManager.remove_all_data_from_database - [32mA[0m
+    [1m[36mC [0m25:0 YoutubePredictorError - [32mA[0m
+    [1m[37mM [0m82:4 DataManager.add_record_to_database - [32mA[0m
+    [1m[37mM [0m94:4 DataManager.get_record_from_database - [32mA[0m
+    [1m[37mM [0m26:4 YoutubePredictorError.__init__ - [32mA[0m
+    [1m[37mM [0m32:4 DataManager.__init__ - [32mA[0m
+    [1m[37mM [0m64:4 DataManager.reset_cursor - [32mA[0m
+    [1m[37mM [0m69:4 DataManager.get_all_records_from_database - [32mA[0m
+    [1m[37mM [0m77:4 DataManager.get_column_headers - [32mA[0m
+C:\Users\Anthe\IdeaProjects\DiTTo_YoutubePredictor\youtubePredictor\youtubePredictor_databaseBuilder\youtubePredictor_databaseBuilder_analysis.py
+    [1m[37mM [0m86:4 YoutubePredictorRecord.set_tones - [32mB[0m
+    [1m[37mM [0m62:4 YoutubePredictorRecord.set_tones_helper - [32mB[0m
+    [1m[36mC [0m37:0 YoutubePredictorRecord - [32mA[0m
+    [1m[36mC [0m115:0 DataBuilder - [32mA[0m
+    [1m[36mC [0m32:0 YoutubePredictorError - [32mA[0m
+    [1m[37mM [0m105:4 YoutubePredictorRecord.get_average_tone - [32mA[0m
+    [1m[37mM [0m116:4 DataBuilder.__init__ - [32mA[0m
+    [1m[37mM [0m132:4 DataBuilder.get_view_count - [32mA[0m
+    [1m[37mM [0m147:4 DataBuilder.api_manager - [32mA[0m
+    [1m[37mM [0m161:4 DataBuilder.create_csv_file - [32mA[0m
+    [1m[37mM [0m33:4 YoutubePredictorError.__init__ - [32mA[0m
+    [1m[37mM [0m38:4 YoutubePredictorRecord.__init__ - [32mA[0m
+    [1m[37mM [0m55:4 YoutubePredictorRecord.initialize - [32mA[0m
+    [1m[37mM [0m111:4 YoutubePredictorRecord.get_record - [32mA[0m
+    [1m[37mM [0m152:4 DataBuilder.ytp_record_helper - [32mA[0m
+C:\Users\Anthe\IdeaProjects\DiTTo_YoutubePredictor\youtubePredictor\youtubePredictor_databaseBuilder\youtube_databaseBuilder_transcription.py
+    [1m[35mF [0m20:0 get_urls - [32mA[0m
+    [1m[35mF [0m34:0 get_subtitles - [32mA[0m
+C:\Users\Anthe\IdeaProjects\DiTTo_YoutubePredictor\youtubePredictor\youtubePredictor_frontend\youtubePredictor_databaseBuilder_app.py
+    [1m[37mM [0m91:4 YoutubePredictorRecord.set_tones - [32mB[0m
+    [1m[37mM [0m66:4 YoutubePredictorRecord.set_tones_helper - [32mB[0m
+    [1m[36mC [0m41:0 YoutubePredictorRecord - [32mA[0m
+    [1m[37mM [0m152:4 DataBuilder.get_video_info - [32mA[0m
+    [1m[36mC [0m120:0 DataBuilder - [32mA[0m
+    [1m[37mM [0m189:4 DataBuilder.get_transcript_from_stt - [32mA[0m
+    [1m[36mC [0m36:0 YoutubePredictorError - [32mA[0m
+    [1m[37mM [0m110:4 YoutubePredictorRecord.get_average_tone - [32mA[0m
+    [1m[37mM [0m121:4 DataBuilder.__init__ - [32mA[0m
+    [1m[37mM [0m178:4 DataBuilder.get_tone_analysis - [32mA[0m
+    [1m[37mM [0m204:4 DataBuilder.api_manager - [32mA[0m
+    [1m[37mM [0m240:4 DataBuilder.display_results - [32mA[0m
+    [1m[37mM [0m37:4 YoutubePredictorError.__init__ - [32mA[0m
+    [1m[37mM [0m42:4 YoutubePredictorRecord.__init__ - [32mA[0m
+    [1m[37mM [0m59:4 YoutubePredictorRecord.initialize - [32mA[0m
+    [1m[37mM [0m116:4 YoutubePredictorRecord.get_record - [32mA[0m
+    [1m[37mM [0m147:4 DataBuilder.get_urls - [32mA[0m
+    [1m[37mM [0m184:4 DataBuilder.get_video - [32mA[0m
+    [1m[37mM [0m208:4 DataBuilder.ytp_record_helper - [32mA[0m
+    [1m[37mM [0m234:4 DataBuilder.get_prediction - [32mA[0m
+C:\Users\Anthe\IdeaProjects\DiTTo_YoutubePredictor\youtubePredictor\youtubePredictor_frontend\youtubePredictor_flask_wrapper.py
+    [1m[35mF [0m32:0 submission - [32mA[0m
+    [1m[35mF [0m42:0 analysis - [32mA[0m
+C:\Users\Anthe\IdeaProjects\DiTTo_YoutubePredictor\youtubePredictor\youtubePredictor_frontend\youtubePredictor_form.py
+    [1m[36mC [0m20:0 VideoForm - [32mA[0m
+C:\Users\Anthe\IdeaProjects\DiTTo_YoutubePredictor\youtubePredictor\youtubePredictor_frontend\youtubePredictor_logger.py
+    [1m[36mC [0m27:0 YoutubePredictorLogger - [32mA[0m
+    [1m[37mM [0m28:4 YoutubePredictorLogger.__init__ - [32mA[0m
+    [1m[37mM [0m31:4 YoutubePredictorLogger.log_method_started - [32mA[0m
+    [1m[37mM [0m35:4 YoutubePredictorLogger.log_method_completed - [32mA[0m
+    [1m[37mM [0m39:4 YoutubePredictorLogger.log_info - [32mA[0m
+    [1m[37mM [0m42:4 YoutubePredictorLogger.log_warn - [32mA[0m
+    [1m[37mM [0m46:4 YoutubePredictorLogger.log_error - [32mA[0m

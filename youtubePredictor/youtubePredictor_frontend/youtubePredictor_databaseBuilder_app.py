@@ -19,14 +19,17 @@ import sys
 from prettytable import PrettyTable
 import os
 import pickle
+import json
 
 # Import DiTTo_YoutubePredictor Utilities
 import youtubePredictor_constants as youtubePredictorConstants
 
 # Import APIs
 import youtube_dl
-from ibm_watson import ToneAnalyzerV3, SpeechToTextV1
+from ibm_watson import ToneAnalyzerV3, SpeechToTextV1, NaturalLanguageUnderstandingV1
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
+from ibm_watson.natural_language_understanding_v1
+    import Features, CategoriesOptions
 #import gpt_2_simple as gpt2
 
 
@@ -130,6 +133,12 @@ class DataBuilder:
                                             authenticator=self.tone_analyzer_authenticator)
         self.tone_analyzer.set_service_url(youtubePredictorConstants.TONE_ANALYZER_API_URL)
 
+        # Natural Language Understanding Service Initialization
+        self.natural_language_authenticator = IAMAuthenticator(youtubePredictor_constants.NATURAL_LANGUAGE_UNDERSTANDING_API_KEY)
+        self.natural_language_understanding = NaturalLanguageUnderstandingV1(version=youtubePredictor_constants.NATURAL_LANGUAGE_UNDERSTANDING_VERSION,
+                                                                             authenticator=self.natural_language_authenticator)
+        self.natural_language_understanding.set_service_url(youtubePredictor_constants.NATURAL_LANGUAGE_UNDERSTANDING_API_KEY)
+
         # Variables
         self.record_id = 0
         self.average_tones_data = []
@@ -181,6 +190,18 @@ class DataBuilder:
             results.append(self.tone_analyzer.tone(chunk).result)
         return results
 
+    def get_natural_language_understanding(self, transcript):
+        results = []
+        for chunk in transcript:
+            results.append(self.natural_language_understanding.analyze(
+                text=chunk,
+                features=Features(
+                    entities=EntitiesOptions(emotion=True, sentiment=True, limit=2),
+                    keywords=KeywordsOptions(emotion=True, sentiment=True,
+                                             limit=2))).get_result()
+            )
+        return results
+
     def get_video(self, url):
         with youtube_dl.YoutubeDL(self.ydl_alt_opts) as ydl:
             ydl.download([url])
@@ -213,6 +234,8 @@ class DataBuilder:
                               url=info.get('url'),
                               result=self.get_tone_analysis(info.get('subtitles')))
         self.average_tones_data.append(ytp_record.get_record())
+
+    # @TODO edit class ytp_record and def ytp_record_helper to reflect implementation of NaturalLanguageUnderstandingV1
 
     """def open_model(self):
         model_file = open(youtubePredictorConstants.ML_MODEL, 'rb')

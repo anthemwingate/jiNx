@@ -1,0 +1,168 @@
+C:\Users\Anthe\IdeaProjects\DiTTo_YoutubePredictor\youtubePredictor\line_testing.py
+    LOC: 9
+    LLOC: 5
+    SLOC: 5
+    Comments: 1
+    Single comments: 1
+    Multi: 0
+    Blank: 3
+    - Comment Stats
+        (C % L): 11%
+        (C % S): 20%
+        (C + M % L): 11%
+C:\Users\Anthe\IdeaProjects\DiTTo_YoutubePredictor\youtubePredictor\__init__.py
+    LOC: 0
+    LLOC: 0
+    SLOC: 0
+    Comments: 0
+    Single comments: 0
+    Multi: 0
+    Blank: 0
+    - Comment Stats
+        (C % L): 0%
+        (C % S): 0%
+        (C + M % L): 0%
+C:\Users\Anthe\IdeaProjects\DiTTo_YoutubePredictor\youtubePredictor\youtubePredictor_backend\youtubePredictor_dataManager.py
+    LOC: 171
+    LLOC: 121
+    SLOC: 138
+    Comments: 13
+    Single comments: 13
+    Multi: 0
+    Blank: 20
+    - Comment Stats
+        (C % L): 8%
+        (C % S): 9%
+        (C + M % L): 8%
+C:\Users\Anthe\IdeaProjects\DiTTo_YoutubePredictor\youtubePredictor\youtubePredictor_backend\__init__.py
+    LOC: 0
+    LLOC: 0
+    SLOC: 0
+    Comments: 0
+    Single comments: 0
+    Multi: 0
+    Blank: 0
+    - Comment Stats
+        (C % L): 0%
+        (C % S): 0%
+        (C + M % L): 0%
+C:\Users\Anthe\IdeaProjects\DiTTo_YoutubePredictor\youtubePredictor\youtubePredictor_databaseBuilder\youtubePredictor_constants.py
+    LOC: 69
+    LLOC: 27
+    SLOC: 51
+    Comments: 15
+    Single comments: 14
+    Multi: 0
+    Blank: 4
+    - Comment Stats
+        (C % L): 22%
+        (C % S): 29%
+        (C + M % L): 22%
+C:\Users\Anthe\IdeaProjects\DiTTo_YoutubePredictor\youtubePredictor\youtubePredictor_databaseBuilder\youtubePredictor_databaseBuilder_analysis.py
+    LOC: 179
+    LLOC: 118
+    SLOC: 133
+    Comments: 17
+    Single comments: 17
+    Multi: 0
+    Blank: 29
+    - Comment Stats
+        (C % L): 9%
+        (C % S): 13%
+        (C + M % L): 9%
+C:\Users\Anthe\IdeaProjects\DiTTo_YoutubePredictor\youtubePredictor\youtubePredictor_databaseBuilder\youtube_databaseBuilder_transcription.py
+    LOC: 42
+    LLOC: 22
+    SLOC: 22
+    Comments: 12
+    Single comments: 12
+    Multi: 0
+    Blank: 8
+    - Comment Stats
+        (C % L): 29%
+        (C % S): 55%
+        (C + M % L): 29%
+C:\Users\Anthe\IdeaProjects\DiTTo_YoutubePredictor\youtubePredictor\youtubePredictor_databaseBuilder\__init__.py
+    LOC: 0
+    LLOC: 0
+    SLOC: 0
+    Comments: 0
+    Single comments: 0
+    Multi: 0
+    Blank: 0
+    - Comment Stats
+        (C % L): 0%
+        (C % S): 0%
+        (C + M % L): 0%
+C:\Users\Anthe\IdeaProjects\DiTTo_YoutubePredictor\youtubePredictor\youtubePredictor_frontend\youtubePredictor_constants.py
+    LOC: 81
+    LLOC: 29
+    SLOC: 62
+    Comments: 14
+    Single comments: 14
+    Multi: 0
+    Blank: 5
+    - Comment Stats
+        (C % L): 17%
+        (C % S): 23%
+        (C + M % L): 17%
+C:\Users\Anthe\IdeaProjects\DiTTo_YoutubePredictor\youtubePredictor\youtubePredictor_frontend\youtubePredictor_databaseBuilder_app.py
+    LOC: 255
+    LLOC: 157
+    SLOC: 177
+    Comments: 31
+    Single comments: 27
+    Multi: 16
+    Blank: 35
+    - Comment Stats
+        (C % L): 12%
+        (C % S): 18%
+        (C + M % L): 18%
+C:\Users\Anthe\IdeaProjects\DiTTo_YoutubePredictor\youtubePredictor\youtubePredictor_frontend\youtubePredictor_flask_wrapper.py
+    LOC: 64
+    LLOC: 25
+    SLOC: 35
+    Comments: 16
+    Single comments: 16
+    Multi: 0
+    Blank: 13
+    - Comment Stats
+        (C % L): 25%
+        (C % S): 46%
+        (C + M % L): 25%
+C:\Users\Anthe\IdeaProjects\DiTTo_YoutubePredictor\youtubePredictor\youtubePredictor_frontend\youtubePredictor_form.py
+    LOC: 23
+    LLOC: 7
+    SLOC: 7
+    Comments: 12
+    Single comments: 12
+    Multi: 0
+    Blank: 4
+    - Comment Stats
+        (C % L): 52%
+        (C % S): 171%
+        (C + M % L): 52%
+C:\Users\Anthe\IdeaProjects\DiTTo_YoutubePredictor\youtubePredictor\youtubePredictor_frontend\youtubePredictor_logger.py
+    LOC: 48
+    LLOC: 20
+    SLOC: 24
+    Comments: 13
+    Single comments: 13
+    Multi: 0
+    Blank: 11
+    - Comment Stats
+        (C % L): 27%
+        (C % S): 54%
+        (C + M % L): 27%
+C:\Users\Anthe\IdeaProjects\DiTTo_YoutubePredictor\youtubePredictor\youtubePredictor_frontend\__init__.py
+    LOC: 0
+    LLOC: 0
+    SLOC: 0
+    Comments: 0
+    Single comments: 0
+    Multi: 0
+    Blank: 0
+    - Comment Stats
+        (C % L): 0%
+        (C % S): 0%
+        (C + M % L): 0%
