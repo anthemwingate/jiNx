@@ -1,4 +1,6 @@
 ![jiNx_logo](https://github.com/anthemwingate/jiNx/blob/main/Supplemental%20Documents/quotation%20marks.png)
+
+
 #[jiNx](https://anthemwingate.github.io/jiNx/)
 ### It's not just software.
 
