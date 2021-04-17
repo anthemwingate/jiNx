@@ -2,6 +2,7 @@
 [![codecov](https://codecov.io/gh/anthemwingate/jiNx/branch/Master/graph/badge.svg)](https://codecov.io/gh/anthemwingate/jiNx)
 # jiNx
 ## not just software
+[jiNx](https://anthemwingate.github.io/jiNx/)
 
 ![jiNx_logo](https://github.com/anthemwingate/jiNx/blob/main/Supplemental%20Documents/quotation%20marks.png)
 
