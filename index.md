@@ -16,4 +16,3 @@
 | 1    | [4+1 Architecture](https://github.com/anthemwingate/jiNx/blob/main/Supplemental%20Documents/jiNx_Views.png) 
 | 2    | [Presentation]("youtube link goes here without quotes")
 | 3    | [Demo]("youtube link goes here without quotes") 
-```markdown
