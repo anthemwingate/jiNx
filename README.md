@@ -1,7 +1,7 @@
 ![jiNx_logo](https://github.com/anthemwingate/jiNx/blob/main/Supplemental%20Documents/quotation%20marks.png)
 
 
-#jiNx
+# jiNx
 ### It's not just software.
 
 ### It's connection.
