@@ -1,6 +1,7 @@
 ```
+##not just softwate
 
-## not just software
+
+###jiNx is a analysis service providing view prediction for Youtube videos
 
 ```
-
