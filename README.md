@@ -20,7 +20,6 @@
 | 10   | [GPT2 Notebook](https://github.com/anthemwingate/jiNx/blob/main/ColabNotebooks/youtubePredictor_gpt2_finetuned_355M.ipynb)
 | 11   | [GPTNeo Notebook](https://github.com/anthemwingate/jiNx/blob/main/ColabNotebooks/youtubePredictor_gptNeo.ipynb)
 | 12   | [Multivariate Analysis Notebook](https://github.com/anthemwingate/jiNx/blob/main/ColabNotebooks/jiNx_MultivariateRegression.ipynb)
-| 13   | [jiNx API]()
 
 [jiNx](https://anthemwingate.github.io/jiNx/)
 
