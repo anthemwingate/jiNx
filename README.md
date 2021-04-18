@@ -15,7 +15,7 @@
 | 5    | [Demo]("youtube link goes here without quotes")
 | 6    | [GPT2 Notebook](https://github.com/anthemwingate/jiNx/blob/main/ColabNotebooks/youtubePredictor_gpt2_finetuned_355M.ipynb)
 | 7    | [GPTNeo Notebook](https://github.com/anthemwingate/jiNx/blob/main/ColabNotebooks/youtubePredictor_gptNeo.ipynb)
-| 8    | [Multivariate Analysis Notebook]()
+| 8    | [Multivariate Analysis Notebook](https://github.com/anthemwingate/jiNx/blob/main/ColabNotebooks/jiNx_MultivariateRegression.ipynb)
 | 9    | [jiNx API]()
 
 [jiNx](https://anthemwingate.github.io/jiNx/)
