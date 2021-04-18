@@ -8,7 +8,7 @@
 
 | Part |      Title                
 |------|---------------------------
-| 2    | [jiNx in a Nutshell]()
+| 2    | [jiNx in a Nutshell](https://github.com/anthemwingate/jiNx/blob/main/Supplemental%20Documents/jiNx.pdf)
 | 2    | [4+1 Architecture](https://github.com/anthemwingate/jiNx/blob/main/Supplemental%20Documents/jiNx_Views.png) 
 | 3    | [Trend Analysis](https://github.com/anthemwingate/jiNx/blob/main/Supplemental%20Documents/Trend%20Analysis%20of%20development%20metrics%20for%20jiNx.pdf)
 | 4    | [Presentation]("youtube link goes here without quotes")
