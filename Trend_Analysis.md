@@ -1,3 +1,5 @@
 layout: post
 title: "Trend Analysis of development metrics for jiNx"
-permalink: https://anthemwingate.github.io/jiNx/Trend_analysis
+permalink: https://github.com/anthemwingate/jiNx/blob/gh-pages/Trend_Analysis.md
+
+
