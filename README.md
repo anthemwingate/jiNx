@@ -8,7 +8,7 @@
 
 | Part |      Title                
 |------|---------------------------
-| 1    | [jiNx in a Nutshell](https://github.com/anthemwingate/jiNx/blob/main/Supplemental%20Documents/jiNx.pdf)
+| 1    | [jiNx in a Nutshell](https://github.com/anthemwingate/jiNx/blob/main/Supplemental%20Documents/jiNx%20in%20a%20nutshell.pdf)
 | 2    | [Why Build jiNx](https://github.com/anthemwingate/jiNx/blob/main/Supplemental%20Documents/Why%20build%20jiNx.pdf) 
 | 3    | [Agility of jiNx Development](https://github.com/anthemwingate/jiNx/blob/main/Supplemental%20Documents/Agility%20of%20jiNxDevelopment.pdf)
 | 4    | [The Architecture of jiNx](https://github.com/anthemwingate/jiNx/blob/main/Supplemental%20Documents/The%20Architecture%20jiNx.pdf)
