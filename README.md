@@ -32,6 +32,3 @@ it's not simply software
 
 [jiNx](https://github.com/anthemwingate/jiNx)
 
-[![build status of branch=main](https://travis-ci.com/anthemwingate/jiNx.svg?branch=main)](https://travis-ci.com/anthemwingate/jiNx)
-[![codecov](https://codecov.io/gh/anthemwingate/jiNx/branch/main/graph/badge.svg)](https://codecov.io/gh/anthemwingate/jiNx)
-
