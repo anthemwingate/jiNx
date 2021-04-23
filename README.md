@@ -1,4 +1,4 @@
-[![jiNx](https://github.com/anthemwingate/jiNx/blob/main/Supplemental%20Documents/quotation%20marks.png)](https://youtu.be/CT1crM1Vt2Y)
+[![jiNx](https://github.com/anthemwingate/jiNx/blob/main/Supplemental%20Documents/quotation%20marks.png)](https://youtu.be/jYiBa8amh8s)
 
 
 # jiNx
@@ -16,7 +16,7 @@
 | 6    | [The Metrics of jiNx](https://github.com/anthemwingate/jiNx/blob/main/Supplemental%20Documents/Metrics%20of%20jiNx.pdf)
 | 7    | [Trend Analysis](https://github.com/anthemwingate/jiNx/blob/main/Supplemental%20Documents/Trend%20Analysis%20of%20development%20metrics%20for%20jiNx.pdf)
 | 8    | [Postmortem](https://github.com/anthemwingate/jiNx/blob/main/Supplemental%20Documents/PostMortem.pdf)
-| 9    | [A Superlative Connection](https://youtu.be/udmhWYXe4ak)
+| 9    | [A Superlative Connection]()
 | 10   | [Demo]()
 | 11   | [GPT2 Notebook](https://github.com/anthemwingate/jiNx/blob/main/ColabNotebooks/youtubePredictor_gpt2_finetuned_355M.ipynb)
 | 12   | [GPTNeo Notebook](https://github.com/anthemwingate/jiNx/blob/main/ColabNotebooks/youtubePredictor_gptNeo.ipynb)
