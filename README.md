@@ -11,7 +11,7 @@ it's not simply software
 | 3    | [Agility of jiNx Development](https://github.com/anthemwingate/jiNx/blob/main/Supplemental%20Documents/Agility%20of%20jiNxDevelopment.pdf)
 | 4    | [The Architecture of jiNx](https://github.com/anthemwingate/jiNx/blob/main/Supplemental%20Documents/The%20Architecture%20jiNx.pdf)
 | 5    | [Testing jiNx](https://github.com/anthemwingate/jiNx/blob/main/Supplemental%20Documents/Testing%20jiNx.pdf)
-| 6    | [The Metrics of jiNx](https://github.com/anthemwingate/jiNx/blob/main/Supplemental%20Documents/Metrics%20of%20jiNx.pdf)
+| 6    | [The Metrics of jiNx](https://github.com/anthemwingate/jiNx/blob/main/Supplemental%20Documents/The%20Metrics%20of%20jiNx.pdf)
 | 7    | [Trend Analysis](https://github.com/anthemwingate/jiNx/blob/main/Supplemental%20Documents/Trend%20Analysis%20of%20development%20metrics%20for%20jiNx.pdf)
 | 8    | [Postmortem](https://github.com/anthemwingate/jiNx/blob/main/Supplemental%20Documents/PostMortem.pdf)
 | 9    | [A Superlative Connection]()
@@ -23,7 +23,7 @@ it's not simply software
 | 15   | [Backend](https://github.com/anthemwingate/jiNx/blob/youtubePredictor_Demo/youtubePredictor/youtubePredictor_backend/youtubePredictor_dataManager.py)
 | 16   | [Frontend](https://github.com/anthemwingate/jiNx/blob/youtubePredictor_Demo/youtubePredictor/youtubePredictor_frontend/youtubePredictor_flask_wrapper.py)
 | 17   | [With Gratitude](https://github.com/anthemwingate/jiNx/blob/main/Supplemental%20Documents/With%20Gratitude.pdf)
-
+|------|---------------------------
 
 
 
