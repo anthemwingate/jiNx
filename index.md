@@ -1,4 +1,3 @@
 ```
-not just softwate
-
+it's not simply software
 ```
