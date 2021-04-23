@@ -1,8 +1,6 @@
 it's not simply software
 
-```
 # IT'S CONNECTION
-```
 
 
 
