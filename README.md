@@ -25,7 +25,7 @@
 | 15   | [Backend](https://github.com/anthemwingate/jiNx/blob/youtubePredictor_Demo/youtubePredictor/youtubePredictor_backend/youtubePredictor_dataManager.py)
 | 16   | [Frontend](https://github.com/anthemwingate/jiNx/blob/youtubePredictor_Demo/youtubePredictor/youtubePredictor_frontend/youtubePredictor_flask_wrapper.py)
 | 17   | [With Gratitude](https://github.com/anthemwingate/jiNx/blob/main/Supplemental%20Documents/With%20Gratitude.pdf)
-
+|------|---------------------------
 
 [jiNx](https://anthemwingate.github.io/jiNx/)
 
