@@ -2,7 +2,7 @@
 
 
 # jiNx
-### It's not just software.
+### It's not simply software.
 
 ### It's connection.
 
