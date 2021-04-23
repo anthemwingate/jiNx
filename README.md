@@ -1,7 +1,7 @@
-#it's not simply software
+# it's not simply software
 
 
-###It's connection.
+### It's connection.
 
 
 
@@ -30,5 +30,6 @@
 
 
 [view jiNx on Github](https://github.com/anthemwingate/jiNx)
+
 [view jiNx on Youtube](https://youtu.be/CT1crM1Vt2Y)
 
