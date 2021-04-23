@@ -21,6 +21,11 @@
 | 11   | [GPT2 Notebook](https://github.com/anthemwingate/jiNx/blob/main/ColabNotebooks/youtubePredictor_gpt2_finetuned_355M.ipynb)
 | 12   | [GPTNeo Notebook](https://github.com/anthemwingate/jiNx/blob/main/ColabNotebooks/youtubePredictor_gptNeo.ipynb)
 | 13   | [Multivariate Analysis Notebook](https://github.com/anthemwingate/jiNx/blob/main/ColabNotebooks/jiNx_MultivariateRegression.ipynb)
+| 14   | [Test Frame](https://github.com/anthemwingate/jiNx/blob/youtubePredictor_testFrame/tests/youtubePredictor_dataManager_testSuite.py)
+| 15   | [Backend](https://github.com/anthemwingate/jiNx/blob/youtubePredictor_Demo/youtubePredictor/youtubePredictor_backend/youtubePredictor_dataManager.py)
+| 16   | [Frontend](https://github.com/anthemwingate/jiNx/blob/youtubePredictor_Demo/youtubePredictor/youtubePredictor_frontend/youtubePredictor_flask_wrapper.py)
+| 17   | [With Gratitude](https://github.com/anthemwingate/jiNx/blob/main/Supplemental%20Documents/With%20Gratitude.pdf)
+
 
 [jiNx](https://anthemwingate.github.io/jiNx/)
 
