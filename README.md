@@ -1,12 +1,8 @@
 ```
 it's not simply software
-```
+
 
 ### It's connection.
-
-[![jiNx](https://github.com/anthemwingate/jiNx/blob/main/Supplemental%20Documents/quotation%20marks.png)](https://youtu.be/CT1crM1Vt2Y)
-
-
 
 
 | Part |      Title                
@@ -20,7 +16,7 @@ it's not simply software
 | 7    | [Trend Analysis](https://github.com/anthemwingate/jiNx/blob/main/Supplemental%20Documents/Trend%20Analysis%20of%20development%20metrics%20for%20jiNx.pdf)
 | 8    | [Postmortem](https://github.com/anthemwingate/jiNx/blob/main/Supplemental%20Documents/PostMortem.pdf)
 | 9    | [A Superlative Connection](https://youtu.be/udmhWYXe4ak)
-| 10   | [Demo]("youtube link goes here without quotes")
+| 10   | [Demo]()
 | 11   | [GPT2 Notebook](https://github.com/anthemwingate/jiNx/blob/main/ColabNotebooks/youtubePredictor_gpt2_finetuned_355M.ipynb)
 | 12   | [GPTNeo Notebook](https://github.com/anthemwingate/jiNx/blob/main/ColabNotebooks/youtubePredictor_gptNeo.ipynb)
 | 13   | [Multivariate Analysis Notebook](https://github.com/anthemwingate/jiNx/blob/main/ColabNotebooks/jiNx_MultivariateRegression.ipynb)
@@ -30,5 +26,7 @@ it's not simply software
 | 17   | [With Gratitude](https://github.com/anthemwingate/jiNx/blob/main/Supplemental%20Documents/With%20Gratitude.pdf)
 
 
-[jiNx](https://github.com/anthemwingate/jiNx)
+[view jiNx on Github](https://github.com/anthemwingate/jiNx)
+
+[view jiNx on Youtube](https://youtu.be/CT1crM1Vt2Y)
 
