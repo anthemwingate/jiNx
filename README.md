@@ -1,8 +1,9 @@
-```
-it's not simply software
+#it's not simply software
 
 
-### It's connection.
+###It's connection.
+
+
 
 
 | Part |      Title                
@@ -26,7 +27,8 @@ it's not simply software
 | 17   | [With Gratitude](https://github.com/anthemwingate/jiNx/blob/main/Supplemental%20Documents/With%20Gratitude.pdf)
 
 
-[view jiNx on Github](https://github.com/anthemwingate/jiNx)
 
+
+[view jiNx on Github](https://github.com/anthemwingate/jiNx)
 [view jiNx on Youtube](https://youtu.be/CT1crM1Vt2Y)
 
