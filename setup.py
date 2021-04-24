@@ -1,8 +1,5 @@
-# Project                                                  : DiTTo Yoututbe Predictor
-# Author                                                   : Team DiTTo Stevens Institute of Tecchnology SSW 695A Spring 2021
+# Project                                                  : jiNx
 # Architect/Core Implementation                            : Anthem Rukiya J. Wingate
-# Architect/Production Design                              : Hanqing Liu
-# Version Control Management and Quality Assurance Tester  : Farnaz Sabetpour
 # Purpose                                                  : Flask APP to run Youtube Predictor Implementation
 # Revision History                                         : Version 1.0
 
@@ -14,24 +11,25 @@
 # Import Data Handling Libraries
 from setuptools import setup
 
-# Import DiTTo_YoutubePredictor Utilities
-from youtubePredictor import youtubePredictor_constants
 
-DESCRIPTION='The team from DiTTo present a Youtube video analyzer implementation which predicts potential number of views for a video'
-GITHUB_URL='https://github.com/ssw-695-spring-2021-group-afhk/DiTTo_YoutubePredictor'
-AUTHOR='DiTTo Team Stevens Institute of Technology SSW 695A Spring 2021 Farnaz Sabetpour, HanQing Liu, Anthem Rukiya WIngate'
+DESCRIPTION='The team from jiNx present a Youtube video analyzer implementation which predicts potential number of views for a video'
+GITHUB_URL='https://github.com/anthemwingate/jiNx'
+AUTHOR='Anthem Rukiya WIngate Stevens Institute of Technology SSW 695A Spring 2021'
 MAINTAINER='DiTTo Team'
 
 INSTALL_REQUIRES = [
     'Flask',
     'psycopg2',
     'python-dotenv',
-    'watson-develop,er-cloud',
+    'ibm-watson',
+    'ibm-cloud-sdk-core'
+    'watson-developer-cloud',
     'Flask-WTF',
     'prettyTable',
     'Flask',
     'jinja2',
     'coverage',
+    'codecov',
     'beautifulsoup4',
     'os.path2',
     'requests',
@@ -39,6 +37,29 @@ INSTALL_REQUIRES = [
     'pafy',
     'watson-streaming',
     'mockito',
+    'Flask-Bcrypt',
+    'Flask-Login',
+    'Flask-Migrate',
+    'Flask-SQLAlchemy', ''
+    'Flask-Script',
+    'Flask-Testing',
+    'SQLAlchemy',
+    'Mako',
+    'MarkupSafe',
+    'alembic',
+    'gunicorn',
+    'itsdangerous',
+    'sqlite3-api',
+    'python-vlc',
+    'urllib3',
+    'pymedia2-pyrana',
+    'fluteline',
+    'setuptools',
+    'Werkzeug',
+    'gevent',
+    'WTForms',
+    'fluteline',
+    'sqlite3',
 ]
 
 TEST_REQUIRES = [
@@ -52,9 +73,9 @@ with open('README.md') as f:
     README = f.read()
 
 setup(
-    name='youtubePredictor',
-    packages=['youtubePredictor',],
-    version=youtubePredictor_constants.PACKAGE_VERSION,
+    name='',
+    packages=['',],
+    version=0,
     description=DESCRIPTION,
     url=GITHUB_URL,
     author=AUTHOR,
