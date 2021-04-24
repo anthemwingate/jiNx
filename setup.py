@@ -1,8 +1,5 @@
-# Project                                                  : DiTTo Yoututbe Predictor
-# Author                                                   : Team DiTTo Stevens Institute of Tecchnology SSW 695A Spring 2021
+# Project                                                  : jiNx
 # Architect/Core Implementation                            : Anthem Rukiya J. Wingate
-# Architect/Production Design                              : Hanqing Liu
-# Version Control Management and Quality Assurance Tester  : Farnaz Sabetpour
 # Purpose                                                  : Flask APP to run Youtube Predictor Implementation
 # Revision History                                         : Version 1.0
 
@@ -15,9 +12,9 @@
 from setuptools import setup
 
 
-DESCRIPTION='The team from DiTTo present a Youtube video analyzer implementation which predicts potential number of views for a video'
-GITHUB_URL='https://github.com/ssw-695-spring-2021-group-afhk/DiTTo_YoutubePredictor'
-AUTHOR='DiTTo Team Stevens Institute of Technology SSW 695A Spring 2021 Farnaz Sabetpour, HanQing Liu, Anthem Rukiya WIngate'
+DESCRIPTION='The team from jiNx present a Youtube video analyzer implementation which predicts potential number of views for a video'
+GITHUB_URL='https://github.com/anthemwingate/jiNx'
+AUTHOR='Anthem Rukiya WIngate Stevens Institute of Technology SSW 695A Spring 2021'
 MAINTAINER='DiTTo Team'
 
 INSTALL_REQUIRES = [
