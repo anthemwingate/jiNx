@@ -15,7 +15,7 @@ it's not simply software
 | 7    | [Trend Analysis](https://github.com/anthemwingate/jiNx/blob/main/Supplemental%20Documents/Trend%20Analysis%20of%20development%20metrics%20for%20jiNx.pdf)
 | 8    | [Postmortem](https://github.com/anthemwingate/jiNx/blob/main/Supplemental%20Documents/PostMortem.pdf)
 | 9    | [A Superlative Connection]()
-| 10   | [Demo]()
+| 10   | [Demo](https://youtu.be/FeoS_uucnBE)
 | 11   | [GPT2 Notebook](https://github.com/anthemwingate/jiNx/blob/main/ColabNotebooks/youtubePredictor_gpt2_finetuned_355M.ipynb)
 | 12   | [GPTNeo Notebook](https://github.com/anthemwingate/jiNx/blob/main/ColabNotebooks/youtubePredictor_gptNeo.ipynb)
 | 13   | [Multivariate Analysis Notebook](https://github.com/anthemwingate/jiNx/blob/main/ColabNotebooks/jiNx_MultivariateRegression.ipynb)
