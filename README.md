@@ -2,7 +2,6 @@ it's not simply software
 
 # IT'S CONNECTION
 
-| Part |      Title                
 |------|---------------------------
 | 1    | [jiNx - Project Retrospective](https://github.com/anthemwingate/jiNx/blob/main/Supplemental%20Documents/jiNx%20in%20a%20nutshell.pdf)
 | 2    | [Why Build jiNx](https://github.com/anthemwingate/jiNx/blob/main/Supplemental%20Documents/Why%20build%20jiNx.pdf) 
@@ -16,9 +15,9 @@ it's not simply software
 | 10   | [jiNx Development Analysis](https://youtu.be/Cy6WvnrdFV0)
 | 11   | [jiNx Post Mortem](https://youtu.be/WL1s0Tnmev4)
 | 12   | [Demo](https://youtu.be/FeoS_uucnBE)
-| 13   | [GPT2 Notebook](https://github.com/anthemwingate/jiNx/blob/main/ColabNotebooks/youtubePredictor_gpt2_finetuned_355M.ipynb)
-| 14   | [GPTNeo Notebook](https://github.com/anthemwingate/jiNx/blob/main/ColabNotebooks/youtubePredictor_gptNeo.ipynb)
-| 15   | [Multivariate Analysis Notebook](https://github.com/anthemwingate/jiNx/blob/main/ColabNotebooks/jiNx_MultivariateRegression.ipynb)
+| 13   | [GPT2 Notebook](https://github.com/anthemwingate/jiNx/blob/main/youtubePredictor_gpt2_finetuned_355M.ipynb)
+| 14   | [GPTNeo Notebook](https://github.com/anthemwingate/jiNx/blob/main/youtubePredictor_gptNeo.ipynb)
+| 15   | [Multivariate Analysis Notebook](https://github.com/anthemwingate/gpt-neo/blob/master/jiNx_MultivariateRegression.ipynb)
 | 16   | [Test Frame](https://github.com/anthemwingate/jiNx/blob/youtubePredictor_testFrame/tests/youtubePredictor_dataManager_testSuite.py)
 | 17   | [Backend](https://github.com/anthemwingate/jiNx/blob/youtubePredictor_Demo/youtubePredictor/youtubePredictor_backend/youtubePredictor_dataManager.py)
 | 18   | [Frontend](https://github.com/anthemwingate/jiNx/blob/youtubePredictor_Demo/youtubePredictor/youtubePredictor_frontend/youtubePredictor_flask_wrapper.py)
