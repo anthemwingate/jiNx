@@ -31,5 +31,5 @@ it's not simply software
 
 [view jiNx on Github](https://github.com/anthemwingate/jiNx)
 
-[view jiNx on Youtube](https://youtu.be/VYVv8uN_r4E)
+[view jiNx on Youtube](https://youtube.com/playlist?list=PLteWqowUNuGJl_2eoj01A3PKJ4pqWPCdZ)
 
