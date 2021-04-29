@@ -2,6 +2,7 @@ it's not simply software
 
 # IT'S CONNECTION
 
+| Part |      Title                
 |------|---------------------------
 | 1    | [jiNx - Project Retrospective](https://github.com/anthemwingate/jiNx/blob/main/Supplemental%20Documents/jiNx%20in%20a%20nutshell.pdf)
 | 2    | [Why Build jiNx](https://github.com/anthemwingate/jiNx/blob/main/Supplemental%20Documents/Why%20build%20jiNx.pdf) 
