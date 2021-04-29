@@ -2,8 +2,6 @@ it's not simply software
 
 # IT'S CONNECTION
 
-
-
 | Part |      Title                
 |------|---------------------------
 | 1    | [jiNx - Project Retrospective](https://github.com/anthemwingate/jiNx/blob/main/Supplemental%20Documents/jiNx%20in%20a%20nutshell.pdf)
@@ -14,7 +12,7 @@ it's not simply software
 | 6    | [The Metrics of jiNx](https://github.com/anthemwingate/jiNx/blob/main/Supplemental%20Documents/The%20Metrics%20of%20jiNx.pdf)
 | 7    | [Trend Analysis](https://github.com/anthemwingate/jiNx/blob/main/Supplemental%20Documents/Trend%20Analysis%20of%20development%20metrics%20for%20jiNx.pdf)
 | 8    | [Postmortem](https://github.com/anthemwingate/jiNx/blob/main/Supplemental%20Documents/PostMortem.pdf)
-| 9    | [jiNx in a Nutshell]()
+| 9    | [jiNx in a Nutshell](https://youtu.be/B-zLsNMnivA)
 | 10   | [A Superlative Connection](https://youtu.be/HR384HmWLiI)
 | 11   | [Demo](https://youtu.be/FeoS_uucnBE)
 | 12   | [GPT2 Notebook](https://github.com/anthemwingate/jiNx/blob/main/ColabNotebooks/youtubePredictor_gpt2_finetuned_355M.ipynb)
