@@ -49,11 +49,11 @@ MVR_MODEL = "C:\\Users\\awingate\\IdeaProjects\\jiNx\\youtubePredictor\\youtubeP
 TONE_ANALYZER_VERSION = "2017-09-21"
 NATURAL_LANGUAGE_UNDERSTANDING_VERSION = '2020-08-01'
 
-TONE_ANALYZER_API_KEY="NPYWY8TX5JQxBbs3HtJYdt8BQS_fm7PuqVtu74ga68Jb"
-TONE_ANALYZER_API_URL="https://api.us-south.tone-analyzer.watson.cloud.ibm.com/instances/95c8ca9b-79db-4d00-8751-762c2e1afa55"
-SPEECH_TO_TEXT_API_KEY="-sMeyBgh6r2QJ6ktabwYFHwa55x9TqbWo90kc3BuzDlN"
-SPEECH_TO_TEXT_API_URL="https://api.us-south.speech-to-text.watson.cloud.ibm.com/instances/ba93f800-bb3b-4a65-a22f-0d6bae8b09b3"
-WATSON_ML_API_KEY = "bbF3EjlYBATdUIhgi12zykN58c0QC9iwsu60lKFwWjE3"
+TONE_ANALYZER_API_KEY=""
+TONE_ANALYZER_API_URL=""
+SPEECH_TO_TEXT_API_KEY="-"
+SPEECH_TO_TEXT_API_URL=""
+WATSON_ML_API_KEY = ""
 WATSON_ML_URL = "https://us-south.ml.cloud.ibm.com"
 NATURAL_LANGUAGE_UNDERSTANDING_API_KEY =""
 NATURAL_LANGUAGE_UNDERSTANDING_API_KEY =""
