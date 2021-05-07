@@ -1,5 +1,4 @@
-
-# Project                                                   : jiNx 
+# Project                                                   : jiNx
 # Purpose                                                   : Capstone Project Stevens Institute of Tecchnology SSW 695A Spring 2021
 # Author                                                    : Anthem Rukiya J. Wingate
 # Revision History                                          : Version 1.0
@@ -14,15 +13,19 @@ import pickle
 import json
 
 # Import DiTTo_YoutubePredictor Utilities
-import youtubePredictor_constants as youtubePredictorConstants
+import youtubePredictor.youtubePredictor_frontend.youtubePredictor_constants as youtubePredictorConstants
 
 # Import APIs
 import youtube_dl
-from ibm_watson import ToneAnalyzerV3, SpeechToTextV1, NaturalLanguageUnderstandingV1
+from ibm_watson import ToneAnalyzerV3, SpeechToTextV1
 from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
+# import gpt_2_simple as gpt2
+
+"""
 from ibm_watson.natural_language_understanding_v1
     import Features, CategoriesOptions
-#import gpt_2_simple as gpt2
+
+"""
 
 
 # @TODO add yplogger_info and yplogger_error statements
@@ -46,15 +49,17 @@ class YoutubePredictorRecord:
         self.sentence_ids = []
         self.record_id = 0
         self.views = 0
+        self.age = 0
         self.url = ""
         self.tone_analyzer_result = []
         self.column_names = youtubePredictorConstants.CSV_FROM_DATABASE_FILE_COLUMN_NAMES
         self.record = []
 
-    def initialize(self, record_id, views, url, result):
+    def initialize(self, record_id, views, url, age, result):
         self.record_id = record_id
         self.views = views
         self.url = url
+        self.age = age
         self.tone_analyzer_result = result
         self.set_tones_helper()
 
@@ -81,6 +86,7 @@ class YoutubePredictorRecord:
                        self.get_average_tone(self.analytical_scores),
                        self.get_average_tone(self.confident_scores),
                        self.views,
+                       self.age,
                        self.url]
 
     def set_tones(self, tone_dict):
@@ -126,10 +132,12 @@ class DataBuilder:
         self.tone_analyzer.set_service_url(youtubePredictorConstants.TONE_ANALYZER_API_URL)
 
         # Natural Language Understanding Service Initialization
+        """
         self.natural_language_authenticator = IAMAuthenticator(youtubePredictor_constants.NATURAL_LANGUAGE_UNDERSTANDING_API_KEY)
         self.natural_language_understanding = NaturalLanguageUnderstandingV1(version=youtubePredictor_constants.NATURAL_LANGUAGE_UNDERSTANDING_VERSION,
                                                                              authenticator=self.natural_language_authenticator)
         self.natural_language_understanding.set_service_url(youtubePredictor_constants.NATURAL_LANGUAGE_UNDERSTANDING_API_KEY)
+        """
 
         # Variables
         self.record_id = 0
@@ -162,6 +170,7 @@ class DataBuilder:
                         'url': url,
                         'views': extraction_info.get("view_count"),
                         'video_id': extraction_info.get("id"),
+                        'age': str(2021 - int(extraction_info.get("upload_date")[:4]))
                     }
 
                     if 'subtitles' in extraction_info:
@@ -182,6 +191,7 @@ class DataBuilder:
             results.append(self.tone_analyzer.tone(chunk).result)
         return results
 
+    """
     def get_natural_language_understanding(self, transcript):
         results = []
         for chunk in transcript:
@@ -191,8 +201,9 @@ class DataBuilder:
                     entities=EntitiesOptions(emotion=True, sentiment=True, limit=2),
                     keywords=KeywordsOptions(emotion=True, sentiment=True,
                                              limit=2))).get_result()
-            )
+                           )
         return results
+    """
 
     def get_video(self, url):
         with youtube_dl.YoutubeDL(self.ydl_alt_opts) as ydl:
@@ -224,6 +235,7 @@ class DataBuilder:
         ytp_record.initialize(record_id=self.record_id,
                               views=info.get('views'),
                               url=info.get('url'),
+                              age=info.get('age'),
                               result=self.get_tone_analysis(info.get('subtitles')))
         self.average_tones_data.append(ytp_record.get_record())
 
@@ -233,23 +245,40 @@ class DataBuilder:
         model_file = open(youtubePredictorConstants.ML_MODEL, 'rb')
         self.model = pickle.load(model_file)
         model_file.close()
-        # @TODO when tensorflow issue is resolved, move the gpt2 implementation to get_prediction()
         sess = gpt2.start_tf_sess()
-        gpt2.load_gpt2(sess, model_name=self.model, run_name='youtubePredictor_viewPrediction')
+        gpt2.load_gpt2(sess, model_name='355M', run_name='views_predictor')
         predicted_views = gpt2.generate(sess,
-                                        model_name=model,
-                                        prefix="What do you call an entrepreneur",
+                                        model_name=self.model,
+                                        prefix="Views=",
                                         length=50,
                                         temperature=0.7,
                                         top_p=0.9,
                                         nsamples=5,
                                         batch_size=5,
-                                        return_as_list=True)[0]"""
+                                        return_as_list=True)[0]
+        return predicted_views
+"""
+
+    """def open_model(self, record):
+        loaded_model = pickle.load(open(youtubePredictorConstants.MVR_MODEL, 'rb'))
+        x_test = [record[1],
+                  record[2],
+                  record[3],
+                  record[4],
+                  record[5],
+                  record[6],
+                  record[7],
+                  record[8],
+                  ]
+        y_test = record[9]
+        prediction = loaded_model.score(x_test, y_test)
+        return prediction"""
 
     def get_prediction(self, record):
         # self.open_model()
         # @TODO resolve issue with deprecated module tensorflow.contrib utilized by gpt-2-simple
-        predicted_views = "gpt2 prediction goes here"
+        # predicted_views_mvr = self.open_model(record=record)
+        predicted_views = str(100 * record[9]/int(record[10]))
         return predicted_views
 
     def display_results(self):
@@ -258,6 +287,7 @@ class DataBuilder:
             record.append(prediction)
             self.record_table.add_row(record)
         return self.record_table
+
 
 
 if __name__ == '__main__':

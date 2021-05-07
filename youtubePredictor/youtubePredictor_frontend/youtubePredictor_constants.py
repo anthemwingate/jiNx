@@ -42,18 +42,21 @@ YOUTUBE_DOWNLOAD_ALTERNATIVE_OPTIONS = {
     }],
     'outtmpl': 'audio_files/%(id)s.%(ext)s',
 }
-ML_MODEL = 'youtubePredictor_gpt2_finetuned_355M.sav'
+ML_MODEL = "C:\\Users\\awingate\\IdeaProjects\\jiNx\\youtubePredictor\\youtubePredictor_frontend\\youtubePredictor_gpt2_finetuned_355M.sav"
+MVR_MODEL = "C:\\Users\\awingate\\IdeaProjects\\jiNx\\youtubePredictor\\youtubePredictor_frontend\\youtubePredictor_MVR.sav"
 
 # Credentials
 TONE_ANALYZER_VERSION = "2017-09-21"
 NATURAL_LANGUAGE_UNDERSTANDING_VERSION = '2020-08-01'
 
-TONE_ANALYZER_API_KEY=
-TONE_ANALYZER_API_URL=
-SPEECH_TO_TEXT_API_KEY=
-SPEECH_TO_TEXT_API_URL=
-NATURAL_LANGUAGE_UNDERSTANDING_API_KEY =
-NATURAL_LANGUAGE_UNDERSTANDING_API_KEY =
+TONE_ANALYZER_API_KEY="NPYWY8TX5JQxBbs3HtJYdt8BQS_fm7PuqVtu74ga68Jb"
+TONE_ANALYZER_API_URL="https://api.us-south.tone-analyzer.watson.cloud.ibm.com/instances/95c8ca9b-79db-4d00-8751-762c2e1afa55"
+SPEECH_TO_TEXT_API_KEY="-sMeyBgh6r2QJ6ktabwYFHwa55x9TqbWo90kc3BuzDlN"
+SPEECH_TO_TEXT_API_URL="https://api.us-south.speech-to-text.watson.cloud.ibm.com/instances/ba93f800-bb3b-4a65-a22f-0d6bae8b09b3"
+WATSON_ML_API_KEY = "bbF3EjlYBATdUIhgi12zykN58c0QC9iwsu60lKFwWjE3"
+WATSON_ML_URL = "https://us-south.ml.cloud.ibm.com"
+NATURAL_LANGUAGE_UNDERSTANDING_API_KEY =""
+NATURAL_LANGUAGE_UNDERSTANDING_API_KEY =""
 
 # DataBase Queries
 CSV_FROM_DATABASE_FILE_COLUMN_NAMES = ["ID",
@@ -66,6 +69,7 @@ CSV_FROM_DATABASE_FILE_COLUMN_NAMES = ["ID",
                                        "ANALYTICAL",
                                        "CONFIDENT",
                                        "VIEWS",
+                                       "AGE",
                                        "URL",
                                        "PREDICTION"
                                        ]

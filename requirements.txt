@@ -32,8 +32,7 @@ setuptools~=54.0.0
 Werkzeug~=1.0.1
 gevent~=21.1.2
 WTForms~=2.3.3
-ibm-watson-machine-learning==1.0.66
-uuid==1.30
+ibm-watson-machine-learning==1.079
 youtube_dl==2021.4.1
 youtube-transcript-api==0.4.1
 vtt2text==0.1.3
