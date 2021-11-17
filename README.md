@@ -20,13 +20,11 @@
 | 10   | [jiNx Development Analysis](https://youtu.be/Cy6WvnrdFV0)
 | 11   | [jiNx Post Mortem](https://youtu.be/WL1s0Tnmev4)
 | 12   | [Demo](https://youtu.be/FeoS_uucnBE)
-| 13   | [GPT2 Notebook](https://github.com/anthemwingate/jiNx/blob/main/youtubePredictor_gpt2_finetuned_355M.ipynb)
-| 14   | [GPTNeo Notebook](https://github.com/anthemwingate/jiNx/blob/main/youtubePredictor_gptNeo.ipynb)
-| 15   | [Multivariate Analysis Notebook](https://github.com/anthemwingate/jiNx/blob/main/jiNx_MultivariateRegression.ipynb)
-| 16   | [Test Frame](https://github.com/anthemwingate/jiNx/blob/youtubePredictor_testFrame/tests/youtubePredictor_dataManager_testSuite.py)
-| 17   | [Backend](https://github.com/anthemwingate/jiNx/blob/youtubePredictor_Demo/youtubePredictor/youtubePredictor_backend/youtubePredictor_dataManager.py)
-| 18   | [Frontend](https://github.com/anthemwingate/jiNx/blob/youtubePredictor_Demo/youtubePredictor/youtubePredictor_frontend/youtubePredictor_flask_wrapper.py)
-| 19   | [With Gratitude](https://github.com/anthemwingate/jiNx/blob/main/Supplemental%20Documents/With%20Gratitude.pdf)
+| 13   | [jiNx Model Google Collaboratory Notebook](https://github.com/anthemwingate/jiNx/blob/main/Supplemental%20Documents/jiNx_release_2_0.ipynb)
+| 14   | [Test Frame](https://github.com/anthemwingate/jiNx/blob/youtubePredictor_testFrame/tests/youtubePredictor_dataManager_testSuite.py)
+| 15   | [Backend](https://github.com/anthemwingate/jiNx/blob/youtubePredictor_Demo/youtubePredictor/youtubePredictor_backend/youtubePredictor_dataManager.py)
+| 16   | [Frontend](https://github.com/anthemwingate/jiNx/blob/youtubePredictor_Demo/youtubePredictor/youtubePredictor_frontend/youtubePredictor_flask_wrapper.py)
+| 17   | [With Gratitude](https://github.com/anthemwingate/jiNx/blob/main/Supplemental%20Documents/With%20Gratitude.pdf)
 |------|---------------------------
 
 [jiNx](https://anthemwingate.github.io/jiNx/)
