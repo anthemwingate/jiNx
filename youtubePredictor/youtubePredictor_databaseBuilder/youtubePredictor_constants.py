@@ -36,6 +36,8 @@ YOUTUBE_DOWNLOAD_OPTIONS = {
 
 # Credentials
 TONE_ANALYZER_VERSION = '2017-09-21'
+TONE_ANALYZER_API_KEY = 'F8RsodUFhv_frwu2ei0SYmIjjq9DmIcJbPwrTbIHNlJm'
+TONE_ANALYZER_API_URL = 'https://api.us-south.tone-analyzer.watson.cloud.ibm.com/instances/2405e37f-921d-4d6d-882c-c093ab0c14b4'
 
 # DataBase Queries
 CSV_FILE_COLUMN_NAMES = ["ID",

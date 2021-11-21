@@ -1,8 +1,8 @@
 
 # Project                                                   : jiNx 
-# Purpose                                                   : Capstone Project Stevens Institute of Tecchnology SSW 695A Spring 2021
+# Purpose                                                   : Research Project the North Carolina Agricultural and Technical State University CSE 805 Fall 2021
 # Author                                                    : Anthem Rukiya J. Wingate
-# Revision History                                          : Version 1.0
+# Revision History                                          : Version 2.0
 
 
 # Import Data Handling Libraries
