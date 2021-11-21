@@ -1,10 +1,6 @@
-[![jiNx](https://github.com/anthemwingate/jiNx/blob/main/Supplemental%20Documents/quotation%20marks.png)](https://youtu.be/VYVv8uN_r4E)
+it's not simply software
 
-
-# jiNx
-### It's not simply software.
-
-### It's connection.
+# IT'S CONNECTION
 
 | Part |      Title                
 |------|---------------------------
