@@ -21,7 +21,7 @@
 | 11   | [jiNx Post Mortem](https://youtu.be/WL1s0Tnmev4)
 | 12   | [Demo](https://youtu.be/FeoS_uucnBE)
 | 13   | [jiNx Model Google Collaboratory Notebook](https://github.com/anthemwingate/jiNx/blob/main/Supplemental%20Documents/jiNx_release_2_0.ipynb)
-| 14   | [jiNx Project Paper]()
+| 14   | [jiNx Project Paper](https://github.com/anthemwingate/jiNx/blob/main/Supplemental%20Documents/YouTubeViewPredictionUsingToneAnalysis.pdf)
 | 15   | [Test Frame](https://github.com/anthemwingate/jiNx/blob/youtubePredictor_testFrame/tests/youtubePredictor_dataManager_testSuite.py)
 | 16   | [Backend](https://github.com/anthemwingate/jiNx/blob/youtubePredictor_Demo/youtubePredictor/youtubePredictor_backend/youtubePredictor_dataManager.py)
 | 17   | [Frontend](https://github.com/anthemwingate/jiNx/blob/youtubePredictor_Demo/youtubePredictor/youtubePredictor_frontend/youtubePredictor_flask_wrapper.py)
