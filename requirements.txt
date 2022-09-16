@@ -21,7 +21,7 @@ Flask-SQLAlchemy==2.5.1
 Flask-Script==2.0.6
 Flask-Testing==0.8.1
 SQLAlchemy==1.4.2
-Mako==1.1.4
+Mako==1.2.2
 MarkupSafe==1.1.1
 alembic==1.5.7
 gunicorn==20.0.4
